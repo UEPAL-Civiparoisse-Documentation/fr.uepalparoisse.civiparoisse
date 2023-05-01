@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<menu>
+  <item>
+    <path>civicrm/admin/setting/preferences/uepal_parametres</path>
+    <title>Configuration UEPAL Paramètres</title>
+    <page_callback>CRM_Admin_Form_Generic</page_callback>
+    <access_arguments>administer CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/sommaire-listes</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_SommaireListes</page_callback>
+    <title>SommaireListes</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/conseil-presbyteral</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_ConseilPresbyteral</page_callback>
+    <title>ConseilPresbyteral</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/formulaire-individu</path>
+    <page_callback>CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu</page_callback>
+    <title>FormulaireIndividu</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/formulaire-foyer</path>
+    <page_callback>CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer</page_callback>
+    <title>FormulaireFoyer</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/formulaire-entreprise</path>
+    <page_callback>CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise</page_callback>
+    <title>FormulaireEntreprise</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/controle-qualite</path>
+    <page_callback>CRM_Civiparoisse_Qualitebase_Page_ControleQualiteParoisse</page_callback>
+    <title>ControleQualiteParoisse</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/amelioration-qualite</path>
+    <page_callback>CRM_Civiparoisse_Qualitebase_Page_AmeliorationQualiteParoisse</page_callback>
+    <title>AmeliorationQualiteParoisse</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/sommaire-civiparoisse</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_SommaireCiviparoisse</page_callback>
+    <title>SommaireCiviparoisse</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+</menu>

@@ -1,0 +1,34 @@
+
+/**
+ * Generic elements
+ */
+
+/* Personnalisation sommaire-civiparoisse */
+
+.page-sommaire-wrapper {
+	display: grid;
+	width:  100%;
+    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
+    grid-gap: 10px;
+}
+.page-sommaire-box {
+	border:  2px solid #6dccc9;
+	border-radius: 5px;
+	padding: 5px;
+	text-align: center;
+}
+img {
+	height: 50px;
+}
+.page-sommaire-box a:hover {
+	background-color: #b2db7c;
+		/*2020 10 01 Tableau d'accueil avec effet survol
+		Autres possibilités issues du logo :
+			8ed0a2 vert
+			f1e1e1 gris
+			6dccc9 bleu
+			4dd0f0 bleu (bof)
+			5bc8ab vert foncé
+			b2db7c vert du bas bandeau
+		*/
+}

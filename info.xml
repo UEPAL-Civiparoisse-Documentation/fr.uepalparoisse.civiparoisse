@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<extension key="fr.uepalparoisse.civiparoisse" type="module">
+  <file>civiparoisse</file>
+  <name>Civiparoisse</name>
+  <description>Civiparoisse : module de gestion opérationnelle de paroisse pour CiviCRM</description>
+  <license>AGPL-3.0</license>
+  <maintainer>
+    <author>UEPAL</author>
+    <email>civiparoisse@uepal.fr</email>
+  </maintainer>
+  <urls>
+    <url desc="Main Extension Page">https://github.com/UEPAL-Civiparoisse-Documentation</url>
+    <url desc="Documentation">https://github.com/UEPAL-Civiparoisse-Documentation/UEPAL-Civiparoisse-Documentation.github.io</url>
+    <url desc="Support">To be provided</url>
+    <url desc="Licensing">http://www.gnu.org/licenses/agpl-3.0.html</url>
+  </urls>
+  <releaseDate>2022-11-20</releaseDate>
+  <version>1.41</version>
+  <develStage>stable</develStage>
+  <compatibility>
+    <ver>5.0</ver>
+  </compatibility>
+  <comments></comments>
+  <classloader>
+    <psr4 prefix="Civi\" path="Civi"/>
+  </classloader>
+  <civix>
+    <namespace>CRM/Civiparoisse</namespace>
+  </civix>
+</extension>
