@@ -519,10 +519,10 @@ class CRM_Civiparoisse_Parametres_ConfigListeParoisses
       'Zittessheim',
       'Zoebersdorf',
       'Zollingen',
-      'Zutzendorf'
+      'Zutzendorf',
       /* Paroisses créés dans la v1.42 */
       'Strasbourg',
-      'Mulhouse',
+      'Mulhouse'
             
     );
     
