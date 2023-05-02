@@ -182,7 +182,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinContacts extends CRM_Civ
         'contact_type' => 'Individual', 
         'column_number' => 10, 
         'location_type_id' => self::findLocationId('Domicile'), 
-        'phone_type_id' => self::findPhoneTypeId('phone'), 
+        'phone_type_id' => self::findPhoneTypeId('Phone'), 
         'im_provider_id' => NULL, 
         'website_type_id' => NULL, 
         'relationship_type_id' => NULL, 

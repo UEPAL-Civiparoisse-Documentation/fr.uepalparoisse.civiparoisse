@@ -126,7 +126,7 @@ abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport {
     $phoneTypes = \Civi\Api4\OptionValue::get()
       ->setCheckPermissions(FALSE)
       ->addSelect('id')
-      ->addWhere('option_group_id:label', '=', 'Type de numéro de téléphone')
+      ->addWhere('option_group_id:name', '=', 'phone_type')
       ->addWhere('name', '=', $donnees)
       ->execute()
       ->first();

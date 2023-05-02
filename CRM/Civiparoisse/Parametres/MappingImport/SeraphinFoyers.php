@@ -84,7 +84,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers extends CRM_Civip
         'contact_type' => 'Household', 
         'column_number' => 4, 
         'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => self::findPhoneTypeId('phone'), 
+        'phone_type_id' => self::findPhoneTypeId('Phone'), 
         'im_provider_id' => NULL, 
         'website_type_id' => NULL, 
         'relationship_type_id' => NULL, 
