@@ -2,7 +2,7 @@
 
 class CRM_Civiparoisse_Reports_Config_Parameters_NouveauxArrivants extends CRM_Civiparoisse_SavedSearch_BaseParameter {
 
-	const NAME = 'Nouveaux_Arrivants';
+	const NAME = 'Civip_Nouveaux_Arrivants';
 
   /**
    * @inheritDoc

@@ -11,7 +11,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
   /**
    * function to install (not upgrade,really install) the module
    * as such, the code in this function must always be up-to-date against the upgrade functions
-   * Up-to-date to 1.40 (0140)
+   * Up-to-date to 1.42 (0142)
    */
   public function install()
   {
@@ -31,6 +31,10 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
 
     // installation de l'upgrade_0141
     $this->upgrade_0141();
+
+    // installation de l'upgrade_0142
+    $this->upgrade_0142();
+
 
   }
 
@@ -52,9 +56,9 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
     $searchQualite = new CRM_Civiparoisse_Qualitebase_Config_SearchKitConfig0140();
     $searchQualite->run();
 
-    // instructions d'installation du dashboard
+    // instructions d'installation du dashboard Sommaire CiviParoisse
     $dashboard = new CRM_Civiparoisse_Dashlets_ConfigSommaire();
-    $dashboard->createAndConfigDashletSommaire();
+    $dashboard->installDashlet();
 
     // création du Template Mosaico pour le modèle de mail
     $templateMail = new CRM_Civiparoisse_Parametres_ConfigMosaico();
@@ -81,8 +85,27 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
     // Création des mappings Séraphin pour l'importation des données
     CRM_Civiparoisse_Parametres_MappingImport_MappingConfig0141::run();
 
+    // modification des Quartiers existants et création de nouveaux quartiers
+    CRM_Civiparoisse_Parametres_ConfigQuartiers::modifyExistingQuartiers0140();
+    CRM_Civiparoisse_Parametres_ConfigQuartiers::createNewQuartiers0140(); 
+
+    return TRUE;
+  }
+
+  public function upgrade_0142() {
+    // configuration des Search Kit - Formulaires (Formulaire Quartier)
+    $searchReportsF = new CRM_Civiparoisse_Formulaires_Config_SearchKitConfig0142();
+    $searchReportsF->run();
+    // configuration des Search Kit - Reports (Prochains Anniversaires)
+    $searchReportsR = new CRM_Civiparoisse_Reports_Config_SearchKitConfig0142();
+    $searchReportsR->run();
 
 
+    // création du formulaire et installation du dashboard Prochains anniversaires
+    $formCreation = new CRM_Civiparoisse_Formulaires_Config_FormsConfig0142();
+    $formCreation->run();
+    $annivDashlet= new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
+    $annivDashlet->installDashlet();
 
     return TRUE;
 

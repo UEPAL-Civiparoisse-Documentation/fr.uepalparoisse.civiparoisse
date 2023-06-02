@@ -1,0 +1,30 @@
+
+/******************************************/
+/* Personnalisation Thème Claro de Drupal */
+/******************************************/
+
+/* Gestion de la mise en page du header */
+/* Réduction de l'espace sous le header */
+div.block-page-title-block:last-child {
+    margin-bottom: 0.6rem;
+}
+
+/* Réduction de la hauteur de ligne dans les fiches CRM */
+#crm-container div.contact_details {
+    line-height: 1.0em;
+}
+
+
+/***************************************/
+/* Gestion des tableaux des Search Kit */
+/***************************************/
+
+/* Réduction de la hauteur entre chaque ligne */
+.crm-container td {
+  height: 1rem;
+}
+
+/* Figer les titres dans les tableaux */
+div.crm-search-display-table table thead tr { 
+  position: sticky !important; top: 42px; 
+}

@@ -54,4 +54,17 @@
     <title>SommaireCiviparoisse</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
+<item>
+    <path>civicrm/modes-emploi</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_ModesEmploi</page_callback>
+    <title>ModesEmploiCiviparoisse</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+<item>
+    <path>civicrm/sommaire-parametres</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_SommaireParametres</page_callback>
+    <title>SommaireParametres</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+
 </menu>

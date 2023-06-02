@@ -2,7 +2,7 @@
 
 class CRM_Civiparoisse_Reports_Config_Parameters_AnniversairesPlus75Ans extends CRM_Civiparoisse_SavedSearch_BaseParameter {
 
-	const NAME = 'Anniversaires_Plus_75_ans';
+	const NAME = 'Civip_Anniversaires_Plus_75_ans';
 
 	/**
    * @inheritDoc

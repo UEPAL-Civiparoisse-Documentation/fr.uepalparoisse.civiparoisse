@@ -2,7 +2,7 @@
 
 class CRM_Civiparoisse_Reports_Config_Parameters_FoyersParoissiens extends CRM_Civiparoisse_SavedSearch_BaseParameter {
 
-	const NAME = 'Foyers_Paroissiens';
+	const NAME = 'Civip_Foyers_Paroissiens';
 
 	/**
 		* @inheritDoc

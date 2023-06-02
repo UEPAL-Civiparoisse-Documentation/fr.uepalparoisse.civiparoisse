@@ -357,7 +357,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
 					'contact_id' => $newIndividual_id,
 					'email' => $params['email_home'], 
 					'is_primary' => 1,
-					'location_type_id' => 'Accueil',
+					'location_type_id' => 'Domicile',
 				]);
 				CRM_Core_Session::setStatus(' Individual Home Mail in database saved', ' Mail saved', 'success');
 			}

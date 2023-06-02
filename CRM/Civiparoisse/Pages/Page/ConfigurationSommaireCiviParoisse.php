@@ -130,7 +130,7 @@ class CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse {
         [
           'label' => E::ts('Aide en ligne'),
           'name' => 'menu-aide',
-          'url' => CRM_Core_Resources::singleton()->getUrl('fr.uepalparoisse.civiparoisse','files/Mode_Emploi_Base_De_Données_Paroissiale_CiviCRM.pdf'),
+          'url' => 'civicrm/modes-emploi',
           'navID' => $indexMenu++,
           'active' => 1,
           'separator' => 1,
@@ -141,7 +141,7 @@ class CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse {
         [
           'label' => E::ts('Paramètres'),
           'name' => 'menu-parametres',
-          'url' => '',
+          'url' => 'civicrm/sommaire-parametres',
           'navID' => $indexMenu++,
           'active' => 1,
           'separator' => 1,

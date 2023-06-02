@@ -189,16 +189,29 @@ CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParo
 
 function civiparoisse_civicrm_dashboard_defaults($availableDashlets, &$defaultDashlets)
 {
-    $dashletId=CRM_Civiparoisse_Dashlets_ConfigSommaire::retrieveSommaireDashletId();
+    // Affichage du Dashlet Sommaire Civiparoisse
     $contactID = CRM_Core_Session::singleton()->get('userID');
-    if(is_numeric($dashletId) && is_numeric($contactID))
+    $dashlets=[
+      new CRM_Civiparoisse_Dashlets_ConfigSommaire(),
+      new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires()
+    ];
+    foreach($dashlets as $dashlet)
     {
-
-        $defaultDashlets[] = array(
-            'dashboard_id' => $dashletId,
-            'is_active' => 1,
-            'column_no' => 0,
-            'contact_id' => $contactID,
-        );
+      $defaults=$dashlet->computeDashletDefaults($contactID);
+      if(is_array($defaults))
+      {
+        $defaultDashlets[]=$defaults;
+      }
     }
+}
+
+/**
+ * Implements hook_civicrm_alterBundle().
+ *
+ * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterBundle/
+ */
+function civiparoisse_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle) {
+  if ($bundle->name === 'coreStyles') {
+    $bundle->addStyleFile(E::LONG_NAME, 'css/surcharge-corestyles.css');
+  }
 }

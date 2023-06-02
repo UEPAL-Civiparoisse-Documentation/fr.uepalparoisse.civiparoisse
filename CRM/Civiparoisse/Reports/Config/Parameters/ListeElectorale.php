@@ -2,7 +2,7 @@
 
 class CRM_Civiparoisse_Reports_Config_Parameters_ListeElectorale extends CRM_Civiparoisse_SavedSearch_BaseParameter {
 
-  const NAME = 'Liste_Electorale';
+  const NAME = 'Civip_Liste_Electorale';
 
   /**
    * @inheritDoc

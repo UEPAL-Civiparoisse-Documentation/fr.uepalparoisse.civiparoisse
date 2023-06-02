@@ -1,7 +1,8 @@
 <?php
 
 class CRM_Civiparoisse_Qualitebase_Config_Parameters_IndividusSansGenre extends CRM_Civiparoisse_SavedSearch_BaseParameter {
-const NAME='Individus_Sans_Genre';
+	
+	const NAME='Civip_Individus_Sans_Genre';
 
     /**
      * @inheritDoc
