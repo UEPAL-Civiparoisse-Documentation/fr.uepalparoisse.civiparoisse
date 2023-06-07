@@ -6,13 +6,18 @@
 /* Gestion de la mise en page du header */
 /* Réduction de l'espace sous le header */
 div.block-page-title-block:last-child {
-    margin-bottom: 0.6rem;
+  margin-bottom: 0.6rem;
 }
 
 /* Réduction de la hauteur de ligne dans les fiches CRM */
 #crm-container div.contact_details {
-    line-height: 1.0em;
+  line-height: 1.0em;
 }
+/* Réduction de la hauteur de ligne dans les calendriers */
+.ui-datepicker-calendar td {
+  height: 1rem;    
+}
+
 
 
 /***************************************/

@@ -91,51 +91,6 @@
 	</div>
 </div>
 
-<!-- Affichage des Foyers n'ayant pas de relation Chef de Famille -->
-<div class="crm-accordion-wrapper crm-ajax-accordion collapsed">
-	<div class="crm-accordion-header">Foyers n'ayant pas de relation Chef de Famille ({$FoyerSansChefFamille|@count} fiches à contrôler)</div>
-	<div class="crm-accordion-body">
-		<h5>Contexte</h5>
-			<ul>
-				<li>Certaines fiches Foyer n'ont pas de Relations Chef de famille</li>
-			</ul>
-		<h5>Risques</h5>
-			<ul>
-				<li>Pas de lien clair entre les Individus et leur Foyer</li>
-				<li>Pas d'identification claire sur la composition du Foyer</li>
-				<li>Erreurs de ciblage</li>
-			</ul>
-		<h5>Actions à mener</h5>
-			<ul>
-				<li>Cliquer sur le lien pour ouvrir la fiche dans un nouvel onglet</li>
-				<li>Cliquer sur l'onglet Relation de la fiche</li>
-				<li>Cliquer sur Ajouter une Relation</li>
-				<li>Choisir le Type de Relation 'a pour Chef de famille' </li>
-				<li>Dans l'entrée Contacts, choisir la (les) Individu(s) concernée(s)</li>
-				<li>Cliquer sur Enregistrer la relation</li>
-				<li>Ajouter autant de relations qu'il y a d'Individus dans le Foyer</li>
-				<li>RAPPEL : un Individu 'Chef de Famille' doit aussi être enregistré comme 'Membre du Foyer'</li>
-			</ul>
-		<h5>Liste des foyers concernés</h5>
-			<table class="report-layout display">
-				<thead>
-					<tr>
-						<th>Identifiant CiviCRM</th>
-						<th>Nom du Foyer</th>
-					</tr>
-				</thead>
-				<tbody>
-					{foreach from=$FoyerSansChefFamille item=row}
-						<tr class="{cycle values="odd-row,even-row"}">
-							<td>{$row[0]}</td>
-							<td><a href="{crmURL p='civicrm/contact/view' q="reset=1&cid=`$row[0]`"}" target="_blank">{$row[1]}</a></td>
-						</tr>
-					{/foreach}
-				</tbody>
-			</table>
-	</div>
-</div>
-
 <!-- Affichage des Foyers ayant participés à un Evenement -->
 <div class="crm-accordion-wrapper crm-ajax-accordion collapsed">
 	<div class="crm-accordion-header">Foyers ayant participés à un Evénement ({$FoyerEvenement|@count} fiches à contrôler)</div>
