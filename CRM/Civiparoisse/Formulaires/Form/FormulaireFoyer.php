@@ -93,6 +93,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form {
     		'contact_type' => "Household",
     		'household_name' => $params['household_name'],
     		$listCustomFieldsHousehold["quartier"] => $params['quartier'],
+    		$listCustomFieldsHousehold["mode_distribution"] => $params['mode_distribution'],
     	]);
     	CRM_Core_Session::setStatus(' Household in database saved', ' Household saved', 'success');
     }

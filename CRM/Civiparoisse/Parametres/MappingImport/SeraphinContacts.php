@@ -612,7 +612,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinContacts extends CRM_Civ
         'value' => NULL,
       ], 
       [
-        'name' => 'county', 
+        'name' => 'state_province', 
         'contact_type' => 'Individual', 
         'column_number' => 41, 
         'location_type_id' => self::findLocationId('Domicile'), 

@@ -3,12 +3,12 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 
 class CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires extends CRM_Civiparoisse_Dashlets_ConfigBase {
     
-  const DASHBOARD_ANNIVERSAIRE='anniversaires';
-  const DASHBOARD_COLUMN=1;
-  const DASHBOARD_WEIGHT=0;
-  const DASHBOARD_URL='';
-    const DASHBOARD_FULLURL='civicrm/sommaire-civiparoisse?reset=1&context=dashletFullscreen';
-    const DASHBOARD_PERMISSION='access CiviCRM';
+    const DASHBOARD_ANNIVERSAIRE='anniversaires';
+    const DASHBOARD_COLUMN=1;
+    const DASHBOARD_WEIGHT=0;
+    const DASHBOARD_URL='';
+    const DASHBOARD_FULLURL='';
+    const DASHBOARD_PERMISSION='';
 
 
     /**
