@@ -572,7 +572,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_EtatCivil()['id'],
       'name' => 'paroisse_mariage',
-      'label' => 'Paroisse de mariage',
+      'label' => 'Lieu de mariage',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',
@@ -715,7 +715,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_EtatCivil()['id'],
       'name' => 'paroisse_enterrement',
-      'label' => 'Paroisse d\'enterrement',
+      'label' => 'Lieu d\'enterrement',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',
@@ -855,7 +855,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_InformationsReligion()['id'],
       'name' => 'paroisse_presentation',
-      'label' => 'Paroisse de présentation',
+      'label' => 'Lieu de présentation',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',
@@ -903,7 +903,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_InformationsReligion()['id'],
       'name' => 'paroisse_bapteme',
-      'label' => 'Paroisse de baptême',
+      'label' => 'Lieu de baptême',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',
@@ -973,7 +973,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_InformationsReligion()['id'],
       'name' => 'paroisse_confirmation',
-      'label' => 'Paroisse de confirmation',
+      'label' => 'Lieu de confirmation',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',

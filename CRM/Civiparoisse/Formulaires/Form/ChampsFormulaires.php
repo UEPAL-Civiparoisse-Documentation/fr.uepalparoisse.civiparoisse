@@ -268,7 +268,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaires {
 			ts('Quartier (distribution, visiteurs, ...)'),
 			['entity' => 'option_value',
 			'api' => [
-				'params' => ['option_group_id' => 'quartier'],
+				'params' => ['option_group_id' => 'quartier', 'is_active' => TRUE],
 			],
 			'select' => ['minimumInputLength' => 0],
 		]);

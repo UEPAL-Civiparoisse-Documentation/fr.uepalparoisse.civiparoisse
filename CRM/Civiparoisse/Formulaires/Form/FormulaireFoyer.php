@@ -9,7 +9,10 @@ use CRM_Civiparoisse_Formulaires_Form_ChampsFormulaires as F;
  * @see https://docs.civicrm.org/dev/en/latest/framework/quickform/
  */
 class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form {
+	
 	public function buildQuickForm() {
+
+		CRM_Utils_System::setTitle(E::ts('Formulaire de création d\'un Foyer'));
 
 	// NomFoyer
 		F::addNomFoyer($this);

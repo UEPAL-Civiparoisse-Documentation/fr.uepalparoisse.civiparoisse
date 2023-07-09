@@ -11,6 +11,8 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Form {
 	public function buildQuickForm() {
 
+		CRM_Utils_System::setTitle(E::ts('Formulaire de création d\'une Organisation ou Entreprise'));
+
 	// NomOrganisation
 		F::addNameOrganisation($this);
 

@@ -315,7 +315,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu {
 	public static function addParoisseMariage($form) {
 		$form->addEntityRef(
 			'paroisse_mariage',
-			ts('Paroisse de mariage'),
+			ts('Lieu de mariage'),
 			[
 				'entity' => 'OptionValue',
 				'api' => [
@@ -443,7 +443,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu {
 	public static function addParoissePresentation($form) {
 		$form->addEntityRef(
 			'paroisse_presentation',
-			ts('Paroisse de présentation'),
+			ts('Lieu de présentation'),
 			[
 				'entity' => 'OptionValue',
 				'api' => [
@@ -490,7 +490,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu {
 	public static function addParoisseBapteme($form) {
 		$form->addEntityRef(
 			'paroisse_bapteme',
-			ts('Paroisse de baptême'),
+			ts('Lieu de baptême'),
 			['entity' => 'OptionValue',
 			'api' => [
 				'params' => ['option_group_name' => 'liste_paroisses'],
@@ -554,7 +554,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu {
 	public static function addParoisseConfirmation($form) {
 		$form->addEntityRef(
 			'paroisse_confirmation',
-			ts('Paroisse de confirmation'),
+			ts('Lieu de confirmation'),
 			[
 				'entity' => 'OptionValue',
 				'api' => [
@@ -664,7 +664,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu {
 	public static function addParoisseObseques($form) {
 		$form->addEntityRef(
 			'paroisse_enterrement',
-			ts('Paroisse des obsèques'),
+			ts('Lieu des obsèques'),
 			['entity' => 'OptionValue',
 			'api' => [
 				'params' => ['option_group_name' => 'liste_paroisses'],

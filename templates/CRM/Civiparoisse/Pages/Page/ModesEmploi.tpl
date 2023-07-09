@@ -26,6 +26,10 @@
 	<li>{icon icon="fa-external-link"}{/icon}<a href="https://uepal-civiparoisse-documentation.github.io/TECHNIQUE/index.html" target="_blank">Lien vers la documentation</a></li>
 </ul>
 
+<h4>Documentation sur CiviCRM</h4>
+<ul>
+	<li>{icon icon="fa-external-link"}{/icon}<a href="https://docs.civicrm.org/?src=iam" target="_blank">Lien vers la documentation</a></li>
+</ul>
 
 
 

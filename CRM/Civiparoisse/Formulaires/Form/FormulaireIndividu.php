@@ -10,8 +10,10 @@ use CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu as FI;
  * @see https://docs.civicrm.org/dev/en/latest/framework/quickform/
  */
 class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form {
+  
   public function buildQuickForm() {
 
+  	CRM_Utils_System::setTitle(E::ts('Formulaire de création d\'un Individu'));
 
 /////////////////////////
 // Champs pour Individu /
@@ -174,6 +176,8 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
    * @return void
    */
   public function addRules() {
+	  $this->addFormRule(array('CRM_Civiparoisse_Formulaires_Form_RulesFormulaires', 'validateNomIndividu'));// Vérification de la saisie du nom de famille
+
 		$this->addFormRule(array('CRM_Civiparoisse_Formulaires_Form_RulesFormulaires', 'validateLienConjoint'));// Vérification de la saisie du Type de Relation Concubin si présence d'un nom dans le champ Nom Conjoint, ou l'inverse.
 	    
 		$this->addFormRule(array('CRM_Civiparoisse_Formulaires_Form_RulesFormulaires', 'validateLienEnfant'));// Vérification de la saisie du nom des parents si le Statut Individu est Enfant

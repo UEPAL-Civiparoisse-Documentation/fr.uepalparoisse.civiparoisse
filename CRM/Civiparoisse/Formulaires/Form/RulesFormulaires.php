@@ -12,6 +12,24 @@ class CRM_Civiparoisse_Formulaires_Form_RulesFormulaires {
     }
 
   /**
+    * Fonction de vérification de la saisie du nom de famille de l'Individu
+    * 
+    * @param array $fields Ensemble des valeurs saisis dans le formulaire et sousmis à la validation
+    * 
+    * @return boolean|array Message d'erreur personnalisé, si besoin
+  */
+    public static function validateNomIndividu($fields) {
+        $errors = [];
+
+        if (!(is_array($fields) && array_key_exists('last_name',$fields) && preg_match('/^[\p{Latin}\p{N}\' -]+$/', $fields['last_name']))) {
+            
+            $errors['last_name'] = ts('Merci de renseigner le nom de famille de l\'Individu (sans caractères spéciaux)');
+            return $errors;
+        }
+        return TRUE;
+    }
+
+  /**
     * Fonction de vérification de la saisie du nom de l'Entreprise ou de l'Organisation
     * 
     * @param array $fields Ensemble des valeurs saisis dans le formulaire et sousmis à la validation

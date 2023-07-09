@@ -35,6 +35,9 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
     // installation de l'upgrade_0142
     $this->upgrade_0142();
 
+    // installation de l'upgrade_0143
+    $this->upgrade_0143();
+
 
   }
 
@@ -111,7 +114,20 @@ class CRM_Civiparoisse_Upgrader extends CRM_Civiparoisse_Upgrader_Base {
 
   }
 
+  public function upgrade_0143() {
+    // modification des libellés des champs Paroisse de... 
+    $labelUpdate = new CRM_Civiparoisse_Parametres_Config0143();
+    $labelUpdate->modifyIntituleParoisses();
+    
+    // Desactivation des Dashlets Blog et Ressources sur le DashBoard de la page d'accueil
+    CRM_Civiparoisse_Parametres_Config0143::desactivateDashletsBlogRessources();
 
+    // modification de la permission pour le lien Support (pour ne plus l'afficher aux utilisateurs)
+    CRM_Civiparoisse_Parametres_Config0143::modifyPermissionLinkSupport();
+    
+    return TRUE;
+
+  }
 
   /**
    * Example: Work with entities usually not available during the install step.
