@@ -1,12 +1,14 @@
 <?php
 
-class CRM_Civiparoisse_Reports_Config_SearchKitConfig0140 {
+class CRM_Civiparoisse_Reports_Config_SearchKitConfig0140
+{
 
-	public function run() {
+    public function run()
+    {
 
-/****
-* RAPPORTS
-****/
+        /****
+         * RAPPORTS
+         ****/
         /**
          * @var CRM_Civiparoisse_SavedSearch_BaseParameter[] $reportsParameters
          */
@@ -17,10 +19,10 @@ class CRM_Civiparoisse_Reports_Config_SearchKitConfig0140 {
             new CRM_Civiparoisse_Reports_Config_Parameters_AnniversairesPlus75Ans(),
             new CRM_Civiparoisse_Reports_Config_Parameters_NouveauxArrivants()
         ];
-        
+
         foreach ($reportsParameters as $reportParameter) {
             $reportParameter->installSaveSearchAndDisplay();
         }
-    	 
+
     }
 }

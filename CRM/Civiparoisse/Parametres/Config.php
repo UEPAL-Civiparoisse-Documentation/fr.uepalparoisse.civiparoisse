@@ -572,7 +572,7 @@ class CRM_Civiparoisse_Parametres_Config
     $params = [
       'custom_group_id' => $this->getCustomGroup_EtatCivil()['id'],
       'name' => 'paroisse_mariage',
-      'label' => 'Lieu de mariage',
+      'label' => 'Lieu de la bénédiction nuptiale',
       'data_type' => 'String',
       'html_type' => 'Select',
       'is_searchable' => '1',

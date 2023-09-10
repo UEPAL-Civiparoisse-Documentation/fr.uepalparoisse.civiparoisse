@@ -1,5 +1,5 @@
 <?php
-
+//QUBE_IGNORE_FILE
 // AUTO-GENERATED FILE -- Civix may overwrite any changes made to this file
 
 /**

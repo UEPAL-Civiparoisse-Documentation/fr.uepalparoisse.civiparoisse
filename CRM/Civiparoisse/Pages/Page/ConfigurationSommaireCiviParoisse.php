@@ -73,7 +73,7 @@ class CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse {
           'image' => 'images/form_foyer.png',
         ],
         [
-          'label' => E::ts('Nouvel Individu'),
+          'label' => E::ts('Nouvel Individu / Particulier'),
           'name' => 'menu-formulaire-individu',
           'url' => 'civicrm/formulaire-individu',
           'navID' => $indexMenu++,
