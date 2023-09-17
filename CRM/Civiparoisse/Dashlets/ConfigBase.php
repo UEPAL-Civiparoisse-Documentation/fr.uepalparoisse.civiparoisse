@@ -6,37 +6,37 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
      * Récupère Colonne d'affichage du Dashlet
      * @return int
      */
-    protected abstract function retrieveDashletColumn():int;
+    abstract protected function retrieveDashletColumn(): int;
 
     /**
      * Récupère Position du Dashlet dans la colonne choisie
      * @return int
      */
-    protected abstract function retrieveDashletWeight():int;
+    abstract protected function retrieveDashletWeight(): int;
 
     /**
      * Récupère le Nom affiché du Dashboard
      * @return string
      */
-    protected abstract function retrieveDashboardLabel(): string;
+    abstract protected function retrieveDashboardLabel(): string;
 
     /**
      * Récupère URL de la page à afficher dans le Dashboard
      * @return string
      */
-    protected abstract function retrieveDashboardURL(): string;
+    abstract protected function retrieveDashboardURL(): string;
 
     /**
      * Récupère l'URL de la page en plein écran
      * @return string URL de la page en plein écran
      */
-    protected abstract function retrieveDashboardFullURL(): string;
+    abstract protected function retrieveDashboardFullURL(): string;
 
     /**
      * Récupère la permission d'accès au Dashboard
      * @return string
      */
-    protected abstract function retrieveDashboardPermission(): string;
+    abstract protected function retrieveDashboardPermission(): string;
 
 
     /**
@@ -71,7 +71,7 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
      * retrieve the name of the dashlet
      * @return string Nom interne du Dashboard
      */
-    public abstract function retrieveDashletName(): string;
+    abstract public function retrieveDashletName(): string;
 
     /**
      * retrieve the id of the dashlet
@@ -135,7 +135,7 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
      * installe le Dashlet comme dashboard et dans les réglages des dashboards des utilisateurs
      * @return void
      */
-    public function installDashlet():void
+    public function installDashlet(): void
     {
         $this->createOrGetDashboard();
         $this->createIfNotExistsDashboardContacts();
@@ -145,19 +145,30 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
      * Fonction qui affiche le Dashlet CiviParoisse dans les Dashboard
      *
      */
-    protected function createIfNotExistsDashboardContacts():void
+    protected function createIfNotExistsDashboardContacts(): void
     {
         $dashletID = $this->retrieveDashletId();
         $dashboardName = $this->retrieveDashletName();
-        $dashletActive=$this->retrieveDashboardActive();
-        $dashletColumn=$this->retrieveDashletColumn();
-        $dashletWeight=$this->retrieveDashletWeight();
-        $users = civicrm_api3('UFMatch', 'get', ['check_permissions' => 0, 'return' => ['contact_id'], 'sequential' => 1, 'options' => ['limit' => 0]]);
+        $dashletActive = $this->retrieveDashboardActive();
+        $dashletColumn = $this->retrieveDashletColumn();
+        $dashletWeight = $this->retrieveDashletWeight();
+        $users = civicrm_api3('UFMatch', 'get', [
+            'check_permissions' => 0,
+            'return' => ['contact_id'],
+            'sequential' => 1,
+            'options' => ['limit' => 0]]);
 
         if ($users['is_error'] == 0 && !empty($users['values'])) {
             foreach ($users['values'] as $user) {
-                if (array_key_exists('contact_id', $user) && is_numeric($user['contact_id']) && $user['contact_id'] > 0) {
-                    self::createIfNotExistsDashboardContact($dashletID, $dashboardName, $dashletActive, $dashletColumn, $dashletWeight, $user['contact_id']);
+                if (array_key_exists('contact_id', $user)
+                    && is_numeric($user['contact_id'])
+                    && $user['contact_id'] > 0) {
+                    self::createIfNotExistsDashboardContact($dashletID,
+                        $dashboardName,
+                        $dashletActive,
+                        $dashletColumn,
+                        $dashletWeight,
+                        $user['contact_id']);
                 }
             }
         }
@@ -173,21 +184,22 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
      * @param int $dashletWeight Position du Dashlet dans la colonne choisie
      * @param int $contactId Id du contact
      */
-    protected function createIfNotExistsDashboardContact(int $dashletID, string $dashboardName, int $dashletActive, int $dashletColumn, int $dashletWeight, int $contactId):void
+    protected function createIfNotExistsDashboardContact(int $dashletID,
+                                                         string $dashboardName,
+                                                         int $dashletActive,
+                                                         int $dashletColumn,
+                                                         int $dashletWeight,
+                                                         int $contactId): void
     {
-        $dashletID=$this->retrieveDashletId();
-        $dashboardName=$this->retrieveDashletName();
-        $dashletActive=$this->retrieveDashboardActive();
-
         try {
-            $createDashboardContact = civicrm_api3('DashboardContact', 'getsingle', [
+            civicrm_api3('DashboardContact', 'getsingle', [
                 'dashboard_id' => $dashletID,
                 'contact_id' => $contactId,
                 'name' => $dashboardName,
             ]);
         } catch (Exception $e) {
-            $createDashboardContact = civicrm_api4('DashboardContact', 'create', [
-                'checkPermissions' => FALSE,
+            civicrm_api4('DashboardContact', 'create', [
+                'checkPermissions' => false,
                 'values' => [
                     'dashboard_id' => $dashletID,
                     'contact_id' => $contactId,
@@ -199,7 +211,7 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
         }
     }
 
-    public function computeDashletDefaults($contactID):array
+    public function computeDashletDefaults($contactID): array
     {
         return [
             'dashboard_id' => $this->retrieveDashletId(),
