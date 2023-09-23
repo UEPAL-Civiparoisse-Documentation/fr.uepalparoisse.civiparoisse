@@ -2,255 +2,66 @@
 
 use CRM_Civiparoisse_ExtensionUtil as E;
 
-class CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers extends CRM_Civiparoisse_Parametres_ConfigMappingImport{
+class CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers extends CRM_Civiparoisse_Parametres_ConfigMappingImport
+{
 
-	const NAME='Seraphin-Foyers';
+    const NAME = 'Seraphin-Foyers';
 
-/**
-  * @inheritDoc
-  */
-  protected function getName(): string {
-   
-    return self::NAME;
-    
-  }
+    /**
+     * @inheritDoc
+     */
+    protected function getName(): string
+    {
 
-/**
-  * Create le mapping d'import depuis Séraphin, pour les foyers 
-  *
-  * @return 	array	$params Parameters for the creation of the mapping
-  */
-  protected  function getParametersMapping() :array {
-    
-		return [
-			'name' => $this->getName(), 
-    	'description' => "Modèle d'import des foyers extraits de Séraphin", 
-    	'mapping_type_id_name' => "Import Contact",
-    ];
-  }
+        return self::NAME;
 
-/**
-   * Create le MappingField d'import depuis Séraphin, pour les Foyers
-   *
-   * @return  array $params   Parameters for the creation of the mapping fields
-   */
-  protected function getParametersDisplay() : array {
+    }
 
-    return [
-      [
-        'name' => 'contact_source', 
-        'contact_type' => 'Household', 
-        'column_number' => 0, 
-        'location_type_id' => NULL, 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'household_name', 
-        'contact_type' => 'Household', 
-        'column_number' => 2, 
-        'location_type_id' => NULL, 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'email', 
-        'contact_type' => 'Household', 
-        'column_number' => 3, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'phone', 
-        'contact_type' => 'Household', 
-        'column_number' => 4, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => self::findPhoneTypeId('Phone'), 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ],
-      [
-        'name' => self::findCustomFieldId('quartier', 'Informations supplémentaires'), 
-        'contact_type' => 'Household', 
-        'column_number' => 5, 
-        'location_type_id' => NULL, 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'street_address', 
-        'contact_type' => 'Household', 
-        'column_number' => 6, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'supplemental_address_1', 
-        'contact_type' => 'Household', 
-        'column_number' => 7, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'supplemental_address_2', 
-        'contact_type' => 'Household', 
-        'column_number' => 8, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'supplemental_address_3', 
-        'contact_type' => 'Household', 
-        'column_number' => 9, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'city', 
-        'contact_type' => 'Household', 
-        'column_number' => 10, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'postal_code', 
-        'contact_type' => 'Household', 
-        'column_number' => 11, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'external_identifier', 
-        'contact_type' => 'Household', 
-        'column_number' => 1, 
-        'location_type_id' => NULL, 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'country', 
-        'contact_type' => 'Household', 
-        'column_number' => 12, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => 'state_province', 
-        'contact_type' => 'Household', 
-        'column_number' => 13, 
-        'location_type_id' => self::findLocationId('domicile'), 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ], 
-      [
-        'name' => self::findCustomFieldId('mode_distribution', 'Informations supplémentaires'), 
-        'contact_type' => 'Household', 
-        'column_number' => 14, 
-        'location_type_id' => NULL, 
-        'phone_type_id' => NULL, 
-        'im_provider_id' => NULL, 
-        'website_type_id' => NULL, 
-        'relationship_type_id' => NULL, 
-        'relationship_direction' => NULL, 
-        'grouping' => 1, 
-        'operator' => NULL, 
-        'value' => NULL,
-      ],
-    ];
+    /**
+     * Create le mapping d'import depuis Séraphin, pour les foyers
+     *
+     * @return    array    $params Parameters for the creation of the mapping
+     */
+    protected function getParametersMapping(): array
+    {
 
-  }
+        return [
+            'name' => $this->getName(),
+            'description' => "Modèle d'import des foyers extraits de Séraphin",
+            'mapping_type_id_name' => "Import Contact",
+        ];
+    }
 
+    /**
+     * Create le MappingField d'import depuis Séraphin, pour les Foyers
+     *
+     * @return  array $params   Parameters for the creation of the mapping fields
+     */
+    protected function getParametersDisplay(): array
+    {
+
+        return [
+            $this->computeCommonDisplayField('contact_source',0,'Household'),
+            $this->computeCommonDisplayField('household_name',2,'Household'),
+            $this->computeLocationDisplayField('email',3,'domicile','Household'),
+            $this->computePhoneDisplayField('phone',4,'domicile','Phone','Household'),
+            $this->computeCommonDisplayField(
+                self::findCustomFieldId('quartier', 'Informations supplémentaires'),5,'Household'),
+            $this->computeLocationDisplayField('street_address',6,'domicile','Household'),
+            $this->computeLocationDisplayField('supplemental_address_1',7,'domicile','Household'),
+            $this->computeLocationDisplayField('supplemental_address_2',8,'domicile','Household'),
+            $this->computeLocationDisplayField('supplemental_address_3',9,'domicile','Household'),
+            $this->computeLocationDisplayField('city',10,'domicile','Household'),
+            $this->computeLocationDisplayField('postal_code',11,'domicile','Household'),
+            $this->computeCommonDisplayField('external_identifier',1,'Household'),
+            $this->computeLocationDisplayField('country',12,'domicile','Household'),
+            $this->computeLocationDisplayField('state_province',13,'domicile','Household'),
+            $this->computeCommonDisplayField(
+                self::findCustomFieldId('mode_distribution', 'Informations supplémentaires'),14,'Household')
+
+        ];
+
+    }
 
 
 }

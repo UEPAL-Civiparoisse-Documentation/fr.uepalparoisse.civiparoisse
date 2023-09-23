@@ -1,6 +1,4 @@
 <?php
-//QUBE_IGNORE_FILE
-
 //
 ///**
 // * Setup des rapports

@@ -2,186 +2,227 @@
 
 use CRM_Civiparoisse_ExtensionUtil as E;
 
-abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport {
+abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport
+{
 
-  abstract protected function getName();
-  
-  abstract protected function getParametersMapping();
-    
-  abstract protected function getParametersDisplay();
-  
- /**
-  * Fonction pour installer les mapping
-  * 
-  */
-  public function installSaveMapping() {
+    public const CG_INFO_RELIGION = 'Information Religion';
+    public const CG_ETAT_CIVIL = 'Etat Civil';
 
-    /** @var array $mappingParameters Liste des paramètres pour créer le Mapping */
-    // récupération des paramètres du Mapping
-    $mappingParameters = $this->getParametersMapping();
+    abstract protected function getName();
 
-    /** @var array $resultMap Envoi vers la fonction createMappingImport pour créer le mapping */
-    // création du Mapping
-    $resultMap = self::createMappingImport($mappingParameters);
+    abstract protected function getParametersMapping();
 
-    /** @var array $mappingFieldParameters Liste des paramètres pour créer le Mapping Field */
-    // récupération des paramètres du Mapping Field
-    $mappingFieldParameters = $this->getParametersDisplay();
-
-    /** @var array $resultMapFields Envoi vers la fonction createMappingFieldImport pour créer le mapping field */
-    // création des Mapping Fields
-    $resultMapFields = $this->createMappingFieldImport($mappingFieldParameters);
-
-  return;
-
-  }
+    abstract protected function getParametersDisplay();
 
 
-
-  /**
-   * Fonction de création du Mapping par l'API
-   * 
-   * @param array $données  Données pour la création du Mapping par l'API
-   * 
-   * @var  array  $result  Code de création du Mapping par l'API 
-   * 
-   * @return  array  $result  Code de création du Mapping par l'API
-   *
-   */ 
-  static protected function createMappingImport($donnees) {
-
-    $createMapping = \Civi\Api4\Mapping::create()
-      ->setCheckPermissions(FALSE)
-      ->addValue('name', $donnees['name'])
-      ->addValue('description', $donnees['description'])
-      ->addValue('mapping_type_id:name', $donnees['mapping_type_id_name'])
-      ->execute();
-
-    return $createMapping;
-
-  }
-
-
-  /**
-   * Fonction de création du Mapping des champs par l'API
-   * 
-   * @param array $données  Données pour la création du Mapping par l'API
-   * 
-   * @var  array  $result  Code de création du Mapping des champs par l'API 
-   * 
-   * @return  array  $result  Code de création du Mapping des champs par l'API
-   *
-   */ 
-
-  protected function createMappingFieldImport($donnees) {
-
-    foreach ($donnees as $key => $value) {
-
-      $params = [
-        'checkPermissions' => FALSE,
-        'values' => $value,
-      ];
-      $params['values']['mapping_id.name'] = $this->getName();
-
-      $createMappingField = civicrm_api4('MappingField', 'create', $params);
+    protected function computeCommonDisplayField(string $name, int $columnNumber, $contactType = 'Individual'): array
+    {
+        return [
+            'name' => $name,
+            'contact_type' => $contactType,
+            'column_number' => $columnNumber,
+            'location_type_id' => null,
+            'phone_type_id' => null,
+            'im_provider_id' => null,
+            'website_type_id' => null,
+            'relationship_type_id' => null,
+            'relationship_direction' => null,
+            'grouping' => 1,
+            'operator' => null,
+            'value' => null,
+        ];
     }
 
-    return;
-  }
+    protected function computeRelationshipDisplayField(
+        $name,
+        $columnNumber,
+        $relationTypeId,
+        $relationShipDirection): array
+    {
+        $res = $this->computeCommonDisplayField($name, $columnNumber);
+        $res['relationship_type_id'] = $relationTypeId;
+        $res['relationship_direction'] = $relationShipDirection;
+        return $res;
+    }
 
-  /**
-   * Fonction pour récupérer l'ID du Location Type
-   * 
-   * @param string $données  Données pour rechercher le nom de la Location Type
-   * 
-   * @var array $locationTypes  Résult de l'interrogation de l'API 
-   * 
-   * @return int $locationTypes  ID du Location Type demandé
-   *
-   */   
-  static protected function findLocationId($donnees) {
+    protected function computeLocationDisplayField($name, $columnNumber, $locationType,$contactType='Individual'): array
+    {
+        $res = $this->computeCommonDisplayField($name, $columnNumber,$contactType);
+        $res['location_type_id'] = self::findLocationId($locationType);
+        return $res;
+    }
 
-    $locationTypes = \Civi\Api4\LocationType::get()
-      ->setCheckPermissions(FALSE)
-      ->addSelect('id')
-      ->addWhere('name', '=', $donnees)
-      ->execute()
-      ->first();
+    protected function computePhoneDisplayField(
+        $name, $columnNumber, $locationType, $phoneType,$contactType='Individual'): array
+    {
+        $res = $this->computeLocationDisplayField($name, $columnNumber, $locationType,$contactType);
+        $res['phone_type_id'] = self::findPhoneTypeId($phoneType);
+        return $res;
+    }
 
-    return $locationTypes['id'];
-  }
+    /**
+     * Fonction pour installer les mapping
+     *
+     */
+    public function installSaveMapping()
+    {
 
-  /**
-   * Fonction pour récupérer l'ID du Phone Type
-   * 
-   * @param string $données  Données pour rechercher le nom du Phone Type
-   * 
-   * @var array $phoneTypes  Résult de l'interrogation de l'API 
-   * 
-   * @return int $phoneTypes  ID du Phone Type demandé
-   *
-   */ 
-  static protected function findPhoneTypeId($donnees) {
+        /** @var array $mappingParameters Liste des paramètres pour créer le Mapping */
+        // récupération des paramètres du Mapping
+        $mappingParameters = $this->getParametersMapping();
 
-    $phoneTypes = \Civi\Api4\OptionValue::get()
-      ->setCheckPermissions(FALSE)
-      ->addSelect('id')
-      ->addWhere('option_group_id:name', '=', 'phone_type')
-      ->addWhere('name', '=', $donnees)
-      ->execute()
-      ->first();
+        /** @var array $resultMap Envoi vers la fonction createMappingImport pour créer le mapping */
+        // création du Mapping
+        self::createMappingImport($mappingParameters);
 
-    return $phoneTypes['id'];
-  }
+        /** @var array $mappingFieldParameters Liste des paramètres pour créer le Mapping Field */
+        // récupération des paramètres du Mapping Field
+        $mappingFieldParameters = $this->getParametersDisplay();
 
-  /**
-   * Fonction pour récupérer l'ID du Custom Field
-   * 
-   * @param string $name  Données pour rechercher le nom du Custom Field
-   * @param string $customGroup Nom du Custom Group associé au nom recherché
-   * 
-   * @var array $customFieldId  Résult de l'interrogation de l'API 
-   * 
-   * @return string $customField  ID du Custom Field demandé
-   *
-   */ 
-  static protected function findCustomFieldId($name, $customGroup) {
+        /** @var array $resultMapFields Envoi vers la fonction createMappingFieldImport pour créer le mapping field */
+        // création des Mapping Fields
+        $this->createMappingFieldImport($mappingFieldParameters);
+    }
 
-    $customFieldId = \Civi\Api4\CustomField::get()
-      ->setCheckPermissions(FALSE)
-      ->addSelect('id')
-      ->addWhere('name', '=', $name)
-      ->addWhere('custom_group_id:label', '=', $customGroup)
-      ->execute()
-      ->first();
 
-    $customField = 'custom_'.$customFieldId['id'];
+    /**
+     * Fonction de création du Mapping par l'API
+     *
+     * @param array $données Données pour la création du Mapping par l'API
+     *
+     * @var  array $result Code de création du Mapping par l'API
+     *
+     * @return  array  $result  Code de création du Mapping par l'API
+     *
+     */
+    protected static function createMappingImport($donnees)
+    {
+        return \Civi\Api4\Mapping::create()
+            ->setCheckPermissions(false)
+            ->addValue('name', $donnees['name'])
+            ->addValue('description', $donnees['description'])
+            ->addValue('mapping_type_id:name', $donnees['mapping_type_id_name'])
+            ->execute();
+    }
 
-    return $customField;
 
-  }
+    /**
+     * Fonction de création du Mapping des champs par l'API
+     *
+     * @param array $données Données pour la création du Mapping par l'API
+     *
+     * @var  array $result Code de création du Mapping des champs par l'API
+     *
+     * @return  array  $result  Code de création du Mapping des champs par l'API
+     *
+     */
 
-  /**
-   * Fonction pour récupérer l'ID du Relationship Type
-   * 
-   * @param string $name  Données pour rechercher le nom de la Relation
-   * 
-   * @var array $relationshipTypeId  Résult de l'interrogation de l'API 
-   * 
-   * @return id $relationshipTypeId  ID de la Relation demandée
-   *
-   */ 
-  static protected function findRelationshipTypeId($name) {
+    protected function createMappingFieldImport($donnees)
+    {
 
-    $relationshipTypeId = \Civi\Api4\RelationshipType::get()
-      ->setCheckPermissions(FALSE)
-      ->addSelect('id')
-      ->addWhere('name_a_b', '=', $name)
-      ->execute()
-      ->first();
+        foreach ($donnees as $value) {
 
-    return $relationshipTypeId['id'];
+            $params = [
+                'checkPermissions' => false,
+                'values' => $value,
+            ];
+            $params['values']['mapping_id.name'] = $this->getName();
 
-  }
+            civicrm_api4('MappingField', 'create', $params);
+        }
+    }
+
+    /**
+     * Fonction pour récupérer l'ID du Location Type
+     * @param string $données Données pour rechercher le nom de la Location Type
+     * @return int $locationTypes  ID du Location Type demandé
+     * @var array $locationTypes Résult de l'interrogation de l'API
+
+     */
+    protected static function findLocationId($donnees)
+    {
+
+        $locationTypes = \Civi\Api4\LocationType::get()
+            ->setCheckPermissions(false)
+            ->addSelect('id')
+            ->addWhere('name', '=', $donnees)
+            ->execute()
+            ->first();
+
+        return $locationTypes['id'];
+    }
+
+    /**
+     * Fonction pour récupérer l'ID du Phone Type
+     *
+     * @param string $données Données pour rechercher le nom du Phone Type
+     *
+     * @return int $phoneTypes  ID du Phone Type demandé
+     *
+     * @var array $phoneTypes Résult de l'interrogation de l'API
+     *
+     */
+    protected static function findPhoneTypeId($donnees)
+    {
+
+        $phoneTypes = \Civi\Api4\OptionValue::get()
+            ->setCheckPermissions(false)
+            ->addSelect('id')
+            ->addWhere('option_group_id:name', '=', 'phone_type')
+            ->addWhere('name', '=', $donnees)
+            ->execute()
+            ->first();
+
+        return $phoneTypes['id'];
+    }
+
+    /**
+     * Fonction pour récupérer l'ID du Custom Field
+     *
+     * @param string $name Données pour rechercher le nom du Custom Field
+     * @param string $customGroup Nom du Custom Group associé au nom recherché
+     *
+     * @return string $customField  ID du Custom Field demandé
+     *
+     * @var array $customFieldId Résult de l'interrogation de l'API
+     *
+     */
+    protected static function findCustomFieldId($name, $customGroup)
+    {
+
+        $customFieldId = \Civi\Api4\CustomField::get()
+            ->setCheckPermissions(false)
+            ->addSelect('id')
+            ->addWhere('name', '=', $name)
+            ->addWhere('custom_group_id:label', '=', $customGroup)
+            ->execute()
+            ->first();
+
+        return 'custom_' . $customFieldId['id'];
+    }
+
+    /**
+     * Fonction pour récupérer l'ID du Relationship Type
+     *
+     * @param string $name Données pour rechercher le nom de la Relation
+     *
+     * @return id $relationshipTypeId  ID de la Relation demandée
+     *
+     * @var array $relationshipTypeId Résult de l'interrogation de l'API
+     *
+     */
+    protected static function findRelationshipTypeId($name)
+    {
+
+        $relationshipTypeId = \Civi\Api4\RelationshipType::get()
+            ->setCheckPermissions(false)
+            ->addSelect('id')
+            ->addWhere('name_a_b', '=', $name)
+            ->execute()
+            ->first();
+
+        return $relationshipTypeId['id'];
+
+    }
 
 }

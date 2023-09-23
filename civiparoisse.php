@@ -1,10 +1,8 @@
 <?php
-//QUBE_IGNORE_FILE
-require_once 'civiparoisse.civix.php';
 
+require_once 'civiparoisse.civix.php';
 // phpcs:disable
 use CRM_Civiparoisse_ExtensionUtil as E;
-
 // phpcs:enable
 
 /**
@@ -12,9 +10,8 @@ use CRM_Civiparoisse_ExtensionUtil as E;
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_config/
  */
-function civiparoisse_civicrm_config(&$config)
-{
-    _civiparoisse_civix_civicrm_config($config);
+function civiparoisse_civicrm_config(&$config) {
+  _civiparoisse_civix_civicrm_config($config);
 }
 
 /**
@@ -22,9 +19,8 @@ function civiparoisse_civicrm_config(&$config)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_xmlMenu
  */
-function civiparoisse_civicrm_xmlMenu(&$files)
-{
-    _civiparoisse_civix_civicrm_xmlMenu($files);
+function civiparoisse_civicrm_xmlMenu(&$files) {
+  _civiparoisse_civix_civicrm_xmlMenu($files);
 }
 
 /**
@@ -32,9 +28,8 @@ function civiparoisse_civicrm_xmlMenu(&$files)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_install
  */
-function civiparoisse_civicrm_install()
-{
-    _civiparoisse_civix_civicrm_install();
+function civiparoisse_civicrm_install() {
+  _civiparoisse_civix_civicrm_install();
 }
 
 /**
@@ -42,9 +37,8 @@ function civiparoisse_civicrm_install()
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_postInstall
  */
-function civiparoisse_civicrm_postInstall()
-{
-    _civiparoisse_civix_civicrm_postInstall();
+function civiparoisse_civicrm_postInstall() {
+  _civiparoisse_civix_civicrm_postInstall();
 }
 
 /**
@@ -52,9 +46,8 @@ function civiparoisse_civicrm_postInstall()
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_uninstall
  */
-function civiparoisse_civicrm_uninstall()
-{
-    _civiparoisse_civix_civicrm_uninstall();
+function civiparoisse_civicrm_uninstall() {
+  _civiparoisse_civix_civicrm_uninstall();
 }
 
 /**
@@ -62,9 +55,8 @@ function civiparoisse_civicrm_uninstall()
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_enable
  */
-function civiparoisse_civicrm_enable()
-{
-    _civiparoisse_civix_civicrm_enable();
+function civiparoisse_civicrm_enable() {
+  _civiparoisse_civix_civicrm_enable();
 }
 
 /**
@@ -72,9 +64,8 @@ function civiparoisse_civicrm_enable()
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_disable
  */
-function civiparoisse_civicrm_disable()
-{
-    _civiparoisse_civix_civicrm_disable();
+function civiparoisse_civicrm_disable() {
+  _civiparoisse_civix_civicrm_disable();
 }
 
 /**
@@ -82,9 +73,8 @@ function civiparoisse_civicrm_disable()
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_upgrade
  */
-function civiparoisse_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL)
-{
-    return _civiparoisse_civix_civicrm_upgrade($op, $queue);
+function civiparoisse_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL) {
+  return _civiparoisse_civix_civicrm_upgrade($op, $queue);
 }
 
 /**
@@ -95,9 +85,8 @@ function civiparoisse_civicrm_upgrade($op, CRM_Queue_Queue $queue = NULL)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_managed
  */
-function civiparoisse_civicrm_managed(&$entities)
-{
-    _civiparoisse_civix_civicrm_managed($entities);
+function civiparoisse_civicrm_managed(&$entities) {
+  _civiparoisse_civix_civicrm_managed($entities);
 }
 
 /**
@@ -109,9 +98,8 @@ function civiparoisse_civicrm_managed(&$entities)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_caseTypes
  */
-function civiparoisse_civicrm_caseTypes(&$caseTypes)
-{
-    _civiparoisse_civix_civicrm_caseTypes($caseTypes);
+function civiparoisse_civicrm_caseTypes(&$caseTypes) {
+  _civiparoisse_civix_civicrm_caseTypes($caseTypes);
 }
 
 /**
@@ -124,9 +112,8 @@ function civiparoisse_civicrm_caseTypes(&$caseTypes)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_angularModules
  */
-function civiparoisse_civicrm_angularModules(&$angularModules)
-{
-    _civiparoisse_civix_civicrm_angularModules($angularModules);
+function civiparoisse_civicrm_angularModules(&$angularModules) {
+  _civiparoisse_civix_civicrm_angularModules($angularModules);
 }
 
 /**
@@ -134,9 +121,8 @@ function civiparoisse_civicrm_angularModules(&$angularModules)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterSettingsFolders
  */
-function civiparoisse_civicrm_alterSettingsFolders(&$metaDataFolders = NULL)
-{
-    _civiparoisse_civix_civicrm_alterSettingsFolders($metaDataFolders);
+function civiparoisse_civicrm_alterSettingsFolders(&$metaDataFolders = NULL) {
+  _civiparoisse_civix_civicrm_alterSettingsFolders($metaDataFolders);
 }
 
 /**
@@ -146,17 +132,15 @@ function civiparoisse_civicrm_alterSettingsFolders(&$metaDataFolders = NULL)
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_entityTypes
  */
-function civiparoisse_civicrm_entityTypes(&$entityTypes)
-{
-    _civiparoisse_civix_civicrm_entityTypes($entityTypes);
+function civiparoisse_civicrm_entityTypes(&$entityTypes) {
+  _civiparoisse_civix_civicrm_entityTypes($entityTypes);
 }
 
 /**
  * Implements hook_civicrm_thems().
  */
-function civiparoisse_civicrm_themes(&$themes)
-{
-    _civiparoisse_civix_civicrm_themes($themes);
+function civiparoisse_civicrm_themes(&$themes) {
+  _civiparoisse_civix_civicrm_themes($themes);
 }
 
 // --- Functions below this ship commented out. Uncomment as required. ---
@@ -176,23 +160,21 @@ function civiparoisse_civicrm_themes(&$themes)
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_navigationMenu
  */
 
+ 
+function civiparoisse_civicrm_navigationMenu(&$menu) {
+  _civiparoisse_civix_insert_navigation_menu($menu,'Administer/System Settings',array(
+    'label'=>ts('UEPAL Parameters Setting'),
+    'name'=>'uepal_parameters_setting',
+    'permission'=>'administer CiviCRM',
+    'url'=>'civicrm/admin/setting/preferences/uepal_parametres'
+  ));
 
-function civiparoisse_civicrm_navigationMenu(&$menu)
-{
-    _civiparoisse_civix_insert_navigation_menu($menu, 'Administer/System Settings', array(
-        'label' => ts('UEPAL Parameters Setting'),
-        'name' => 'uepal_parameters_setting',
-        'permission' => 'administer CiviCRM',
-        'url' => 'civicrm/admin/setting/preferences/uepal_parametres'
-    ));
-
-    CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
+CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
 
 
-    _civiparoisse_civix_navigationMenu($menu);
+  _civiparoisse_civix_navigationMenu($menu);
 
 }
-
 //function parametres_civicrm_navigationMenu(&$menu) {
 //  _parametres_civix_insert_navigation_menu($menu, 'Mailings', array(
 //    'label' => E::ts('New subliminal message'),
@@ -209,15 +191,17 @@ function civiparoisse_civicrm_dashboard_defaults($availableDashlets, &$defaultDa
 {
     // Affichage du Dashlet Sommaire Civiparoisse
     $contactID = CRM_Core_Session::singleton()->get('userID');
-    $dashlets = [
-        new CRM_Civiparoisse_Dashlets_ConfigSommaire(),
-        new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires()
+    $dashlets=[
+      new CRM_Civiparoisse_Dashlets_ConfigSommaire(),
+      new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires()
     ];
-    foreach ($dashlets as $dashlet) {
-        $defaults = $dashlet->computeDashletDefaults($contactID);
-        if (is_array($defaults)) {
-            $defaultDashlets[] = $defaults;
-        }
+    foreach($dashlets as $dashlet)
+    {
+      $defaults=$dashlet->computeDashletDefaults($contactID);
+      if(is_array($defaults))
+      {
+        $defaultDashlets[]=$defaults;
+      }
     }
 }
 
@@ -226,9 +210,8 @@ function civiparoisse_civicrm_dashboard_defaults($availableDashlets, &$defaultDa
  *
  * @link https://docs.civicrm.org/dev/en/latest/hooks/hook_civicrm_alterBundle/
  */
-function civiparoisse_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle)
-{
-    if ($bundle->name === 'coreStyles') {
-        $bundle->addStyleFile(E::LONG_NAME, 'css/surcharge-corestyles.css');
-    }
+function civiparoisse_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle) {
+  if ($bundle->name === 'coreStyles') {
+    $bundle->addStyleFile(E::LONG_NAME, 'css/surcharge-corestyles.css');
+  }
 }

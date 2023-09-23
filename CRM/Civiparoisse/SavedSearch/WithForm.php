@@ -6,13 +6,13 @@ abstract class CRM_Civiparoisse_SavedSearch_WithForm extends CRM_Civiparoisse_Sa
      * get AFForm Parameters
      * @return array
      */
-    abstract protected function getParametersForms(): array;
+    protected abstract function getParametersForms(): array;
 
     /**
      * getAFForm Name
      * @return string
      */
-    abstract public function getNameForm(): string;
+    public abstract function getNameForm(): string;
 
     /**
      * create AFForm for savedSeaarch
@@ -29,4 +29,6 @@ abstract class CRM_Civiparoisse_SavedSearch_WithForm extends CRM_Civiparoisse_Sa
         CRM_Civiparoisse_Formulaires_Config_ConfigForms::createFormulaire($formsParameters);
 
     }
+
+
 }

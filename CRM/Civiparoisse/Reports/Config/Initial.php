@@ -1,5 +1,4 @@
 <?php
-//QUBE_IGNORE_FILE
 //
 ///**
 // *  N'est plus utilisé dans la version 1.42. Conservé à titre de mémoire

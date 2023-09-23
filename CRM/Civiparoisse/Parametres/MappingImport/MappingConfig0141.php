@@ -7,7 +7,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_MappingConfig0141 {
  /**
   * @var array $mappingsToCreate Liste des mapping à créer
   */
-  static public function run() {
+  public static function run() {
 
     $mappingsToCreate = [
       new CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers(),
@@ -23,7 +23,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_MappingConfig0141 {
     
     foreach ($mappingsToCreate as $mapToCreate) {
       $mapToCreate->installSaveMapping();
-    }  
+    }
 
   }
 
