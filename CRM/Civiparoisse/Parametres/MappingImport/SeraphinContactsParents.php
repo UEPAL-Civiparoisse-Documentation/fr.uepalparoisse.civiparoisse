@@ -47,7 +47,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinContactsParents
             $this->computeCommonDisplayField('first_name',2),
             $this->computeLocationDisplayField('email',3,'Domicile'),
             $this->computeRelationshipDisplayField(
-                'external_identifier',4,self::findRelationshipTypeId('Child of'),'a_b')
+                'external_identifier',4,static::findRelationshipTypeId('Child of'),'a_b')
         ];
     }
 

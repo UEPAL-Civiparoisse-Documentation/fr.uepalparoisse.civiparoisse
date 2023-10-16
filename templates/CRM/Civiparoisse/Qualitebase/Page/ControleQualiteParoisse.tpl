@@ -139,7 +139,7 @@
 			</ul>
 		<h5>Risques</h5>
 			<ul>
-				<li>Pas d'indication d'une Relation de l'Individu avec d'autres Individus ou Organisations</li>
+				<li>Pas d'indication d'une Relation de l'Individu avec d'autres Foyers ou Organisations</li>
 				<li>Erreurs de ciblage</li>
 				<li>Erreurs dans les Rapports</li>
 				<li>Mauvais renseignement sur la personne</li>
@@ -149,7 +149,7 @@
 				<li>Cliquer sur le lien pour ouvrir la fiche dans un nouvel onglet</li>
 				<li>Cliquer sur l'onglet Relations</li>
 				<li>Cliquer sur Ajouter une Relation</li>
-				<li>Dans la fenêtre Ajouter une Relation, choisir un Type de Relation</li>
+				<li>Dans la fenêtre Ajouter une Relation, choisir un Type de Relation (avec un Foyer ou une Organisation)</li>
 				<li>Choisir le Contact avec lequel mettre la Relation en place</li>
 				<li>Enregistrer</li>
 			</ul>

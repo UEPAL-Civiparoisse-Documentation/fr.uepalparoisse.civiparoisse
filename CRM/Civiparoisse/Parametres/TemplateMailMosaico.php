@@ -1,5 +1,5 @@
 <?php
-
+//QUBE_IGNORE_FILE
 use CRM_Civiparoisse_ExtensionUtil as E;
 
 class CRM_Civiparoisse_Parametres_TemplateMailMosaico {

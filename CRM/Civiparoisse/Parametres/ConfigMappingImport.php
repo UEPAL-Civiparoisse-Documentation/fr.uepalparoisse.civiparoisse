@@ -48,7 +48,7 @@ abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport
     protected function computeLocationDisplayField($name, $columnNumber, $locationType,$contactType='Individual'): array
     {
         $res = $this->computeCommonDisplayField($name, $columnNumber,$contactType);
-        $res['location_type_id'] = self::findLocationId($locationType);
+        $res['location_type_id'] = static::findLocationId($locationType);
         return $res;
     }
 
@@ -56,7 +56,7 @@ abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport
         $name, $columnNumber, $locationType, $phoneType,$contactType='Individual'): array
     {
         $res = $this->computeLocationDisplayField($name, $columnNumber, $locationType,$contactType);
-        $res['phone_type_id'] = self::findPhoneTypeId($phoneType);
+        $res['phone_type_id'] = static::findPhoneTypeId($phoneType);
         return $res;
     }
 

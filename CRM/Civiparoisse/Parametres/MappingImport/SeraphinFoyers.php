@@ -46,7 +46,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers extends CRM_Civip
             $this->computeLocationDisplayField('email',3,'domicile','Household'),
             $this->computePhoneDisplayField('phone',4,'domicile','Phone','Household'),
             $this->computeCommonDisplayField(
-                self::findCustomFieldId('quartier', 'Informations supplémentaires'),5,'Household'),
+                static::findCustomFieldId('quartier', 'Informations supplémentaires'),5,'Household'),
             $this->computeLocationDisplayField('street_address',6,'domicile','Household'),
             $this->computeLocationDisplayField('supplemental_address_1',7,'domicile','Household'),
             $this->computeLocationDisplayField('supplemental_address_2',8,'domicile','Household'),
@@ -57,7 +57,7 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinFoyers extends CRM_Civip
             $this->computeLocationDisplayField('country',12,'domicile','Household'),
             $this->computeLocationDisplayField('state_province',13,'domicile','Household'),
             $this->computeCommonDisplayField(
-                self::findCustomFieldId('mode_distribution', 'Informations supplémentaires'),14,'Household')
+                static::findCustomFieldId('mode_distribution', 'Informations supplémentaires'),14,'Household')
 
         ];
 

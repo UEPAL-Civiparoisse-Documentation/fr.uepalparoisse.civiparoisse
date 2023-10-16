@@ -2,7 +2,7 @@
 <extension key="fr.uepalparoisse.civiparoisse" type="module">
   <file>civiparoisse</file>
   <name>Civiparoisse</name>
-  <description>Civiparoisse : module de gestion opérationnelle de paroisse pour CiviCRM</description>
+  <description>Civiparoisse : module de gestion op&#xE9;rationnelle de paroisse pour CiviCRM</description>
   <license>AGPL-3.0</license>
   <maintainer>
     <author>UEPAL (Union des Eglises Protestantes d'Alsace et de Moselle)</author>
@@ -18,13 +18,22 @@
   <version>1.44.3</version>
   <develStage>stable</develStage>
   <compatibility>
-    <ver>5.0</ver>
+    <ver>5.38</ver>
   </compatibility>
-  <comments></comments>
+  <comments/>
   <classloader>
     <psr4 prefix="Civi\" path="Civi"/>
+    <psr0 prefix="CRM_" path="."/>
   </classloader>
   <civix>
     <namespace>CRM/Civiparoisse</namespace>
+    <format>23.02.1</format>
   </civix>
+  <mixins>
+    <mixin>menu-xml@1.0.0</mixin>
+    <mixin>mgd-php@1.0.0</mixin>
+    <mixin>setting-php@1.0.0</mixin>
+    <mixin>smarty-v2@1.0.1</mixin>
+  </mixins>
+  <upgrader>CRM_Civiparoisse_Upgrader</upgrader>
 </extension>

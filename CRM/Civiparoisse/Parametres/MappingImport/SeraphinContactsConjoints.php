@@ -47,9 +47,9 @@ class CRM_Civiparoisse_Parametres_MappingImport_SeraphinContactsConjoints
             $this->computeCommonDisplayField('first_name',2),
             $this->computeLocationDisplayField('email',3,'Domicile'),
             $this->computeRelationshipDisplayField(
-                'external_identifier',4,self::findRelationshipTypeId('Spouse of'),'a_b'),
+                'external_identifier',4,static::findRelationshipTypeId('Spouse of'),'a_b'),
             $this->computeRelationshipDisplayField(
-                'external_identifier',5,self::findRelationshipTypeId('Partner of'),'a_b')
+                'external_identifier',5,static::findRelationshipTypeId('Partner of'),'a_b')
 
         ];
 
