@@ -1,11 +1,70 @@
-/* CODE POUR SOMMAIRE-LISTES*/
+/**************************************************/
+/* Personnalisation des pages (Sommaire, Qualité) */
+/**************************************************/
+.page-sommaire-wrapper, .page-qualite-wrapper {
+  display: grid;
+  width:  100%;
+    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
+    grid-gap: 10px;
+}
+.page-sommaire-box, .page-qualite-box {
+  border:  2px solid #6dccc9;
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
+}
+img {
+  height: 50px;
+}
+.page-sommaire-box a:hover, .page-qualite-box a:hover {
+  background-color: #b2db7c;
+    /*2020 10 01 Tableau d'accueil avec effet survol
+    Autres possibilités issues du logo :
+      8ed0a2 vert
+      f1e1e1 gris
+      6dccc9 bleu
+      4dd0f0 bleu (bof)
+      5bc8ab vert foncé
+      b2db7c vert du bas bandeau
+    */
+}
+
+
+
+/**************************************************/
+/* Personnalisation des pages Listes */
+/**************************************************/
 
 ul {
-	list-style-type: none;
-	list-style: none;
-	list-style-image: none;
+  list-style-type: none;
+  list-style: none;
+  list-style-image: none;
 }
 
 i.crm-i {
-	padding-right: 10px;
+  padding-right: 10px;
 }
+
+/**************************************************/
+/* Personnalisation des pages Qualité */
+/**************************************************/
+.page-qualite-resultat {
+  font-size: 200%;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 15px;
+}
+
+.resultat-qualite-ko .page-qualite-resultat {
+  color: indianred;
+}
+
+.resultat-qualite-ok .page-qualite-resultat {
+  color: seagreen;
+}
+
+.page-qualite-item {
+  font-size: 90%;
+  color: black;
+}
+

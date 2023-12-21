@@ -1,5 +1,8 @@
 <?php
 
+// Fichier devenu inutile depuis la version 1.45.
+// Conservé pour les éventuels upgrades d'anciennes versions
+
 class CRM_Civiparoisse_Qualitebase_Config_Parameters_IndividusSansMembre
     extends CRM_Civiparoisse_SavedSearch_BaseParameter
 {
@@ -146,4 +149,3 @@ class CRM_Civiparoisse_Qualitebase_Config_Parameters_IndividusSansMembre
 
 
 }
-

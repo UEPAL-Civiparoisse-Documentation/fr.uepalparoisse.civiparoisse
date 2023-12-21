@@ -39,11 +39,30 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
         // installation de l'upgrade_0144
         $this->upgrade_0144();
-
+        
+        // installation de l'upgrade_0145
+        $this->upgrade_0145();
+        
         /* Commentaires à enlever pour activer la prochaine version
-            // installation de l'upgrade_0145
-            $this->upgrade_0145();
+            // installation de l'upgrade_0146
+            $this->upgrade_0146();
         Fin ligne à enlever */
+        
+    }
+
+    protected function aux_upgrade_0140(){
+
+        // paramétrage des travaux du Cron
+        $config = new CRM_Civiparoisse_Parametres_ConfigCron();
+        $config->checkConfigCron();
+
+        // instructions d'installation du dashboard Sommaire CiviParoisse
+        $dashboard = new CRM_Civiparoisse_Dashlets_ConfigSommaire();
+        $dashboard->installDashlet();
+
+        // création du Template Mosaico pour le modèle de mail
+        $templateMail = new CRM_Civiparoisse_Parametres_ConfigMosaico();
+        $templateMail->createTemplateMosaico();
 
     }
 
@@ -53,25 +72,17 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
      */
     public function upgrade_0140()
     {
-        // paramétrage des travaux du Cron
-        $config = new CRM_Civiparoisse_Parametres_ConfigCron();
-        $config->checkConfigCron();
+
+        $this->aux_upgrade_0140();
+        
+        // configuration des Search Kit - Qualité de la base
+        // n'est plus nécessaire dans l'installation depuis la version 1.45
+        $searchQualite = new CRM_Civiparoisse_Qualitebase_Config_SearchKitConfig0140();
+        $searchQualite->run();
 
         // configuration des Search Kit - Reports
         $searchReports = new CRM_Civiparoisse_Reports_Config_SearchKitConfig0140();
         $searchReports->run();
-
-        // configuration des Search Kit - Qualité de la base
-        $searchQualite = new CRM_Civiparoisse_Qualitebase_Config_SearchKitConfig0140();
-        $searchQualite->run();
-
-        // instructions d'installation du dashboard Sommaire CiviParoisse
-        $dashboard = new CRM_Civiparoisse_Dashlets_ConfigSommaire();
-        $dashboard->installDashlet();
-
-        // création du Template Mosaico pour le modèle de mail
-        $templateMail = new CRM_Civiparoisse_Parametres_ConfigMosaico();
-        $templateMail->createTemplateMosaico();
 
         return true;
 
@@ -147,8 +158,44 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     }
 
+    public function upgrade_0145() {
+    
+        // Suppression des SearchKit pour les pages Qualité et Amélioration (suite mise en place nouveau système)
+        // Supprime également les SearchDisplay et les Afform associés
+        // Vide les caches pour initialiser les nouvelles pages Qualité et Amélioration
+        $listeSearchKitASupprimer = [
+            'Civip_Individus_Sans_Civilite',
+            'Civip_Individus_Sans_Genre',
+            'Civip_Individus_Sans_Membre',
+        ];
+        
+        foreach ($listeSearchKitASupprimer as $nomASupprimer) {
+            
+            $verificationExistenceSK = \Civi\Api4\SavedSearch::get()
+                ->setCheckPermissions(false)
+                ->addSelect('id')
+                ->addWhere('name', '=', $nomASupprimer)
+                ->execute();
+
+            if (!empty ($verificationExistenceSK)) {
+                \Civi\Api4\SavedSearch::delete()
+                    ->setCheckPermissions(false)
+                    ->addWhere('name', '=', $nomASupprimer)
+                    ->execute();
+            }
+            
+        }
+
+        \Civi\Api4\System::flush()
+            ->setCheckPermissions(false)
+            ->execute();
+   
+    return true;
+
+  }
+
 /* Commentaires à enlever pour activer la prochaine version
-  public function upgrade_0145() {
+  public function upgrade_0146() {
     //
 
     

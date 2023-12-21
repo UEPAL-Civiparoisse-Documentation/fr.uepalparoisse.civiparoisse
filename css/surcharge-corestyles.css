@@ -37,3 +37,20 @@ div.block-page-title-block:last-child {
 div.crm-search-display-table table thead tr { 
   position: sticky !important; top: 42px; 
 }
+
+/*******************************/
+/* Gestion des rapports Afform */
+/*******************************/
+
+/* Modiification de la couleur de fond du texte explicatif */
+div.af-markup.page-qualite {
+  border:  3px solid #6dccc9;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+/* Modification de la position des puces et numéros dans une liste */
+.af-markup.page-qualite li {
+  list-style-position: inside;
+}

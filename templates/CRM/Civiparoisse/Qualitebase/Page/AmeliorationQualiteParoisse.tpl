@@ -1,9 +1,32 @@
+{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+
 <h4>Comment utiliser cette page ?</h4>
-<div>Cette page vous indique les vérifications à mener pour améliorer la qualité de votre base de données.</div>
-<div>Dans la mesure où vous arrivez à les obtenir, ces renseignements contribueront à une utilisation de la base de données. Il n'est cependant sans doute pas possible d'obtenir l'ensemble des renseignements demandés ci-dessous.</div>
-<div>Une autre page est disponible, qui liste les corrections qu'il serait nécessaire de faire dans votre base. Cette page est <a href="{crmURL p='civicrm/controle-qualite'}">consultable en cliquant ici.</a></div>
+<div><i class="crm-i fa-stethoscope fa-2x" aria-hidden="true"></i>Cette page vous indique les <strong>vérifications à mener</strong> pour améliorer la qualité de votre base de données. Si vous pouvez obtenir ces renseignements, ils  contribueront à une optimisation de votre base de données.</div>
+<p></p>
+<div><i class="crm-i fa-ambulance fa-2x" aria-hidden="true"></i>Une autre page, qui liste les <strong>corrections</strong> qu'il serait nécessaire de faire dans votre base, est <a href="{crmURL p='civicrm/controle-qualite'}" target="_blank">consultable en cliquant ici.</a></div>
 <p></p>
 
+<h1>Nouvelle méthode d'affichage</h1>
+{foreach from=$ResultsDesAmeliorations key=categorie item=row}
+  <h4>{$categorie}</h4>
+  <div class="page-qualite-wrapper">
+    {foreach from=$row item=ligne}
+      {if $ligne[1] > 0}
+        <div class ="page-qualite-box resultat-qualite-ko">
+      {else}
+        <div class ="page-qualite-box resultat-qualite-ok"> 
+      {/if}      
+        <a href="{crmURL p="`$ligne[0]`"}" target="_blank" >
+          <div class="page-qualite-resultat">{$ligne[1]}</div>
+          <div class="page-qualite-item">{$ligne[2]}</div>
+        </a>
+      </div>
+    {/foreach}
+  </div>
+{/foreach}
+
+
+<h1>Ancienne méthode d'affichage</h1>
 <h3>Améliorations sur les fiches Individus</h3>
 
 <!-- Affichage des Individus sans Date de Naissance -->
