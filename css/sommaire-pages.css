@@ -1,18 +1,26 @@
-/**************************************************/
-/* Personnalisation des pages (Sommaire, Qualité) */
-/**************************************************/
-.page-sommaire-wrapper, .page-qualite-wrapper {
+/*************************************************************************/
+/* Personnalisation des pages (Sommaire, Qualité, Améliorations, Listes) */
+/*************************************************************************/
+.page-sommaire-wrapper, .page-qualite-wrapper, .page-liste-wrapper {
   display: grid;
   width:  100%;
-    grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
-    grid-gap: 10px;
+  grid-template-columns: repeat(auto-fill,minmax(150px, 1fr));
+  grid-gap: 10px;
 }
-.page-sommaire-box, .page-qualite-box {
+.page-liste-wrapper {
+  grid-template-columns: repeat(auto-fill,minmax(250px, 1fr));
+} /* Modification de la largeur des box pour cette classe */
+.page-sommaire-box, .page-qualite-box, .page-liste-box {
   border:  2px solid #6dccc9;
   border-radius: 5px;
   padding: 5px;
   text-align: center;
 }
+.page-liste-box {
+  text-align: left;
+  margin-bottom: 10px;
+} /* Modification de l'alignement pour cette classe */
+
 img {
   height: 50px;
 }
@@ -39,15 +47,19 @@ ul {
   list-style-type: none;
   list-style: none;
   list-style-image: none;
-}
+} /*A supprimer ?? */
 
 i.crm-i {
   padding-right: 10px;
+} /*A supprimer ?? */
+
+.page-liste-item {
+  color: black;
 }
 
-/**************************************************/
-/* Personnalisation des pages Qualité */
-/**************************************************/
+/*******************************************************/
+/* Personnalisation des pages Qualité et Améliorations */
+/*******************************************************/
 .page-qualite-resultat {
   font-size: 200%;
   font-weight: bold;
@@ -63,7 +75,7 @@ i.crm-i {
   color: seagreen;
 }
 
-.page-qualite-item {
+.page-qualite-item, .page-liste-item {
   font-size: 90%;
   color: black;
 }

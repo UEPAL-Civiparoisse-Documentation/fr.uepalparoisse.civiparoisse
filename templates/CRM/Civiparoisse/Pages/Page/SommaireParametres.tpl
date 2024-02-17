@@ -9,10 +9,5 @@
 <h4>Liste des Quartiers</h4>
 
 <ul>
-	<li>{icon icon="fa-list"}{/icon}<a href="{crmURL p="civicrm/search#/display/Liste_des_Quartiers/Liste_des_Quartiers_Table"}">Modifier la liste des Quartiers</a></li>
+	<li>{icon icon="fa-list"}{/icon}<a href="{crmURL p="civicrm/liste-quartiers"}">Modifier la liste des Quartiers</a></li>
 </ul>
-
-
-
-
-

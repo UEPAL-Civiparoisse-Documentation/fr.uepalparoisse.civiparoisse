@@ -13,7 +13,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     /**
      * function to install (not upgrade,really install) the module
      * as such, the code in this function must always be up-to-date against the upgrade functions
-     * Up-to-date to 1.42 (0142)
+     * Up-to-date to 1.46 (0146)
      */
     public function install()
     {
@@ -26,13 +26,13 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 //    (new CRM_Civiparoisse_Reports_Config_Initial())->installReportTemplatesAndInstances();;
 
         // installation de l'upgrade_0140
-        $this->upgrade_0140();
+        $this->aux_upgrade_0140();
 
         // installation de l'upgrade_0141
         $this->upgrade_0141();
 
         // installation de l'upgrade_0142
-        $this->upgrade_0142();
+        $this->aux_upgrade_0142();
 
         // installation de l'upgrade_0143
         $this->upgrade_0143();
@@ -43,11 +43,15 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         // installation de l'upgrade_0145
         $this->upgrade_0145();
         
+        // installation de l'upgrade_0146
+        $this->upgrade_0146();
+
         /* Commentaires à enlever pour activer la prochaine version
-            // installation de l'upgrade_0146
-            $this->upgrade_0146();
+            // installation de l'upgrade_0147
+            $this->upgrade_0147();
         Fin ligne à enlever */
         
+
     }
 
     protected function aux_upgrade_0140(){
@@ -66,6 +70,28 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     }
 
+    protected function aux_upgrade_0142(){
+
+        // création du formulaire et installation du dashboard Prochains anniversaires
+        $formCreation = new CRM_Civiparoisse_Formulaires_Config_FormsConfig0142();
+        $formCreation->run();
+        $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
+        $annivDashlet->installDashlet();
+
+    }
+
+    // Suppression des anciens SearchKit installés lors des upgrades précedents (suite mise en place nouveau système fin 2023)
+    // Supprime également les SearchDisplay et les Afform associés
+    protected function deleteOldSearchKits ($liste){
+        foreach ($liste as $nomASupprimer) {
+            
+            \Civi\Api4\SavedSearch::delete()
+                ->setCheckPermissions(false)
+                ->addWhere('name', '=', $nomASupprimer)
+                ->execute();
+        }
+    }
+
     /**
      * This function only exists to put the version in place against manually installed
      * modules (former installations were by hand, through the web UI)
@@ -81,6 +107,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         $searchQualite->run();
 
         // configuration des Search Kit - Reports
+        // n'est plus nécessaire dans l'installation depuis la version 1.46
         $searchReports = new CRM_Civiparoisse_Reports_Config_SearchKitConfig0140();
         $searchReports->run();
 
@@ -115,19 +142,15 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     public function upgrade_0142()
     {
+        $this->aux_upgrade_0142();
+        
         // configuration des Search Kit - Formulaires (Formulaire Quartier)
+        // n'est plus nécessaire dans l'installation depuis la version 1.46
         $searchReportsF = new CRM_Civiparoisse_Formulaires_Config_SearchKitConfig0142();
         $searchReportsF->run();
         // configuration des Search Kit - Reports (Prochains Anniversaires)
         $searchReportsR = new CRM_Civiparoisse_Reports_Config_SearchKitConfig0142();
         $searchReportsR->run();
-
-
-        // création du formulaire et installation du dashboard Prochains anniversaires
-        $formCreation = new CRM_Civiparoisse_Formulaires_Config_FormsConfig0142();
-        $formCreation->run();
-        $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
-        $annivDashlet->installDashlet();
 
         return true;
 
@@ -168,24 +191,8 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
             'Civip_Individus_Sans_Genre',
             'Civip_Individus_Sans_Membre',
         ];
+        $this->deleteOldSearchKits($listeSearchKitASupprimer);
         
-        foreach ($listeSearchKitASupprimer as $nomASupprimer) {
-            
-            $verificationExistenceSK = \Civi\Api4\SavedSearch::get()
-                ->setCheckPermissions(false)
-                ->addSelect('id')
-                ->addWhere('name', '=', $nomASupprimer)
-                ->execute();
-
-            if (!empty ($verificationExistenceSK)) {
-                \Civi\Api4\SavedSearch::delete()
-                    ->setCheckPermissions(false)
-                    ->addWhere('name', '=', $nomASupprimer)
-                    ->execute();
-            }
-            
-        }
-
         \Civi\Api4\System::flush()
             ->setCheckPermissions(false)
             ->execute();
@@ -194,8 +201,28 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
   }
 
-/* Commentaires à enlever pour activer la prochaine version
   public function upgrade_0146() {
+    // Suppression des SearchKit pour les pages Rapports / Listes (suite mise en place nouveau système)
+    // Supprime également les SearchDisplay et les Afform associés
+    // Vide les caches pour initialiser les nouvelles pages Listes
+
+    $listeSearchKitASupprimer = [
+        'Civip_Anniversaires_Moins_18_ans',
+        'Civip_Anniversaires_Plus_75_ans',
+        'Civip_Foyers_Paroissiens',
+        'Civip_Liste_Electorale',
+        'Civip_Nouveaux_Arrivants',
+        'Prochains_Anniversaires',
+        'Liste_des_Quartiers',
+    ];
+    $this->deleteOldSearchKits($listeSearchKitASupprimer);
+    
+    return true;
+
+  }
+
+/* Commentaires à enlever pour activer la prochaine version
+  public function upgrade_0147() {
     //
 
     

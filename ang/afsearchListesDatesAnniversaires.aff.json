@@ -1,0 +1,19 @@
+{
+    "type": "search",
+    "requires": [],
+    "entity_type": null,
+    "join_entity": null,
+    "title": "Liste des Dates d'anniversaires",
+    "description": "",
+    "is_dashlet": false,
+    "is_public": false,
+    "is_token": false,
+    "contact_summary": null,
+    "summary_contact_type": null,
+    "icon": "fa-list-alt",
+    "server_route": "civicrm/listes-dates-anniversaire",
+    "permission": "access CiviCRM",
+    "redirect": null,
+    "create_submission": false,
+    "navigation": null
+}

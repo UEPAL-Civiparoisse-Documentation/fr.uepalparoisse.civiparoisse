@@ -1,5 +1,8 @@
 <?php
 
+// Fichier devenu inutile depuis la version 1.46.
+// Conservé pour les éventuels upgrades d'anciennes versions
+
 class CRM_Civiparoisse_Reports_Config_Parameters_ListeElectorale extends CRM_Civiparoisse_SavedSearch_BaseParameter
 {
 

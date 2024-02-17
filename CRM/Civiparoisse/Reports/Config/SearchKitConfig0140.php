@@ -1,5 +1,8 @@
 <?php
 
+// Fichier devenus inutile depuis la version 1.46.
+// Conservé pour les éventuels upgrades d'anciennes versions
+
 class CRM_Civiparoisse_Reports_Config_SearchKitConfig0140
 {
 
