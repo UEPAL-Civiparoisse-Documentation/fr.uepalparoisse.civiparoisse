@@ -4,18 +4,15 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 
 return [
   [
-    'name' => 'SavedSearch_Civip_Liste_Quartiers',
+    'name' => 'SavedSearch_Civip_Liste_Import_Paroisses',
     'entity' => 'SavedSearch',
     'cleanup' => 'always',
     'update' => 'always',
     'params' => [
       'version' => 4,
-      'match' => [
-        'name'
-      ],
       'values' => [
-        'name' => 'Civip_Liste_Quartiers',
-        'label' => 'Liste des Quartiers',
+        'name' => 'Civip_Liste_Import_Paroisses',
+        'label' => 'Liste des Paroisses',
         'form_values' => null,
         'mapping_id' => null,
         'search_custom_id' => null,
@@ -25,14 +22,14 @@ return [
           'select' => [
             'id',
             'label',
-            'is_active',
+            'value',
           ],
           'orderBy' => [],
           'where' => [
             [
               'option_group_id:name',
               '=',
-              'quartier',
+              'liste_paroisses',
             ],
           ],
           'groupBy' => [],
@@ -40,21 +37,21 @@ return [
           'having' => [],
         ],
         'expires_date' => null,
-        'description' => 'Liste des Quartiers, pour modifications',
+        'description' => 'Liste des Paroisses, pour utilisation lors des imports de données',
       ],
     ],
   ],
   [
-    'name' => 'SavedSearch_Civip_Liste_Quartiers_SearchDisplay_Civip_Liste_Quartiers_Table',
+    'name' => 'SavedSearch_Civip_Liste_Import_Paroisses_SearchDisplay_Civip_Liste_Import_Paroisses_Table',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
     'update' => 'always',
     'params' => [
       'version' => 4,
       'values' => [
-        'name' => 'Civip_Liste_Quartiers_Table',
-        'label' => 'Liste des Quartiers',
-        'saved_search_id.name' => 'Civip_Liste_Quartiers',
+        'name' => 'Civip_Liste_Import_Paroisses_Table',
+        'label' => 'Liste des Paroisses',
+        'saved_search_id.name' => 'Civip_Liste_Import_Paroisses',
         'type' => 'table',
         'settings' => [
           'description' => null,
@@ -65,11 +62,9 @@ return [
             ],
           ],
           'actions' => [
-            'enable',
             'download',
-            'disable',
           ],
-          'limit' => 100,
+          'limit' => 50,
           'classes' => [
             'table',
             'table-striped',
@@ -82,21 +77,25 @@ return [
           'columns' => [
             [
               'type' => 'field',
-              'key' => 'label',
-              'dataType' => 'String',
-              'label' => 'Nom du Quartier',
+              'key' => 'id',
+              'dataType' => 'Integer',
+              'label' => 'Id. du choix',
               'sortable' => true,
-              'editable' => true,
             ],
             [
               'type' => 'field',
-              'key' => 'is_active',
-              'dataType' => 'Boolean',
-              'label' => 'Visible ? (Oui/Non)',
+              'key' => 'label',
+              'dataType' => 'String',
+              'label' => "Libellé de l'élément de liste de choix",
               'sortable' => true,
-              'editable' => true,
             ],
-
+            [
+              'type' => 'field',
+              'key' => 'value',
+              'dataType' => 'String',
+              'label' => 'Élément de liste de choix',
+              'sortable' => true,
+            ],
           ],
           'placeholder' => 5,
           'headerCount' => true,

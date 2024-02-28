@@ -10,6 +10,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Liste_Foyers_Paroissiens',
         'label' => 'Foyers Paroissiens',

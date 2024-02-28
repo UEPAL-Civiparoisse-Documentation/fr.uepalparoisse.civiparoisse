@@ -10,6 +10,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Individus_Majeur_ChezParents',
         'label' => 'Individus Majeur chez leurs Parents',
@@ -94,6 +97,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Individus_Majeur_ChezParents_Table',
         'label' => 'Individus Majeurs Chez leurs Parents',

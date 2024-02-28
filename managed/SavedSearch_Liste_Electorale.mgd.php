@@ -10,6 +10,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Liste_Electorale',
         'label' => 'Liste Electorale',
@@ -132,6 +135,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Liste_Electorale_Table',
         'label' => 'Liste Electorale Table',

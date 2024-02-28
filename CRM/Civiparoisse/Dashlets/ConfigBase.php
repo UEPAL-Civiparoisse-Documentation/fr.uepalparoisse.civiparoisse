@@ -142,6 +142,21 @@ abstract class CRM_Civiparoisse_Dashlets_ConfigBase
     }
 
     /**
+     * Fonction de suppression de dashlet
+     *
+     */
+    public function uninstallDashlet(): void
+    {
+        $name=$this->retrieveDashletName();
+        civicrm_api4('Dashboard','delete',[
+           'where' =>[
+                ['name','=',$name]
+             ],
+           'checkPermissions'=>false
+           ]);
+
+    }
+    /**
      * Fonction qui affiche le Dashlet CiviParoisse dans les Dashboard
      *
      */

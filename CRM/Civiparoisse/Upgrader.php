@@ -5,7 +5,7 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 /**
  * Collection of upgrade steps.
  */
-class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base 
+class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 {
 
     // By convention, functions that look like "function upgrade_NNNN()" are
@@ -44,7 +44,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         $this->upgrade_0145();
         
         // installation de l'upgrade_0146
-        $this->upgrade_0146();
+        $this->aux_upgrade_0146();
 
         /* Commentaires à enlever pour activer la prochaine version
             // installation de l'upgrade_0147
@@ -143,7 +143,6 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     public function upgrade_0142()
     {
         $this->aux_upgrade_0142();
-        
         // configuration des Search Kit - Formulaires (Formulaire Quartier)
         // n'est plus nécessaire dans l'installation depuis la version 1.46
         $searchReportsF = new CRM_Civiparoisse_Formulaires_Config_SearchKitConfig0142();
@@ -201,6 +200,13 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
   }
 
+  public function aux_upgrade_0146(){
+  //installation du nouveau dashlet anniversaire
+
+   $annivDashletMgd= new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversairesMgd();
+   $annivDashletMgd->installDashlet();
+  }
+
   public function upgrade_0146() {
     // Suppression des SearchKit pour les pages Rapports / Listes (suite mise en place nouveau système)
     // Supprime également les SearchDisplay et les Afform associés
@@ -216,7 +222,19 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         'Liste_des_Quartiers',
     ];
     $this->deleteOldSearchKits($listeSearchKitASupprimer);
-    
+
+    \Civi\Api4\System::flush()
+        ->setCheckPermissions(false)
+        ->execute();
+
+    // Suppression du vieil dashlet anniversaire
+    $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
+    $annivDashlet->uninstallDashlet();
+
+//en théorie, on aurait encore en plus désinstallé l'afform des anniversaires 
+
+    $this->aux_upgrade_0146();
+
     return true;
 
   }
@@ -225,7 +243,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
   public function upgrade_0147() {
     //
 
-    
+
     return true;
 
   }

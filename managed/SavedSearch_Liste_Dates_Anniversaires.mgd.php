@@ -10,6 +10,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Liste_Dates_Anniversaires',
         'label' => "Dates d'anniversaires",
@@ -94,6 +97,9 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'Civip_Liste_Dates_Anniversaires_Table',
         'label' => "Dates d'anniversaires Table",

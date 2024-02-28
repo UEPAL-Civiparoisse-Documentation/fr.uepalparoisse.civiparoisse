@@ -71,7 +71,7 @@ function civiparoisse_civicrm_dashboard_defaults($availableDashlets, &$defaultDa
     $contactID = CRM_Core_Session::singleton()->get('userID');
     $dashlets = [
         new CRM_Civiparoisse_Dashlets_ConfigSommaire(),
-        new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires()
+        new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversairesMgd()
     ];
     foreach ($dashlets as $dashlet) {
         $defaults = $dashlet->computeDashletDefaults($contactID);
