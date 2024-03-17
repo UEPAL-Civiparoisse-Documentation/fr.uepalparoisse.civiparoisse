@@ -1,4 +1,9 @@
 {
 "name":"uepal/fr.uepalparoisse.civiparoisse",
-"type":"civicrm-ext"
+"description": "Extension CiviCRM Uepal-Civiparoisse",
+"license": "AGPL-3.0",
+"type":"civicrm-ext",
+"require":{
+  "psr/log":"~1.0 || ~2.0 || ~3.0"
+}
 }

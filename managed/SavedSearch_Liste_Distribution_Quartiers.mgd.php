@@ -15,7 +15,7 @@ return [
       ],
       'values' => [
         'name' => 'Civip_Liste_Distribution_Quartiers',
-        'label' => 'Liste de Distribution par Quartiers',
+        'label' => 'Liste des Foyers par Quartiers',
         'form_values' => null,
         'mapping_id' => null,
         'search_custom_id' => null,
@@ -31,18 +31,14 @@ return [
             'Contact_Address_contact_id_01.city',
             'Contact_Address_contact_id_01.country_id:label',
             'Contact_Phone_contact_id_01.phone',
-           ],
+            'complements_foyer.mode_distribution:label',
+          ],
           'orderBy' => [],
           'where' => [
             [
               'contact_type:name',
               '=',
               'Household',
-            ],
-            [
-              'complements_foyer.mode_distribution:name',
-              '=',
-              'Distribu_',
             ],
           ],
           'groupBy' => [],
@@ -84,7 +80,7 @@ return [
     ],
   ],
   [
-    'name' => 'SavedSearch_Civip_Liste_Distribution_Quartiers_SearchDisplay_CivipCivip_Liste_Distribution_Quartiers_Table',
+    'name' => 'SavedSearch_Civip_Liste_Distribution_Quartiers_SearchDisplay_Civip_Liste_Distribution_Quartiers_Table',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
     'update' => 'always',
@@ -98,6 +94,10 @@ return [
         'settings' => [
           'description' => null,
           'sort' => [
+            [
+              'complements_foyer.mode_distribution',
+              'ASC',
+            ],
             [
               'complements_foyer.quartier:label',
               'ASC',
@@ -127,6 +127,13 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
+            [
+              'type' => 'field',
+              'key' => 'complements_foyer.mode_distribution:label',
+              'dataType' => 'String',
+              'label' => 'Mode de distribution',
+              'sortable' => TRUE,
+            ],
             [
               'type' => 'field',
               'key' => 'complements_foyer.quartier:label',

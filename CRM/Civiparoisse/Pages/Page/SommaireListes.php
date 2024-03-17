@@ -5,16 +5,8 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 /* TODO:
 - Passer en Managed
   -+ Liste des Quartiers (nouvel Issue) VOIR comment récupérer le nom et pas la description poiur le filtre / Changer filtre forms (pas possible pour le moment) / Bouton Rajouter un Quartier
-  - Foyers sans courriels
-  - Prochains anniversaires
 - Tester
   - Trombinoscope
-- Rajouter un reset des Filtres
-  - Prochains anniversaires ?
-  - Foyers sans courriels
-- Revoir les Actions pour chaque liste
-  - Prochains anniversaires
-  - Foyers sans courriels
 - Rajouter la description du tableau dans le survol de la souris
 */
 
@@ -27,6 +19,43 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
 
 // $arrayListes = Array (Type de Groupe, Type de Sous-Groupe, nom du SearchKit, icône associé au Search Kit)
     $arrayListes = [
+      'Paroisse' => [
+        'Paroissiens' => [
+          'Civip_Liste_Dates_Anniversaires' => 'fa-birthday-cake',
+          'Civip_Liste_Nouveaux_arrivants' => 'fa-road',
+          'Civip_Liste_Foyers_Paroissiens' => 'fa-envelope-open',
+          // Liste des Grands Anniversaires
+        ],
+        'Registre' => [
+          // Liste des naissances
+          // Liste des baptêmes
+          // Listes des présentations
+          // Liste des confirmations
+          // Liste des mariages
+          // Liste des décès
+        ],
+        'Elections' => [
+          'Civip_Liste_Electorale' => 'fa-envelope-open',
+        ],
+      ],
+      'Communication' => [
+        'Foyers' => [
+          // Foyers ayant une adresse mail
+          'Civip_Liste_Foyers_Sans_Mails' => 'fa-window-close-o',
+        ],
+        'Individus' => [
+          // Individus ayant une adresse mail
+          // Individus n'ayant pas d'adresse mail
+
+        ],
+        //'Groupes'
+
+        'Distribution' => [
+          'Civip_Liste_Distribution_Quartiers' => 'fa-map-o',
+          // Liste de distribution par la Poste
+          'Civip_Liste_Quartiers' => 'fa-map-signs',
+        ],
+      ],
       'Groupes' => [
         'Participants' => [
           // Liste participants
@@ -52,44 +81,6 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         'Administration' => [
           // Liste des personnes ayant accès à CiviParoisse
           // Liste des personnes dans la corbeille
-        ],
-
-      ],
-      'Paroisse' => [
-        'Registre' => [
-          // Liste des naissances
-          // Liste des baptêmes
-          // Listes des présentations
-          // Liste des confirmations
-          // Liste des mariages
-          // Liste des décès
-        ],
-        'Elections' => [
-          'Civip_Liste_Electorale' => 'fa-envelope-open',
-        ],
-        'Paroissiens' => [
-          'Civip_Liste_Dates_Anniversaires' => 'fa-birthday-cake',
-          'Civip_Liste_Nouveaux_arrivants' => 'fa-road',
-          'Civip_Liste_Foyers_Paroissiens' => 'fa-envelope-open',
-          // Liste des Grands Anniversaires
-        ],
-      ],
-      'Communication' => [
-        'Foyers' => [
-          // Foyers ayant une adresse mail
-          // Foyers n'ayant pas d'adresse mail
-        ],
-        'Individus' => [
-          // Individus ayant une adresse mail
-          // Individus n'ayant pas d'adresse mail
-
-        ],
-        //'Groupes'
-
-        'Distribution' => [
-          'Civip_Liste_Distribution_Quartiers' => 'fa-map-o',
-          // Liste de distribution par la Poste
-          'Civip_Liste_Quartiers' => 'fa-map-signs',
         ],
       ],
       // Evénements

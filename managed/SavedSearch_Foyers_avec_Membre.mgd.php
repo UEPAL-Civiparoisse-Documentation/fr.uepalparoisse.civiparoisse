@@ -12,7 +12,7 @@ return [
       'version' => 4,
       'values' => [
         'name' => 'Civip_Foyers_avec_Statut_Membre',
-        'label' => 'Foyers avec Statut Membre',
+        'label' => 'Foyers avec Statut Adhésion',
         'form_values' => null,
         'mapping_id' => null,
         'search_custom_id' => null,

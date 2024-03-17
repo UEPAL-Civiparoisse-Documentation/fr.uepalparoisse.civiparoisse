@@ -31,8 +31,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         // installation de l'upgrade_0141
         $this->upgrade_0141();
 
-        // installation de l'upgrade_0142
-        $this->aux_upgrade_0142();
+        // installation de l'upgrade_0142 : plus nécessaire
 
         // installation de l'upgrade_0143
         $this->upgrade_0143();
@@ -54,6 +53,9 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     }
 
+// Fonctions aux_upgrade_xx sont communes à l'installation et à l'upgrade.
+// Fonctions upgrade_xx sont appellés lors d'une montée de version
+
     protected function aux_upgrade_0140(){
 
         // paramétrage des travaux du Cron
@@ -70,15 +72,6 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     }
 
-    protected function aux_upgrade_0142(){
-
-        // création du formulaire et installation du dashboard Prochains anniversaires
-        $formCreation = new CRM_Civiparoisse_Formulaires_Config_FormsConfig0142();
-        $formCreation->run();
-        $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
-        $annivDashlet->installDashlet();
-
-    }
 
     // Suppression des anciens SearchKit installés lors des upgrades précedents (suite mise en place nouveau système fin 2023)
     // Supprime également les SearchDisplay et les Afform associés
@@ -142,7 +135,12 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
     public function upgrade_0142()
     {
-        $this->aux_upgrade_0142();
+        // création du formulaire et installation du dashboard Prochains anniversaires
+        $formCreation = new CRM_Civiparoisse_Formulaires_Config_FormsConfig0142();
+        $formCreation->run();
+        $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
+        $annivDashlet->installDashlet();
+
         // configuration des Search Kit - Formulaires (Formulaire Quartier)
         // n'est plus nécessaire dans l'installation depuis la version 1.46
         $searchReportsF = new CRM_Civiparoisse_Formulaires_Config_SearchKitConfig0142();

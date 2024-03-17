@@ -265,7 +265,7 @@ return [
               'type' => 'field',
               'key' => 'Contact_Membership_contact_id_01.membership_type_id:label',
               'dataType' => 'Integer',
-              'label' => 'Statut paroissial',
+              'label' => 'Lien paroissial',
               'sortable' => true,
             ],
             [

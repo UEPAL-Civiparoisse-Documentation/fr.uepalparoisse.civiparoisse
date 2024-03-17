@@ -12,7 +12,7 @@ return [
       'version' => 4,
       'values' => [
         'name' => 'Civip_Individus_sans_Statut_Membre',
-        'label' => 'Individus sans Statut Membre',
+        'label' => 'Individus sans Lien avec la Paroisse',
         'form_values' => null,
         'mapping_id' => null,
         'search_custom_id' => null,

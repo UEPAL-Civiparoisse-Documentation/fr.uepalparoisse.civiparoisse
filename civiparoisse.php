@@ -92,3 +92,33 @@ function civiparoisse_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle)
         $bundle->addStyleFile(E::LONG_NAME, 'css/surcharge-corestyles.css');
     }
 }
+
+function civiparoisse_civicrm_postSave_civicrm_job_log($dao)
+{
+ if($dao!=null && $dao->description!=null)
+ {
+   CRM_Civiparoisse_Logger::getStdoutLogger()->log('info',$dao->description,['dao'=>$dao]);
+
+   if(strpos($dao->description,'Failure')!==FALSE)
+   {
+     CRM_Civiparoisse_Logger::getStderrLogger()->log('error',$dao->description,['dao'=>$dao]);
+   }
+ }
+}
+
+function civiparoisse_civicrm_postSave_civicrm_system_log($dao)
+{
+  if($dao!=null && $dao->message!=null && $dao->level!=null)
+  {
+    switch($dao->level)
+    {
+      case 'notice':
+      case 'info':
+      case 'debug':
+        CRM_Civiparoisse_Logger::getStdoutLogger()->log($dao->level,$dao->message,['dao'=>$dao]);
+        break;
+      default:
+        CRM_Civiparoisse_Logger::getStderrLogger()->log($dao->level,$dao->message,['dao'=>$dao]);
+    }
+  }
+}
