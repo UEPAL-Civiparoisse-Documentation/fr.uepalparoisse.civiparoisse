@@ -19,7 +19,7 @@ class CRM_Civiparoisse_Logger extends AbstractLogger
         'message'=>$message,
         'context'=>$context
       ];
-    $json_encoded=json_encode($logMessage);
+    $json_encoded=json_encode($logMessage).PHP_EOL;
     $fd=fopen($this->_output,'a');
     fwrite($fd,$json_encoded);
     fflush($fd);

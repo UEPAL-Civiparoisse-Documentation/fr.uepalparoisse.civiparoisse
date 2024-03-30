@@ -97,7 +97,7 @@ class CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse
             [
                 'label' => E::ts('Anniversaires'),
                 'name' => 'menu-anniversaires',
-                'url' => 'civicrm/prochains-anniversaires-dashboard',
+                'url' => 'civicrm/prochains_anniversaires',
                 'navID' => $indexMenu++,
                 'active' => 1,
                 'separator' => 1,
