@@ -242,20 +242,11 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
   public function upgrade_0147(){
     // Ajout du groupe Désabonnement
     CRM_Civiparoisse_Parametres_ConfigDesabonnement::createDesabonnementGroup();
-
-    // Vidage des caches pour installer les nouvelles listes
-    \Civi\Api4\System::flush()
-        ->setCheckPermissions(false)
-        ->execute();
-
-    return true;
-  }
-
-  public function upgrade_0147() {
-    // Nouvelles listes : Conseil Presbytéral
-    // création du Groupe Conseil Presbytéral
+ 
+    // Création du Groupe Conseil Presbytéral
     CRM_Civiparoisse_Parametres_Config0147::createConseilPresbyteralGroup();
 
+    // Vidage des caches pour installer les nouvelles listes (Conseil Presbytéral et Listes de naissance)
     \Civi\Api4\System::flush()
         ->setCheckPermissions(false)
         ->execute();
