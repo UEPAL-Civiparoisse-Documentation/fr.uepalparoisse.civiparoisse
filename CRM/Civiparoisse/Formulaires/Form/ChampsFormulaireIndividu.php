@@ -43,7 +43,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuGeneraux
     /**
      * Function addNomNaissance, appelée par le Formulaire Individu
      * Permet de renseigner
-     *  le nom de jeune fille
+     *  le nom de naissance
      *
      * @param CRM_Core_Form $form
      * @access public
@@ -55,7 +55,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuGeneraux
         $form->add(
             'text',
             'nom_naissance',
-            ts('Nom de jeune fille'));
+            ts('Nom de naissance'));
     }
 
     /**
@@ -77,7 +77,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuGeneraux
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividu::INDIVIDU_DATE_RANGE)
         );
     }
@@ -166,7 +166,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -234,7 +234,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -283,7 +283,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -350,7 +350,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -418,7 +418,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -585,7 +585,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuSpecifiques
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -627,7 +627,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuSpecifiques
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }
@@ -651,7 +651,7 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuSpecifiques
             array('class' => 'some-css-class'),
             false,
             array('time' => false,
-                'date' => 'dd-mm-yy',
+                'date' => 'dd/mm/yy',
                 'yearRange' => self::INDIVIDU_DATE_RANGE)
         );
     }

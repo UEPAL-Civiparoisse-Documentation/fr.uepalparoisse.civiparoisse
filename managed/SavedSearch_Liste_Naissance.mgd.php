@@ -4,7 +4,7 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 
 return [
   [
-    'name' => 'SavedSearch_Civip_Liste_Dates_Anniversaires',
+    'name' => 'SavedSearch_Civip_Liste_Naissance',
     'entity' => 'SavedSearch',
     'cleanup' => 'always',
     'update' => 'always',
@@ -14,8 +14,8 @@ return [
         'name'
       ],
       'values' => [
-        'name' => 'Civip_Liste_Dates_Anniversaires',
-        'label' => "Dates d'anniversaires",
+        'name' => 'Civip_Liste_Naissance',
+        'label' => 'Liste de Naissance',
         'form_values' => null,
         'mapping_id' => null,
         'search_custom_id' => null,
@@ -24,26 +24,21 @@ return [
           'version' => 4,
           'select' => [
             'id',
-            'display_name',
-            'birth_date',
+            'sort_name',
             'age_years',
+            'birth_date',
             'address_primary.street_address',
             'address_primary.postal_code',
             'address_primary.city',
             'address_primary.country_id:label',
-            'email_primary.email',
             'phone_primary.phone',
-            'Contact_Membership_contact_id_01.membership_type_id:label',
-            'GROUP_CONCAT(DISTINCT Contact_GroupContact_Group_01.title) AS GROUP_CONCAT_Contact_GroupContact_Group_01_title',
-            'MONTH(birth_date) AS MONTH_birth_date',
-            'EXTRACT(DAY FROM birth_date) AS EXTRACT_birth_date',
+            'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.sort_name ORDER BY Contact_RelationshipCache_Contact_01.sort_name ASC) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_sort_name',
           ],
           'orderBy' => [],
           'where' => [
             [
-              'contact_type:name',
-              '=',
-              'Individual',
+              'birth_date',
+              'IS NOT EMPTY',
             ],
             [
               'is_deceased',
@@ -61,44 +56,44 @@ return [
           ],
           'join' => [
             [
-              'Membership AS Contact_Membership_contact_id_01',
+              'Address AS Contact_Address_contact_id_01',
               'LEFT',
               [
                 'id',
                 '=',
-                'Contact_Membership_contact_id_01.contact_id',
+                'Contact_Address_contact_id_01.contact_id',
+              ],
+              [
+                'Contact_Address_contact_id_01.is_primary',
+                '=',
+                true,
               ],
             ],
             [
-              'Group AS Contact_GroupContact_Group_01',
+              'Contact AS Contact_RelationshipCache_Contact_01',
               'LEFT',
-              'GroupContact',
+              'RelationshipCache',
               [
                 'id',
                 '=',
-                'Contact_GroupContact_Group_01.contact_id',
+                'Contact_RelationshipCache_Contact_01.far_contact_id',
               ],
               [
-                'Contact_GroupContact_Group_01.status:name',
+                'Contact_RelationshipCache_Contact_01.near_relation:name',
                 '=',
-                '"Added"',
-              ],
-              [
-                'Contact_GroupContact_Group_01.is_hidden', 
-                '=', 
-                FALSE,
+                '"Parent of"',
               ],
             ],
           ],
           'having' => [],
         ],
         'expires_date' => null,
-        'description' => "Affichage des dates d'anniversaires",
+        'description' => 'Affichage des nouveaux nés',
       ],
     ],
   ],
   [
-    'name' => 'SavedSearch_Civip_Liste_Dates_Anniversaires_SearchDisplay_Civip_Liste_Dates_Anniversaires_Table',
+    'name' => 'SavedSearch_Civip_Liste_Naissance_SearchDisplay_Civip_Liste_Naissance_Table',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
     'update' => 'always',
@@ -108,16 +103,16 @@ return [
         'name'
       ],
       'values' => [
-        'name' => 'Civip_Liste_Dates_Anniversaires_Table',
-        'label' => "Dates d'anniversaires Table",
-        'saved_search_id.name' => 'Civip_Liste_Dates_Anniversaires',
+        'name' => 'Civip_Liste_Naissance_Table',
+        'label' => 'Liste de Naissance Table',
+        'saved_search_id.name' => 'Civip_Liste_Naissance',
         'type' => 'table',
         'settings' => [
           'description' => null,
           'sort' => [
             [
-              'sort_name',
-              'ASC',
+              'birth_date',
+              'DESC',
             ],
           ],
           'actions' => [
@@ -142,10 +137,11 @@ return [
           'columns' => [
             [
               'type' => 'field',
-              'key' => 'display_name',
+              'key' => 'sort_name',
               'dataType' => 'String',
               'label' => 'Nom et Prénom',
               'sortable' => true,
+
               'link' => [
                 'path' => '',
                 'entity' => 'Contact',
@@ -163,16 +159,16 @@ return [
             ],
             [
               'type' => 'field',
-              'key' => 'birth_date',
-              'dataType' => 'Date',
-              'label' => 'Date de naissance',
+              'key' => 'age_years',
+              'dataType' => 'Integer',
+              'label' => 'Age (années)',
               'sortable' => true,
             ],
             [
               'type' => 'field',
-              'key' => 'age_years',
-              'dataType' => 'Integer',
-              'label' => 'Age (années)',
+              'key' => 'birth_date',
+              'dataType' => 'Date',
+              'label' => 'Date de naissance',
               'sortable' => true,
             ],
             [
@@ -205,45 +201,17 @@ return [
             ],
             [
               'type' => 'field',
-              'key' => 'email_primary.email',
-              'dataType' => 'String',
-              'label' => 'Courriel',
-              'sortable' => true,
-            ],
-            [
-              'type' => 'field',
               'key' => 'phone_primary.phone',
               'dataType' => 'String',
               'label' => 'Téléphone',
-              'sortable' => true,
+              'sortable' => TRUE,
             ],
             [
               'type' => 'field',
-              'key' => 'Contact_Membership_contact_id_01.membership_type_id:label',
-              'dataType' => 'Integer',
-              'label' => 'Lien paroissial',
-              'sortable' => true,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'GROUP_CONCAT_Contact_GroupContact_Group_01_title',
+              'key' => 'GROUP_CONCAT_Contact_RelationshipCache_Contact_01_sort_name',
               'dataType' => 'String',
-              'label' => 'Groupes',
+              'label' => 'Nom des parents',
               'sortable' => true,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'MONTH_birth_date',
-              'dataType' => 'Integer',
-              'label' => 'Mois de naissance',
-              'sortable' => TRUE,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'EXTRACT_birth_date',
-              'dataType' => 'Date',
-              'label' => 'Jour de naissance',
-              'sortable' => TRUE,
             ],
           ],
           'placeholder' => 5,

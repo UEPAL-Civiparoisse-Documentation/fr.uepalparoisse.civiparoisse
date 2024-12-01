@@ -3,42 +3,11 @@
 class CRM_Civiparoisse_Parametres_Config0141 extends CRM_Civiparoisse_Parametres_Config
 {
 
-// Création du groupe Désabonnement
+
+
     public static function createDesabonnementGroup()
     {
-        try {
-            $valueMailingList = \Civi\Api4\OptionValue::get()
-                ->setCheckPermissions(false)
-                ->addSelect('value')
-                ->addWhere('option_group_id:name', '=', 'group_type')
-                ->addWhere('name', '=', 'Mailing List')
-                ->execute()
-                ->first();
-
-
-            $createGroup = \Civi\Api4\Group::get()
-                ->setCheckPermissions(false)
-                ->addWhere('name', '=', 'desabonnements')
-                ->execute();
-
-        } catch (Exception $e) {
-
-            $createGroup = \Civi\Api4\Group::create()
-                ->setCheckPermissions(false)
-                ->addValue('title', 'Désabonnements')
-                ->addValue('name', 'desabonnements')
-                ->addValue('description', 'Liste des personnes ayant demandé un désabonnement aux envois de mailing')
-                ->addValue('is_active', true)
-                ->addValue('visibility', 'User and User Admin Only')
-                ->addValue('group_type', [
-                    $valueMailingList['value'],
-                ])
-                ->addValue('is_reserved', true)
-                ->addValue('is_hidden', false)
-                ->execute();
-        }
-
-        return $createGroup;
+        CRM_Civiparoisse_Parametres_ConfigDesabonnement::createDesabonnementGroup();
     }
 
 // Création du Champ Mode de Distribution sur les fiches Foyers

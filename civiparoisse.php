@@ -122,3 +122,23 @@ function civiparoisse_civicrm_postSave_civicrm_system_log($dao)
     }
   }
 }
+
+function civiparoisse_civicrm_angularModules(&$angularModules)
+{
+return;
+    $filepath=implode(DIRECTORY_SEPARATOR,
+              [__DIR__,
+               'ang',
+              'searchDisplayPaged',
+              'searchAdminDisplayPaged.component.js']);
+echo "FILEPATH : ".$filepath.PHP_EOL;
+    if(array_key_exists('crmSearchAdmin',$angularModules) 
+       && array_key_exists('js',$angularModules['crmSearchAdmin']))
+    {
+        $angularModules['crmSearchAdmin']['js'][]=$filepath;
+    }
+    else
+    {
+        throw new Exception('crmSearchAdmin not found');
+    }
+}

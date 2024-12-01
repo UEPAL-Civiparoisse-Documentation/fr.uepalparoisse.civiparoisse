@@ -91,11 +91,11 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     ->addValue('organization_name', $params['organization_name'])
                     ->execute();
 
-                CRM_Core_Session::setStatus(' Organization in database saved', 'Organization saved', 'success');
+                CRM_Core_Session::setStatus('La nouvelle Entreprise/Organisation a été créée correctement', 'Organisation enregistré', 'success');
 
                 $newOrganizationId = $newOrganization->first()['id']; // Pour utilisation dans les API suivantes
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Organization in database', 'NOT Saved Organization', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création de l\'Entreprise/Organisation', 'Organisaton NON enregistrée', 'error');
             }
         }
         return $newOrganizationId;
@@ -120,12 +120,10 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'state_province_id' => $params['state_province_id'],
                     'country_id' => $params['country_id'],
                 ]);
-                CRM_Core_Session::setStatus(' Organization adresse in database saved', 'Adresse saved', 'success');
+                CRM_Core_Session::setStatus('L\'adresse de l\'Organisation a été enregistrée correctement', 'Adresse enregistrée', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
                 CRM_Core_Session::setStatus(
-                    'Error saving Organization adresse in database',
-                    'NOT Saved Adresse',
-                    'error');
+                    'Une erreur s\'est produite lors de la création de l\'adresse', 'Adresse NON enregistrée', 'error');
             }
         }
 
@@ -145,9 +143,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'phone_type_id' => 'Phone',
                     'phone' => $params['phone'],
                 ]);
-                CRM_Core_Session::setStatus(' Organization Phone in database saved', 'Phone saved', 'success');
+                CRM_Core_Session::setStatus('Le téléphone de l\'Organisation a été enregistré correctement', 'Téléphone enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Organization Phone in database', 'NOT Saved Phone', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du téléphone', 'Téléphone NON enregistré', 'error');
             }
         }
     }
@@ -165,9 +163,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'phone_type_id' => 'Fax',
                     'phone' => $params['fax'],
                 ]);
-                CRM_Core_Session::setStatus(' Organization Fax in database saved', 'Fax saved', 'success');
+                CRM_Core_Session::setStatus('Le fax de l\'Organisation a été enregistré correctement', 'Fax enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Organization Fax in database', 'NOT Saved Fax', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du fax', 'Fax NON enregistré', 'error');
             }
         }
     }
@@ -185,12 +183,10 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'is_primary' => 1,
                     'location_type_id' => 'Travail',
                 ]);
-                CRM_Core_Session::setStatus(' Organization Contact Mail in database saved', 'Mail saved', 'success');
+                CRM_Core_Session::setStatus('Le courriel de l\'Organisation a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
                 CRM_Core_Session::setStatus(
-                    'Error saving Organization Contact Mail in database',
-                    'NOT Saved Mail',
-                    'error');
+                    'Une erreur s\'est produite lors de l\'enregistrement du courriel', 'Courriel NON enregistré', 'error');
             }
         }
     }
@@ -208,11 +204,10 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'is_primary' => 1,
                     'website_type_id' => 'Work', // travail
                 ]);
-                CRM_Core_Session::setStatus(' Organization Website in database saved', 'Website saved', 'success');
+                CRM_Core_Session::setStatus('Le site Web de l\'Organisation a été enregistré correctement', 'Site Web enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
                 CRM_Core_Session::setStatus(
-                    'Error saving Organization Website in database',
-                    'NOT Saved Website',
+                    'Une erreur s\'est produite lors de l\'enregistrement du site Web', 'Site Web NON enregistré',
                     'error');
             }
         }
@@ -232,9 +227,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'entity_id' => $newOrganizationId,
                     'tag_id' => $getoptionsTags,
                 ]);
-                CRM_Core_Session::setStatus('Tags in database saved', 'Tags saved', 'success');
+                CRM_Core_Session::setStatus('Les Etiquettes ont été enregistrées correctement', 'Etiquettes enregistrées', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Tags in database', 'NOT Saved Tags', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création des Etiquettes', 'Etiquettes NON enregistrées', 'error');
             }
         }
     }

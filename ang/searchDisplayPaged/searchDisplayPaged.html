@@ -1,0 +1,54 @@
+<div class="crm-search-display search-display-paged">
+
+<div class="alert alert-info crm-search-display-description" ng-if="$ctrl.settings.description">{{:: $ctrl.settings.description }}</div>
+
+<div class="alert alert-info" ng-if="$ctrl.isBreakable()==false">
+{{:: ts('Warning : current sort criterias do not allow breaking rows. Please change the sort criterias.') }}
+</div>
+<fieldset>
+<label for="ctrl-settings-maxsortgroup">{{:: ts('MaxSortGroup') }}</label> <input  id="ctrl-settings-maxsortgroup" type="number" min="0" step="1" max="{{:: $ctrl.settings.columns.length}}" class="form-control ng-scope" ng-model="$ctrl.settings.maxsortgroup" ng-model-options="{allowInvalid:false,debounce: 300}" required ng-required>
+</fieldset>
+<h2>{{:: ts('Sort Criterias') }}</h2>
+  <ul ng-if="$ctrl.sort.length>0">
+        <li  ng-repeat="sortidx in $ctrl.sort">{{:: $ctrl.getColByKey(sortidx[0]).label }} : {{:: sortidx[1]=="ASC"?ts("ASC"):ts("DESC") }}</li>
+  </ul>
+
+<h2>{{:: ts('Criteria chooser') }}</h2>
+  <table class="{{:: $ctrl.settings.classes.join(' ') }}">
+    <thead>
+      <tr>
+        <th ng-repeat="col in $ctrl.settings.columns" ng-click="$ctrl.setSort(col, $event)" class="{{:: $ctrl.isSortable(col) ? 'crm-sortable-col' : ''}}" title="{{:: $ctrl.isSortable(col) ? ts('Click to sort results (shift-click to sort by multiple).') : '' }}">
+          <i ng-if=":: $ctrl.isSortable(col)" class="crm-i crm-search-table-column-sort-icon {{ $ctrl.getSort(col) }}"></i>
+          <span class="crm-search-display-table-column-label">{{:: col.label }}</span>
+        </th>
+      </tr>
+    </thead>
+  </table>
+
+  <h2>{{:: ts('Results')}}</h2>
+  <div ng-repeat="break in $ctrl.breaks" class="civiparoisse-paged-result">
+    <div class="civiparoisse-print-title">
+      <h3>{{:: $ctrl.display}}</h3>
+    <h4>{{:: $ctrl.settings.description}}</h4>
+    </div>
+    <ul>
+      <div ng-if="$ctrl.isBreakable()" ng-repeat="sortidx in $ctrl.sort">
+        <li  ng-if="$index<$ctrl.settings.maxsortgroup">{{:: $ctrl.getColByKey(sortidx[0]).label  }} = {{:: $ctrl.results[break[0]]['data'][sortidx[0]] }}</li>
+	</div>
+    </ul>
+    <table class="civiparoisse-paged-table">
+      <tr>
+        <th ng-repeat="col in $ctrl.settings.columns"><span class="crm-search-display-table-column-label">{{:: col.label }}</span></th>
+      </tr>
+      <tr ng-repeat="idx in break">
+	<td ng-repeat="col in $ctrl.settings.columns" class="{{:: col.alignment}}">
+             {{:: $ctrl.results[idx]['data'][col.key] }}
+        </td>
+
+      </tr>
+     </table>
+   </div>
+
+  </div>
+
+

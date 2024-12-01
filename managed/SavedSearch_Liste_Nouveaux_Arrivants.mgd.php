@@ -102,6 +102,11 @@ return [
                 '=',
                 '"Added"',
               ],
+              [
+                'Contact_GroupContact_Group_01.is_hidden', 
+                '=', 
+                FALSE,
+              ],
             ],
             [
               'Membership AS Contact_Membership_contact_id_01',

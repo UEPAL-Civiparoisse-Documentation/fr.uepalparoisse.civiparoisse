@@ -113,6 +113,11 @@ return [
                 '=',
                 '"Added"',
               ],
+              [
+                'Contact_RelationshipCache_Contact_01_Contact_GroupContact_Group_01.is_hidden', 
+                '=', 
+                FALSE,
+              ],
             ],
             [
               'Address AS Contact_Address_contact_id_01',

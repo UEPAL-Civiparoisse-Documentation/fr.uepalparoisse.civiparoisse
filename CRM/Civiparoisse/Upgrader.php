@@ -45,11 +45,13 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         // installation de l'upgrade_0146
         $this->aux_upgrade_0146();
 
-        /* Commentaires à enlever pour activer la prochaine version
-            // installation de l'upgrade_0147
-            $this->upgrade_0147();
-        Fin ligne à enlever */
+        // installation de l'upgrade_0147
+        $this->upgrade_0147();
         
+        /* Commentaires à enlever pour activer la prochaine version
+            // installation de l'upgrade_0148
+            $this->upgrade_0148();
+        Fin ligne à enlever */
 
     }
 
@@ -229,7 +231,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     $annivDashlet = new CRM_Civiparoisse_Dashlets_ConfigProchainsAnniversaires();
     $annivDashlet->uninstallDashlet();
 
-//en théorie, on aurait encore en plus désinstallé l'afform des anniversaires 
+//en théorie, on aurait encore en plus désinstallé l'afform des anniversaires
 
     $this->aux_upgrade_0146();
 
@@ -237,10 +239,47 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
   }
 
-/* Commentaires à enlever pour activer la prochaine version
-  public function upgrade_0147() {
-    //
+  public function upgrade_0147(){
+    // Ajout du groupe Désabonnement
+    CRM_Civiparoisse_Parametres_ConfigDesabonnement::createDesabonnementGroup();
 
+    // Vidage des caches pour installer les nouvelles listes
+    \Civi\Api4\System::flush()
+        ->setCheckPermissions(false)
+        ->execute();
+
+    return true;
+  }
+
+  public function upgrade_0147() {
+    // Nouvelles listes : Conseil Presbytéral
+    // création du Groupe Conseil Presbytéral
+    CRM_Civiparoisse_Parametres_Config0147::createConseilPresbyteralGroup();
+
+    \Civi\Api4\System::flush()
+        ->setCheckPermissions(false)
+        ->execute();
+
+    return true;
+
+  }
+
+/* Fonction annexe pour l'upgrade XXXXXXX
+    public function aux_upgrade_0148(){
+    //installation
+  
+    }
+Fin ligne à enlever */
+
+/* Commentaires à enlever pour activer la prochaine version
+  public function upgrade_0148() {
+
+    \Civi\Api4\System::flush()
+        ->setCheckPermissions(false)
+        ->execute();
+
+
+    $this->aux_upgrade_0148();
 
     return true;
 

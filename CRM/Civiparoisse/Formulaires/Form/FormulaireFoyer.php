@@ -103,9 +103,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
                 $listCustomFieldsHousehold["quartier"] => $params['quartier'],
                 $listCustomFieldsHousehold["mode_distribution"] => $params['mode_distribution'],
             ]);
-            CRM_Core_Session::setStatus(' Household in database saved', ' Household saved', 'success');
+            CRM_Core_Session::setStatus('Le nouveau Foyer a été crée correctement', 'Foyer enregistré', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Household in database', 'NOT Saved Household', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création du Foyer', 'Foyer NON enregistré', 'error');
         }
 
         $newHouseholdId = $newHousehold['id'];
@@ -125,9 +125,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
                 'state_province_id' => $params['state_province_id'],
                 'country_id' => $params['country_id'],
             ]);
-            CRM_Core_Session::setStatus(' Household adresse in database saved', ' Adresse saved', 'success');
+            CRM_Core_Session::setStatus('L\'adresse du Foyer a été enregistrée correctement', 'Adresse enregistrée', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Household adresse in database', 'NOT Saved Adresse', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création de l\'adresse', 'Adresse NON enregistrée', 'error');
         }
 
         $famille['household_adress_id'] = $newHouseholdAdress['id'];
@@ -141,9 +141,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
                 'phone_type_id' => 'Phone',
                 'phone' => $params['phone'],
             ]);
-            CRM_Core_Session::setStatus(' Household Phone in database saved', ' Phone saved', 'success');
+            CRM_Core_Session::setStatus('Le téléphone du Foyer a été enregistré correctement', 'Téléphone enregistré', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Household Phone in database', 'NOT Saved Phone', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du téléphone', 'Téléphone NON enregistré', 'error');
         }
 
         $famille['household_phone_id'] = $newHouseholdPhone['id'];

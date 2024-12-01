@@ -1,4 +1,5 @@
 <?php
+
 use CRM_Civiparoisse_ExtensionUtil as E;
 
 
@@ -17,7 +18,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
     // Example: Set the page-title dynamically; alternatively, declare a static title in xml/Menu/*.xml
     CRM_Utils_System::setTitle(E::ts('Listes CiviParoisse'));
 
-// $arrayListes = Array (Type de Groupe, Type de Sous-Groupe, nom du SearchKit, icône associé au Search Kit)
+    // $arrayListes = Array (Type de Groupe, Type de Sous-Groupe, nom du SearchKit, icône associé au Search Kit)
     $arrayListes = [
       'Paroisse' => [
         'Paroissiens' => [
@@ -27,7 +28,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Liste des Grands Anniversaires
         ],
         'Registre' => [
-          // Liste des naissances
+          'Civip_Liste_Naissance' => 'fa-child',
           // Liste des baptêmes
           // Listes des présentations
           // Liste des confirmations
@@ -36,6 +37,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         ],
         'Elections' => [
           'Civip_Liste_Electorale' => 'fa-envelope-open',
+          'Civip_Liste_Conseil_Presbyteral' => 'fa-users', 
         ],
       ],
       'Communication' => [
@@ -84,54 +86,52 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         ],
       ],
       // Evénements
-        // Participants
-          // Liste des participants à un événement
-        // Parents
-          // Liste des parents des participants
+      // Participants
+      // Liste des participants à un événement
+      // Parents
+      // Liste des parents des participants
     ];
 
-  foreach ($arrayListes as $typeGroupe => $arraySousGroupe) {
-    
-    foreach ($arraySousGroupe as $typeSousGroupe  => $listeListe) {
+    foreach ($arrayListes as $typeGroupe => $arraySousGroupe) {
 
-      $resultBoucleListes=[];
+      foreach ($arraySousGroupe as $typeSousGroupe  => $listeListe) {
 
-      foreach ($listeListe as $nameListe  => $nameIcone) {
+        $resultBoucleListes = [];
 
-// Rajout de la description du Saved Search, pour l'afficher à l'écran
-      $labelSavedSearch = \Civi\Api4\SavedSearch::get()
-        ->addSelect('label')
-        ->addWhere('name', '=', $nameListe)
-        ->setLimit(0)
-        ->execute()
-        ->first();
+        foreach ($listeListe as $nameListe  => $nameIcone) {
 
-// Rajout du lien vers le formulaire, en allant rechercher le nom du Search Display, puis en trouvant le chemin vers le formulaire
-      $nameSearchDisplays = \Civi\Api4\SearchDisplay::get()
-        ->addSelect('name')
-        ->addWhere('saved_search_id.name', '=', $nameListe)
-        ->execute()
-        ->first();
+          // Rajout de la description du Saved Search, pour l'afficher à l'écran
+          $labelSavedSearch = \Civi\Api4\SavedSearch::get()
+            ->addSelect('label')
+            ->addWhere('name', '=', $nameListe)
+            ->setLimit(0)
+            ->execute()
+            ->first();
 
-      $lienFormsDisplay = \Civi\Api4\Afform::get()
-        ->addWhere('search_displays', '=', [$nameListe.".".$nameSearchDisplays['name']])
-        ->addSelect('server_route')
-        ->execute()
-        ->first();
+          // Rajout du lien vers le formulaire, en allant rechercher le nom du Search Display, puis en trouvant le chemin vers le formulaire
+          $nameSearchDisplays = \Civi\Api4\SearchDisplay::get()
+            ->addSelect('name')
+            ->addWhere('saved_search_id.name', '=', $nameListe)
+            ->execute()
+            ->first();
 
-// $resultBoucleListes = Array (lien vers le document Forms, icone, description du Search Kit)
-// Assignation des valeurs pour l'affichage dans le Smarty
-      $resultBoucleListes[] = [$lienFormsDisplay['server_route'], $nameIcone, $labelSavedSearch['label']];
+          $lienFormsDisplay = \Civi\Api4\Afform::get()
+            ->addWhere('search_displays', '=', [$nameListe . "." . $nameSearchDisplays['name']])
+            ->addSelect('server_route')
+            ->execute()
+            ->first();
+
+          // $resultBoucleListes = Array (lien vers le document Forms, icone, description du Search Kit)
+          // Assignation des valeurs pour l'affichage dans le Smarty
+          $resultBoucleListes[] = [$lienFormsDisplay['server_route'], $nameIcone, $labelSavedSearch['label']];
+        }
+
+        $resultListes[$typeGroupe][$typeSousGroupe] = $resultBoucleListes;
+      }
     }
 
-    $resultListes[$typeGroupe][$typeSousGroupe] = $resultBoucleListes;
-    }
-  }
-
-  $this->assign('ResultsDesListes', $resultListes); 
+    $this->assign('ResultsDesListes', $resultListes);
 
     parent::run();
-  
   }
-  
 }

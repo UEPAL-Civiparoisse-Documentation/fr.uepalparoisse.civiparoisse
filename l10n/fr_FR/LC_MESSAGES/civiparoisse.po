@@ -1,0 +1,517 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 3.2.2\n"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Prénom"
+msgstr "Prénom"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Nom de famille"
+msgstr "Nom de famille"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Nom de naissance"
+msgstr "Nom de naissance"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de naissance"
+msgstr "Date de naissance"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu de naissance"
+msgstr "Lieu de naissance"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Civilité"
+msgstr "Civilité"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Gender"
+msgstr "Genre"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de la bénediction nuptiale"
+msgstr "Date de la bénediction nuptiale"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu de la bénédiction nuptiale"
+msgstr "Lieu de la bénédiction nuptiale"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Verset de mariage"
+msgstr "Verset de mariage"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de présentation"
+msgstr "Date de présentation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu de présentation"
+msgstr "Lieu de présentation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de baptême"
+msgstr "Date de baptême"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu de baptême"
+msgstr "Lieu de baptême"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Verset de baptême"
+msgstr "Verset de baptême"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de confirmation"
+msgstr "Date de confirmation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu de confirmation"
+msgstr "Lieu de confirmation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Verset de confirmation"
+msgstr "Verset de confirmation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date des obsèques"
+msgstr "Date des obsèques"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lieu des obsèques"
+msgstr "Lieu des obsèques"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Choisir le Foyer ou l'Organisation d'appartenance"
+msgstr "Choisir le Foyer ou l'Organisation d'appartenance"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Nom des parents"
+msgstr "Nom des parents"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Nom des frères et soeurs"
+msgstr "Nom des frères et soeurs"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Sélectionner le conjoint ou partenaire"
+msgstr "Sélectionner le conjoint ou partenaire"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Type de relation"
+msgstr "Type de relation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date du mariage"
+msgstr "Date du mariage"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Divorcé ?"
+msgstr "Divorcé ?"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de divorce"
+msgstr "Date de divorce"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Date de veuvage"
+msgstr "Date de veuvage"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Statut Individu"
+msgstr "Statut Individu"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Lien avec la Paroisse"
+msgstr "Lien avec la Paroisse"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Métier"
+msgstr "Métier"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Numéro de Sécurité Sociale"
+msgstr "Numéro de Sécurité Sociale"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Numéro Guso"
+msgstr "Numéro Guso"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Fonctionnaire ?"
+msgstr "Fonctionnaire ?"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Groupe(s)"
+msgstr "Groupe(s)"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Compétence Musique : instrument"
+msgstr "Compétence Musique : instrument"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Compétence Musique : voix"
+msgstr "Compétence Musique : voix"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaireIndividu.php
+msgid "Religion"
+msgstr "Religion"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Nom du foyer"
+msgstr "Nom du foyer"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Nom de l'entreprise ou organisation"
+msgstr "Nom de l'entreprise ou organisation"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Adresse ligne 1"
+msgstr "Adresse ligne 1"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Adresse ligne 2"
+msgstr "Adresse ligne 2"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Adresse ligne 3"
+msgstr "Adresse ligne 3"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Code Postal"
+msgstr "Code Postal"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Ville"
+msgstr "Ville"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "- any state/province -"
+msgstr "N'importe quel état/département"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Departement"
+msgstr "Département"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "- any country -"
+msgstr "N'importe quel pays"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Pays"
+msgstr "Pays"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Téléphone Portable Personnel"
+msgstr "Téléphone Portable Personnel"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Téléphone Professionnel"
+msgstr "Téléphone Professionnel"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Fax Professionnel"
+msgstr "Fax Professionnel"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Courriel Personnel"
+msgstr "Courriel Personnel"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Courriel Professionnel"
+msgstr "Courriel Professionnel"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Site Internet"
+msgstr "Site Internet"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Etiquette(s)"
+msgstr "Etiquette(s)"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Quartier (distribution, visiteurs, ...)"
+msgstr "Quartier (distribution, visiteurs, ...)"
+
+#: CRM/Civiparoisse/Formulaires/Form/ChampsFormulaires.php
+msgid "Mode de distribution du journal"
+msgstr "Mode de distribution du journal"
+
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireEntreprise.php
+msgid "Formulaire de création d'une Organisation ou Entreprise"
+msgstr "Formulaire de création d'une Organisation ou Entreprise"
+
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireEntreprise.php
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireFoyer.php
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireIndividu.php
+msgid "Save"
+msgstr "Enregistrer"
+
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireFoyer.php
+msgid "Formulaire de création d'un Foyer"
+msgstr "Formulaire de création d'un Foyer"
+
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireIndividu.php
+msgid "Formulaire de création d'un Individu / d'un Particulier"
+msgstr "Formulaire de création d'un Individu / d'un Particulier"
+
+#: CRM/Civiparoisse/Formulaires/Form/FormulaireIndividu.php
+msgid "Musicien du Choeur ?"
+msgstr "Musicien du Choeur ?"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid ""
+"Merci de renseigner le nom de famille de l'Individu (sans caractères "
+"spéciaux)"
+msgstr ""
+"Merci de renseigner le nom de famille de l'Individu (sans caractères "
+"spéciaux)"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid ""
+"Merci de renseigner le nom de l'Entreprise ou de l'Organisation (sans "
+"caractères spéciaux)"
+msgstr ""
+"Merci de renseigner le nom de l'Entreprise ou de l'Organisation (sans "
+"caractères spéciaux)"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de renseigner le nom du Foyer (sans caractères spéciaux)"
+msgstr "Merci de renseigner le nom du Foyer (sans caractères spéciaux)"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de renseigner la ville (sans caractères spéciaux)"
+msgstr "Merci de renseigner la ville (sans caractères spéciaux)"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de corriger l'adresse mail"
+msgstr "Merci de corriger l'adresse mail"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid ""
+"Merci de corriger l'adresse du site Internet : saisir http:// ou https:// au "
+"début, ne pas utiliser de caractères accentués ou spéciaux"
+msgstr ""
+"Merci de corriger l'adresse du site Internet : saisir http:// ou https:// au "
+"début, ne pas utiliser de caractères accentués ou spéciaux"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de saisir le Type de relation avec le conjoint ou partenaire"
+msgstr "Merci de saisir le Type de relation avec le conjoint ou partenaire"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de saisir le nom du conjoint ou partenaire"
+msgstr "Merci de saisir le nom du conjoint ou partenaire"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de renseigner le nom du ou des parents"
+msgstr "Merci de renseigner le nom du ou des parents"
+
+#: CRM/Civiparoisse/Formulaires/Form/RulesFormulaires.php
+msgid "Merci de saisir le champ Fonctionnaire"
+msgstr "Merci de saisir le champ Fonctionnaire"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Paroisse"
+msgstr "Paroisse"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Nouveau Foyer"
+msgstr "Nouveau Foyer"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Nouvel Individu / Particulier"
+msgstr "Nouvel Individu / Particulier"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Nouvelle Entreprise ou Organisation"
+msgstr "Nouvelle Entreprise ou Organisation"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Anniversaires"
+msgstr "Anniversaires"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Listes"
+msgstr "Listes"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Contrôles"
+msgstr "Contrôles"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Aide en ligne"
+msgstr "Aide en ligne"
+
+#: CRM/Civiparoisse/Pages/Page/ConfigurationSommaireCiviParoisse.php
+msgid "Paramètres"
+msgstr "Paramètres"
+
+#: CRM/Civiparoisse/Pages/Page/ConseilPresbyteral.php
+msgid "Composition du Conseil Presbyteral"
+msgstr "Composition du Conseil Presbyteral"
+
+#: CRM/Civiparoisse/Pages/Page/ModesEmploi.php
+msgid "Modes d'Emploi CiviParoisse"
+msgstr "Modes d'Emploi CiviParoisse"
+
+#: CRM/Civiparoisse/Pages/Page/SommaireCiviparoisse.php
+msgid "Sommaire Civiparoisse"
+msgstr "Sommaire Civiparoisse"
+
+#: CRM/Civiparoisse/Pages/Page/SommaireListes.php
+msgid "Listes CiviParoisse"
+msgstr "Listes CiviParoisse"
+
+#: CRM/Civiparoisse/Pages/Page/SommaireParametres.php
+msgid "Paramètres CiviParoisse"
+msgstr "Paramètres CiviParoisse"
+
+#: CRM/Civiparoisse/Parametres/Config.php
+msgid "Activate Contact Religion Information"
+msgstr "Activate Contact Religion Information"
+
+#: CRM/Civiparoisse/Qualitebase/Page/AmeliorationQualiteParoisse.php
+msgid "Améliorations des données de la base CiviParoisse"
+msgstr "Améliorations des données de la base CiviParoisse"
+
+#: CRM/Civiparoisse/Qualitebase/Page/ControleQualiteParoisse.php
+msgid "Corrections des données de la base CiviParoisse"
+msgstr "Corrections des données de la base CiviParoisse"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+#: ang/searchDisplayPaged/searchDisplayPaged.component.js
+msgid "fr.uepalparoisse.civiparoisse"
+msgstr "fr.uepalparoisse.civiparoisse"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+msgid "Row Borders"
+msgstr "Bordures de lignes"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+msgid "Column Borders"
+msgstr "Bordures de colonnes"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+msgid "Even/Odd Stripes"
+msgstr "Alternance de couleur de fond Paire/Impaire"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+msgid "Sticky Header"
+msgstr "Entête fixe"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.component.js
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Columns"
+msgstr "Colonnes"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "MaxSortGroup"
+msgstr "Nombre de critères à utiliser pour le tri"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Also by"
+msgstr "Trié également par"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Sort by"
+msgstr "Trié par"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Ascending"
+msgstr "Croissant"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Descending"
+msgstr "Décroissant"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Clear"
+msgstr "Effacer"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Also sort by"
+msgstr "Trier également par"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Select field"
+msgstr "Sélectionner le champ"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Add"
+msgstr "Ajouter"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Header"
+msgstr "Entête"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Remove"
+msgstr "Supprimer"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Alignment"
+msgstr "Alignement"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Left"
+msgstr "Gauche"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Center"
+msgstr "Centre"
+
+#: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
+msgid "Right"
+msgstr "Droite"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid ""
+"Warning : current sort criterias do not allow breaking rows. Please change "
+"the sort criterias."
+msgstr ""
+"Attention : les critères de tris actuels ne permettent pas les "
+"regroupements. Merci de changer les critères."
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "Sort Criterias"
+msgstr "Critères de tri sélectionnés"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "ASC"
+msgstr "Croissant"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "DESC"
+msgstr "Décroissant"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "Criteria chooser"
+msgstr "Sélecteur de critères"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "Click to sort results (shift-click to sort by multiple)."
+msgstr ""
+"Cliquer pour trier les résultats (maj-clic pour des tris multicritères)"
+
+#: ang/searchDisplayPaged/searchDisplayPaged.html
+msgid "Results"
+msgstr "Résultats"
+
+#: civiparoisse.php
+msgid "UEPAL Parameters Setting"
+msgstr "Configuration des paramètres UEPAL"
+
+#~ msgid "org.civicrm.search_kit"
+#~ msgstr "org.civicrm.search_kit"

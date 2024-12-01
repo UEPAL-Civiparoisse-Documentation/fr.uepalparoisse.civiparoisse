@@ -13,12 +13,6 @@
     <access_arguments>access CiviCRM</access_arguments>
   </item>
   <item>
-    <path>civicrm/conseil-presbyteral</path>
-    <page_callback>CRM_Civiparoisse_Pages_Page_ConseilPresbyteral</page_callback>
-    <title>ConseilPresbyteral</title>
-    <access_arguments>access CiviCRM</access_arguments>
-  </item>
-  <item>
     <path>civicrm/formulaire-individu</path>
     <page_callback>CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu</page_callback>
     <title>FormulaireIndividu</title>
@@ -66,5 +60,10 @@
     <title>SommaireParametres</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
-
+<item>
+    <path>civicrm/personnes-ressources</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_PersonnesRessources</page_callback>
+    <title>PersonnesRessources</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
 </menu>

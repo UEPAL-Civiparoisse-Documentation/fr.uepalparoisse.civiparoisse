@@ -87,6 +87,11 @@ return [
                 '=',
                 '"Added"',
               ],
+              [
+                'Contact_RelationshipCache_Contact_01_Contact_GroupContact_Group_01.is_hidden', 
+                '=', 
+                FALSE,
+              ],
             ],
           ],
           'having' => [],

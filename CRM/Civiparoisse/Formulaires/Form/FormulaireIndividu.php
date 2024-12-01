@@ -47,7 +47,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
         // Nom
         FI::addNomIndividu($this);
 
-        // Nom de Jeune fille
+        // Nom de Naissance
         FI::addNomNaissance($this);
 
         // Date de naissance
@@ -274,9 +274,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
             $newIndividual = civicrm_api3('Contact', 'create', $createIndividual);
             /* Récupération du nouveau numéro ID pour utilisation dans les autres API */
             $newIndividualId = $newIndividual['id'];
-            CRM_Core_Session::setStatus(' Individual in database saved', ' Individual saved', 'success');
+            CRM_Core_Session::setStatus('L\'Individu a été crée correctement', 'Individu enregistré', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Individual in database', 'NOT Saved Individual', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création de l\'Individu', 'Individu NON enregistré', 'error');
         }
         return $newIndividualId;
 
@@ -314,9 +314,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                 ->addValue('is_primary', 1)
                 ->execute();
 
-            CRM_Core_Session::setStatus(' Individual adresse in database saved', ' Adresse saved', 'success');
+            CRM_Core_Session::setStatus('L\'adresse de l\'Individu a été enregistrée correctement', 'Adresse enregistrée', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Individual adresse in database', 'NOT Saved Adresse', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création de l\'adresse', 'Adresse NON enregistrée', 'error');
         }
 
     }
@@ -335,12 +335,10 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'location_type_id' => $locationTypeId,
                     'phone_type_id' => 'Mobile',
                 ]);
-                CRM_Core_Session::setStatus(' Individual Mobile Phone in database saved', ' Phone saved', 'success');
+                CRM_Core_Session::setStatus('Le téléphone portable de l\'Individu a été enregistré correctement', 'Téléphone portable enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
                 CRM_Core_Session::setStatus(
-                    'Error saving Individual mobile phone in database',
-                    'NOT Saved Phone',
-                    'error');
+                    'Une erreur s\'est produite lors de l\'enregistrement du téléphone portable', 'Téléphone portable NON enregistré', 'error');
             }
         }
 
@@ -360,12 +358,10 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'location_type_id' => 'Travail',
                     'phone_type_id' => 'Phone',
                 ]);
-                CRM_Core_Session::setStatus(' Individual Work Phone in database saved', ' Phone saved', 'success');
+                CRM_Core_Session::setStatus('Le téléphone professionnel de l\'Individu a été enregistré correctement', 'Téléphone professionnel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
                 CRM_Core_Session::setStatus(
-                    'Error saving Individual Work phone in database',
-                    'NOT Saved Phone',
-                    'error');
+                    'Une erreur s\'est produite lors de l\'enregistrement du téléphone professionel', 'Téléphone professionel NON enregistré', 'error');
             }
         }
     }
@@ -383,9 +379,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'is_primary' => 1,
                     'location_type_id' => 'Domicile',
                 ]);
-                CRM_Core_Session::setStatus(' Individual Home Mail in database saved', ' Mail saved', 'success');
+                CRM_Core_Session::setStatus('Le Courriel personnel de l\'Individu a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Individual Home Mail in database', 'NOT Saved Mail', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du Courriel personnel', 'Courriel NON enregistré', 'error');
             }
         }
 
@@ -404,9 +400,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'is_primary' => 0,
                     'location_type_id' => 'Travail',
                 ]);
-                CRM_Core_Session::setStatus(' Individual Work Mail in database saved', ' Mail saved', 'success');
+                CRM_Core_Session::setStatus('Le Courriel professionnel de l\'Individu a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Individual Work Mail in database', 'NOT Saved Mail', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du Courriel professionnel', 'Courriel NON enregistré', 'error');
             }
         }
     }
@@ -441,9 +437,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'contact_id' => $newIndividualId,
                     'group_id' => $getoptionsGroups,
                 ]);
-                CRM_Core_Session::setStatus('Groups in database saved', 'Groups saved', 'success');
+                CRM_Core_Session::setStatus('Les Groupes ont été enregistrés correctement', 'Groupes enregistrés', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Groups in database', 'NOT Saved Groups', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création des Groupes', 'Groupes NON enregistrés', 'error');
             }
         }
     }
@@ -462,9 +458,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'entity_id' => $newIndividualId,
                     'tag_id' => $getoptionsTags,
                 ]);
-                CRM_Core_Session::setStatus('Tags in database saved', 'Tags saved', 'success');
+                CRM_Core_Session::setStatus('Les Etiquettes ont été enregistrées correctement', 'Etiquettes enregistrées', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
-                CRM_Core_Session::setStatus('Error saving Tags in database', 'NOT Saved Tags', 'error');
+                CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création des Etiquettes', 'Etiquettes NON enregistrées', 'error');
             }
         }
     }
@@ -478,9 +474,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                 'contact_id' => $newIndividualId,
                 'membership_type_id' => $params['membership'],
             ]);
-            CRM_Core_Session::setStatus('Membership in database saved', ' Membership saved', 'success');
+            CRM_Core_Session::setStatus('Le Lien paroissial de l\'Individu a été enregistré correctement', 'Lien paroissial enregistré', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
-            CRM_Core_Session::setStatus('Error saving Membership in database', 'NOT Saved Membership', 'error');
+            CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du Lien paroissial', 'Lien paroissial NON enregistré', 'error');
         }
     }
 

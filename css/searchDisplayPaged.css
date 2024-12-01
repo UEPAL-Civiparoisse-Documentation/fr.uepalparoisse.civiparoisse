@@ -1,0 +1,34 @@
+div.civiparoisse-paged-result {
+  page-break-before: always;
+  margin-top: 2em;
+}
+table.civiparoisse-paged-table {
+  border: 5px ridge;
+  margin: 5px 0;
+}
+
+table.civiparoisse-paged-table td {
+  border: 2px ridge;
+  padding: 2px 2px !important;
+}
+
+table.civiparoisse-paged-table th {
+  border: 2px ridge;
+  padding: 2px 2px !important;
+}
+
+div.civiparoisse-print-title{
+  display:none;
+}
+@media print {
+  nav#civicrm-menu-nav .crm-menubar-toggle-btn {
+    display: none;
+  }
+  div.civiparoisse-print-title{
+    display: block;
+  }
+
+  div.civiparoisse-paged-result:last-of-type{
+    page-break-after:always;
+  }
+}
