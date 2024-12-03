@@ -22,12 +22,13 @@ class CRM_Civiparoisse_Parametres_ConfigDesabonnement
 
         $count= \Civi\Api4\Group::get()
             ->setCheckPermissions(false)
-            ->addWhere('name', '=', 'desabonnements')
-            ->addWhere('group_type', '=', $valueMailingList)
+            ->addClause('OR',
+	    ['name', '=', 'desabonnements'],
+	    ['title','=','Désabonnements'])            
             ->execute()
             ->count();        
 
-        if($count===0) {            
+        if($count===0) {
             $createGroup = \Civi\Api4\Group::create()
                 ->setCheckPermissions(false)
                 ->addValue('title', 'Désabonnements')

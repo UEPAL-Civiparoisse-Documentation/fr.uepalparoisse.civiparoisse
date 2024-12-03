@@ -6,14 +6,16 @@ class CRM_Civiparoisse_Parametres_Config0147 extends CRM_Civiparoisse_Parametres
 // Création du groupe Conseil Presbytéral
     public static function createConseilPresbyteralGroup()
     {
-        try {
-            $createGroup = \Civi\Api4\Group::get()
+        
+            $count = \Civi\Api4\Group::get()
                 ->setCheckPermissions(false)
-                ->addWhere('name', '=', 'civip_conseil_presbyteral')
-                ->execute();
+                ->addClause('OR',['name', '=', 'civip_conseil_presbyteral'],
+		['title','=','Conseil Presbytéral'])
+                ->execute()
+		->count();
 
-        } catch (Exception $e) {
-
+        
+           if($count===0){
             $createGroup = \Civi\Api4\Group::create()
                 ->setCheckPermissions(false)
                 ->addValue('title', 'Conseil Presbytéral')
@@ -25,7 +27,5 @@ class CRM_Civiparoisse_Parametres_Config0147 extends CRM_Civiparoisse_Parametres
                 ->addValue('is_hidden', false)
                 ->execute();
         }
-
-        return $createGroup;
     }
 }

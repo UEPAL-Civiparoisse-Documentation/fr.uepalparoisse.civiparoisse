@@ -47,7 +47,9 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
         // installation de l'upgrade_0147
         $this->upgrade_0147();
-        
+
+        //la 0148 permet simplement de relancer la 0147 qui n'a pas porté ses fruits
+
         /* Commentaires à enlever pour activer la prochaine version
             // installation de l'upgrade_0148
             $this->upgrade_0148();
@@ -254,6 +256,11 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     return true;
 
   }
+
+   public function upgrade_0148(){
+    $this->upgrade_0147();
+    return true;
+   }
 
 /* Fonction annexe pour l'upgrade XXXXXXX
     public function aux_upgrade_0148(){
