@@ -1,5 +1,5 @@
 {* RAJOUT de la feuille de style *}
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/sommaire-pages.css"}
 
 <p>Pour consulter une liste, cliquez sur le nom de la liste.</p>
 
@@ -13,7 +13,7 @@
       {foreach from=$ArrayLigne key=Numero item=Ligne}
         <a href="{crmURL p="`$Ligne[0]`"}" target="_blank" >
           <div class="page-liste-item">
-              {icon icon="$Ligne[1]"}{/icon} {$Ligne[2]}
+              {icon icon="`$Ligne[1]`"}{/icon} {$Ligne[2]}
           </div>
         </a>
       {/foreach}

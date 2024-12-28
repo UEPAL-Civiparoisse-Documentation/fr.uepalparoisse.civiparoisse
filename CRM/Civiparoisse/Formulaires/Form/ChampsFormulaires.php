@@ -29,6 +29,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaires
             'text',
             'household_name',
             ts('Nom du foyer'),
+            [],
             true);
     }
 
@@ -48,6 +49,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaires
             'text',
             'organization_name',
             ts('Nom de l\'entreprise ou organisation'),
+            [],
             true);
     }
 

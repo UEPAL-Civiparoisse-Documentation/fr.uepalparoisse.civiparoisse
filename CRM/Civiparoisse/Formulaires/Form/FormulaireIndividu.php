@@ -355,7 +355,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'contact_id' => $newIndividualId,
                     'phone' => $params['phone_work'],
                     'is_primary' => 0,
-                    'location_type_id' => 'Travail',
+                    'location_type_id' => 'Work',
                     'phone_type_id' => 'Phone',
                 ]);
                 CRM_Core_Session::setStatus('Le téléphone professionnel de l\'Individu a été enregistré correctement', 'Téléphone professionnel enregistré', 'success');
@@ -377,7 +377,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'contact_id' => $newIndividualId,
                     'email' => $params['email_home'],
                     'is_primary' => 1,
-                    'location_type_id' => 'Domicile',
+                    'location_type_id' => 'Home',
                 ]);
                 CRM_Core_Session::setStatus('Le Courriel personnel de l\'Individu a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
@@ -398,7 +398,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
                     'contact_id' => $newIndividualId,
                     'email' => $params['email_work'],
                     'is_primary' => 0,
-                    'location_type_id' => 'Travail',
+                    'location_type_id' => 'Work',
                 ]);
                 CRM_Core_Session::setStatus('Le Courriel professionnel de l\'Individu a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {

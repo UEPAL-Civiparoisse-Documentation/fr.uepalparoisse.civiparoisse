@@ -47,12 +47,14 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
         // installation de l'upgrade_0147
         $this->upgrade_0147();
-
         //la 0148 permet simplement de relancer la 0147 qui n'a pas porté ses fruits
 
+        //la 0149 contient la configuration cron, qui est déjà lancée dans la 0140,
+        // donc pas besoin de la lancer
+
         /* Commentaires à enlever pour activer la prochaine version
-            // installation de l'upgrade_0148
-            $this->upgrade_0148();
+            // installation de l'upgrade_0150
+            $this->upgrade_0150();
         Fin ligne à enlever */
 
     }
@@ -262,22 +264,28 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     return true;
    }
 
+ public function upgrade_0149(){
+        $config = new CRM_Civiparoisse_Parametres_ConfigCron();
+        $config->checkConfigCron();
+        return true;
+    }
+
 /* Fonction annexe pour l'upgrade XXXXXXX
-    public function aux_upgrade_0148(){
+    public function aux_upgrade_0150(){
     //installation
   
     }
 Fin ligne à enlever */
 
 /* Commentaires à enlever pour activer la prochaine version
-  public function upgrade_0148() {
+  public function upgrade_0150() {
 
     \Civi\Api4\System::flush()
         ->setCheckPermissions(false)
         ->execute();
 
 
-    $this->aux_upgrade_0148();
+    $this->aux_upgrade_0150();
 
     return true;
 

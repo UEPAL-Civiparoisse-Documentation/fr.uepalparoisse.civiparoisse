@@ -1,5 +1,5 @@
 {* RAJOUT de la feuille de style *}
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/sommaire-pages.css"}
 
 
 <p>Pour consulter une liste, cliquez sur le lien concerné.</p>

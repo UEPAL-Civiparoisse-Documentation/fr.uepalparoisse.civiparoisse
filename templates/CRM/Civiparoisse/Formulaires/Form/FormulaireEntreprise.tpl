@@ -1,4 +1,4 @@
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/formulaires.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/formulaires.css"}
 
 {* HEADER *}
 

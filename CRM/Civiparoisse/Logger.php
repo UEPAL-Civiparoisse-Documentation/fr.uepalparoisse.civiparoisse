@@ -11,7 +11,7 @@ class CRM_Civiparoisse_Logger extends AbstractLogger
     $this->_output=$output;
   }
 
-  public function log($level, $message, array $context = [])
+  public function log($level,Stringable|string  $message, array $context = []) : void
   {
     $logMessage=[
         'dt'=>(new DateTime())->getTimestamp(),

@@ -1,4 +1,4 @@
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/sommaire-pages.css"}
 
 <h4>Comment utiliser cette page ?</h4>
 <div><i class="crm-i fa-stethoscope fa-2x" aria-hidden="true"></i>Cette page vous indique les <strong>vérifications à mener</strong> pour améliorer la qualité de votre base de données. Si vous pouvez obtenir ces renseignements, ils  contribueront à une optimisation de votre base de données.</div>

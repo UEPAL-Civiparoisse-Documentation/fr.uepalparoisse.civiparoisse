@@ -19,6 +19,7 @@ class CRM_Civiparoisse_Parametres_ConfigCron
         CU::getCronChange('group_rebuild', 'Hourly', '', 'job', 1, 'Rebuild Smart Group Cache');
         CU::getCronChange('disable_expired_relationships', 'Daily', '', 'job', 1, 'Disable expired relationships');
         CU::getCronChange('update_greeting', 'Daily', "ct=Individual\ngt=email_greeting\nforce=0", 'job', 1, 'Update Greetings and Addressees');
+        CU::getCronChange('update_greeting', 'Daily', "ct=Individual\ngt=email_greeting\nforce=0", 'job', 1, 'Update Individual Email Greeting');
         CU::getCronChange('process_participant', 'Always', '', 'job', 1, 'Update Participant Statuses');
         CU::getCronChange('update_email_resetdate', 'Daily', "minDays=3\nmaxDays=7", 'mailing', 1, 'Validate Email Address from Mailings.');
 

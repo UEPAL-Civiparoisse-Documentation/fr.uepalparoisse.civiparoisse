@@ -1,4 +1,4 @@
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/sommaire-pages.css"}
 
 <h4>Comment utiliser cette page ?</h4>
 <div><i class="crm-i fa-ambulance fa-2x" aria-hidden="true"></i>Cette page vous indique les <strong>corrections à effectuer</strong> pour améliorer la qualité de votre base de données. Nous vous conseillons de les effectuer très régulièrement, pour vous assurer une utilisation optimale de CiviParoisse.</div>

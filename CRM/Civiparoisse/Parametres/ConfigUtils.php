@@ -34,14 +34,21 @@ class CRM_Civiparoisse_Parametres_ConfigUtils
     {
         try {
             $jobId = CRM_Civiparoisse_Parametres_ConfigUtils::getIdNumberJob($jobAction, $jobName);
-            civicrm_api3('Job', 'create', [
+            if(is_int($jobId))
+            {
+              civicrm_api3('Job', 'create', [
                 'id' => $jobId,
                 'is_active' => $jobActive,
                 'run_frequency' => $jobFrequency,
                 'parameters' => $jobParameters,
                 'api_entity' => $jobEntity,
                 'name' => $jobName,
-            ]);
+              ]);
+            }
+            else
+            {
+              Civi::log()->warning("Unable to get ID for jobAction $jobAction and jobName $jobName");
+            }
         } catch (CiviCRM_API3_Exception $ex) {
             CRM_Core_Session::setStatus('Error updating ' . $jobAction . ' in database', 'Job NOT updated', 'error');
         }
@@ -89,20 +96,25 @@ class CRM_Civiparoisse_Parametres_ConfigUtils
      *
      * @var     array $resultat Paramètres pour l'utilisation de l'APIv3
      *
-     * @return  int     Valeur de l'ID du Job
+     * @return  int|false     Valeur de l'ID du Job ; false si on ne l'a pas eu
      *
      */
 
     public static function getIdNumberJob($jobAction, $jobName)
     {
+        $ret=false;
         $result = civicrm_api3('Job', 'get', [
             'sequential' => 1,
             'return' => ["id"],
             'api_action' => $jobAction,
             'name' => $jobName,
         ]);
+        if(is_array($result) && array_key_exists('id',$result))
+        {
+          $ret=$result['id'];
+        }
 
-        return $result["id"];
+        return $ret;
     }
 
 

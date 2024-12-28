@@ -115,7 +115,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
         try {
             $newHouseholdAdress = civicrm_api3('Address', 'create', [
                 'contact_id' => $newHouseholdId,
-                'location_type_id' => 'Domicile',
+                'location_type_id' => 'Home',
                 'is_primary' => 1,
                 'street_address' => $params['street_address'],
                 'supplemental_address_1' => $params['supplemental_address_1'],
@@ -127,6 +127,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
             ]);
             CRM_Core_Session::setStatus('L\'adresse du Foyer a été enregistrée correctement', 'Adresse enregistrée', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
+            Civi::log()->error($ex);
             CRM_Core_Session::setStatus('Une erreur s\'est produite lors de la création de l\'adresse', 'Adresse NON enregistrée', 'error');
         }
 
@@ -136,13 +137,14 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
         try {
             $newHouseholdPhone = civicrm_api3('Phone', 'create', [
                 'contact_id' => $newHouseholdId,
-                'location_type_id' => 'Domicile',
+                'location_type_id' => 'Home',
                 'is_primary' => 1,
                 'phone_type_id' => 'Phone',
                 'phone' => $params['phone'],
             ]);
             CRM_Core_Session::setStatus('Le téléphone du Foyer a été enregistré correctement', 'Téléphone enregistré', 'success');
         } catch (CiviCRM_API3_Exception $ex) {
+            Civi::log()->error($ex);
             CRM_Core_Session::setStatus('Une erreur s\'est produite lors de l\'enregistrement du téléphone', 'Téléphone NON enregistré', 'error');
         }
 

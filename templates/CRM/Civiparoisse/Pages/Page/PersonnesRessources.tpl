@@ -1,5 +1,5 @@
 {* RAJOUT de la feuille de style *}
-{crmStyle ext=fr.uepalparoisse.civiparoisse file=css/sommaire-pages.css}
+{crmStyle ext="fr.uepalparoisse.civiparoisse" file="css/sommaire-pages.css"}
 
 <div class="personnesRessources">
   <p>En cas de questions sur CiviParoisse, vous pouvez solliciter la communauté des utilisateurs pour échanger et obtenir des réponses. N'hésitez pas à les contacter. Pourquoi ne pas parcourir d'abord <a href="https://uepal-civiparoisse-documentation.github.io/UTILISATION/mode_emploi/index.html" target="_blank">le Mode d'Emploi Utilisateurs</a> ? Vous y trouverez certainement une réponse à vos interrogations.</p>

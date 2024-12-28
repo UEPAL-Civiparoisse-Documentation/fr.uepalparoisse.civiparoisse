@@ -145,7 +145,7 @@ abstract class CRM_Civiparoisse_Parametres_ConfigMappingImport
         $locationTypes = \Civi\Api4\LocationType::get()
             ->setCheckPermissions(false)
             ->addSelect('id')
-            ->addWhere('name', '=', $donnees)
+            ->addClause('OR',['name','=',$donnees],['display_name','=',$donnees])
             ->execute()
             ->first();
 
