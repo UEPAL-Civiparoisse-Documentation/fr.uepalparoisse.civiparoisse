@@ -115,7 +115,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
         try {
             $newHouseholdAdress = civicrm_api3('Address', 'create', [
                 'contact_id' => $newHouseholdId,
-                'location_type_id' => 'Home',
+                'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Domicile),
                 'is_primary' => 1,
                 'street_address' => $params['street_address'],
                 'supplemental_address_1' => $params['supplemental_address_1'],
@@ -137,7 +137,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireFoyer extends CRM_Core_Form
         try {
             $newHouseholdPhone = civicrm_api3('Phone', 'create', [
                 'contact_id' => $newHouseholdId,
-                'location_type_id' => 'Home',
+                'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Domicile),
                 'is_primary' => 1,
                 'phone_type_id' => 'Phone',
                 'phone' => $params['phone'],

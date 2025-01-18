@@ -110,7 +110,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
             try {
                 civicrm_api3('Address', 'create', [
                     'contact_id' => $newOrganizationId,
-                    'location_type_id' => 'Work',
+                    'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Travail),
                     'is_primary' => 1,
                     'street_address' => $params['street_address'],
                     'supplemental_address_1' => $params['supplemental_address_1'],
@@ -138,7 +138,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
             try {
                 civicrm_api3('Phone', 'create', [
                     'contact_id' => $newOrganizationId,
-                    'location_type_id' => 'Work',
+                    'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Travail),
                     'is_primary' => 1,
                     'phone_type_id' => 'Phone',
                     'phone' => $params['phone'],
@@ -159,7 +159,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
             try {
                 civicrm_api3('Phone', 'create', [
                     'contact_id' => $newOrganizationId,
-                    'location_type_id' => 'Work',
+                    'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Travail),
                     'phone_type_id' => 'Fax',
                     'phone' => $params['fax'],
                 ]);
@@ -181,7 +181,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireEntreprise extends CRM_Core_Fo
                     'contact_id' => $newOrganizationId,
                     'email' => $params['email_work'],
                     'is_primary' => 1,
-                    'location_type_id' => 'Work',
+                    'location_type_id' => CRM_Civiparoisse_Formulaires_Form_Utils::retrieveNameByType(CRM_Civiparoisse_Formulaires_Form_LocationTypeEnum::Travail),
                 ]);
                 CRM_Core_Session::setStatus('Le courriel de l\'Organisation a été enregistré correctement', 'Courriel enregistré', 'success');
             } catch (CiviCRM_API3_Exception $ex) {
