@@ -1,0 +1,13 @@
+<div class="af-markup" af-title="Mode d'emploi">
+  <p>Cette liste affiche les couples mariés qui sont "chef de famille" d'un même foyer, qui ont une relation "Conjoint de", et qui ont une date de mariage. Si un couple marié ne s'affiche pas, pensez à vérifier que les différentes informations sont bien renseignées.</p>
+</div>
+<div af-fieldset="" af-title="Choix des critères">
+  <div class="af-container af-layout-inline">
+    <af-field name="Contact_RelationshipCache_Contact_01.etat_civil.date_mariage" defn="{input_type: 'Select', search_range: true, input_attrs: {}, label: 'Date du mariage'}" />
+    <af-field name="Contact_RelationshipCache_Contact_01.etat_civil.date_benediction_nuptiale" defn="{input_type: 'Select', search_range: true, input_attrs: {}, afform_default: 'ending.year', label: 'Date de la bénédiction nuptiale'}" />
+    <af-field name="Contact_RelationshipCache_Contact_01.etat_civil.paroisse_mariage" defn="{input_attrs: {multiple: true}, label: 'Lieu de la bénédiction nuptiale'}" />
+  </div>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Mariages" display-name="Civip_Liste_Mariages_Table"></crm-search-display-table>
+  </div>
+</div>

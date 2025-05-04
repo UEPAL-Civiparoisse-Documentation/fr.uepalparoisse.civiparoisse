@@ -1,0 +1,11 @@
+<div af-fieldset="" af-title="Choix des critères">
+  <fieldset class="af-container page-listes">
+    <div class="af-markup">
+      <p>Choisissez un ou des groupes, et cliquer sur "Rechercher"</p>
+    </div>
+    <af-field name="groups" defn="{input_attrs: {multiple: true}, label: 'Groupes'}" />
+  </fieldset>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Participants_Groupe" display-name="Civip_Liste_Participants_Groupe_Table"></crm-search-display-table>
+  </div>
+</div>

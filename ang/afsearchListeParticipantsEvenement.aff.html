@@ -1,0 +1,13 @@
+<div af-fieldset="" af-title="Choix des critères">
+  <div class="af-container af-layout-inline">
+    <af-field name="event_id" defn="{required: false, input_attrs: {autoOpen: true, placeholder: 'S\u00e9lectionner l\'\u00e9v\u00e9nement'}}" />
+    <af-field name="role_id" defn="{input_attrs: {multiple: true}}" />
+    <af-field name="status_id" defn="{input_attrs: {multiple: true}}" />
+  </div>
+  <div class="af-markup">
+    <p>Choissisez l'événement recherché, ainsi qu'éventuellement le(s) rôles et statuts souhaités. Puis cliquez sur "Rechercher".</p>
+  </div>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Participants_Evenement" display-name="Civip_Liste_Participants_Evenement_Table"></crm-search-display-table>
+  </div>
+</div>

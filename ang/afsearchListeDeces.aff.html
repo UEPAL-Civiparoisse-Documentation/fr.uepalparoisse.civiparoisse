@@ -1,0 +1,10 @@
+<div af-fieldset="" af-title="Choix des critères">
+  <div class="af-container af-layout-inline">
+    <af-field name="deceased_date" defn="{input_type: 'Select', search_range: true, input_attrs: {}, afform_default: 'ending.year', label: 'Date du décès'}" />
+    <af-field name="etat_civil.date_obseques" defn="{input_type: 'Select', search_range: true, input_attrs: {}, label: 'Date des obsèques'}" />
+    <af-field name="etat_civil.paroisse_enterrement" defn="{input_attrs: {multiple: true}, label: 'Paroisse d\'enterrement'}" />
+  </div>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Deces" display-name="Civip_Liste_Deces_Table"></crm-search-display-table>
+  </div>
+</div>

@@ -246,6 +246,7 @@ return [
             ],
           ],
           'placeholder' => 5,
+          'headerCount' => true,
         ],
         'acl_bypass' => false,
       ],

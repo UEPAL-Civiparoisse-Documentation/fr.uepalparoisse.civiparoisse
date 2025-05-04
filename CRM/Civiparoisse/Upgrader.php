@@ -51,10 +51,20 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
         //la 0149 contient la configuration cron, qui est déjà lancée dans la 0140,
         // donc pas besoin de la lancer
+        //la 0150 n'apporte pas de nouveauté, donc pas besoin de la lancer
+
+        // installation de l'upgrade_0151
+            $this->upgrade_0151();
+
+        // installation de l'upgrade_0151
+        $this->upgrade_0151();
+
 
         /* Commentaires à enlever pour activer la prochaine version
-            // installation de l'upgrade_0150
-            $this->upgrade_0150();
+            // installation de l'upgrade_0152
+
+            $this->upgrade_0152();
+
         Fin ligne à enlever */
 
     }
@@ -259,33 +269,51 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
 
   }
 
-   public function upgrade_0148(){
-    $this->upgrade_0147();
-    return true;
+    public function upgrade_0148(){
+        $this->upgrade_0147();
+        return true;
    }
 
- public function upgrade_0149(){
+    public function upgrade_0149(){
         $config = new CRM_Civiparoisse_Parametres_ConfigCron();
         $config->checkConfigCron();
         return true;
     }
 
+
+
+    public function upgrade_0151() {
+    
+        // Remplacement du préfixe Mlle par Mme
+        $remplacementMlle = new CRM_Civiparoisse_Parametres_Config0151();
+        $remplacementMlle->$replacePrefixMlle();
+        // Création de nouvelles lignes dans la liste Religion
+        $ajoutReligions = new CRM_Civiparoisse_Parametres_Config0151();
+        $ajoutReligions->ajoutReligions0151();
+        \Civi\Api4\System::flush()
+        ->setCheckPermissions(false)
+        ->execute();  
+    return true;
+
+  }
+
+ 
 /* Fonction annexe pour l'upgrade XXXXXXX
-    public function aux_upgrade_0150(){
+    public function aux_upgrade_0152(){
     //installation
   
     }
 Fin ligne à enlever */
 
 /* Commentaires à enlever pour activer la prochaine version
-  public function upgrade_0150() {
+  public function upgrade_0152() {
 
     \Civi\Api4\System::flush()
         ->setCheckPermissions(false)
         ->execute();
 
 
-    $this->aux_upgrade_0150();
+    $this->aux_upgrade_0152();
 
     return true;
 

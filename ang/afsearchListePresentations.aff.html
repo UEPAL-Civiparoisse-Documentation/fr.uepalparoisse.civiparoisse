@@ -1,0 +1,9 @@
+<div af-fieldset="" af-title="Choix des critères">
+  <div class="af-container af-layout-inline">
+    <af-field name="informations_religion.date_presentation" defn="{input_type: 'Select', search_range: true, input_attrs: {}, afform_default: 'ending.year', label: 'Date de la présentation'}" />
+    <af-field name="informations_religion.paroisse_presentation" defn="{input_attrs: {multiple: true}, label: 'Lieu de la présentation'}" />
+  </div>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Presentations" display-name="Civip_Liste_Presentations_Table"></crm-search-display-table>
+  </div>
+</div>

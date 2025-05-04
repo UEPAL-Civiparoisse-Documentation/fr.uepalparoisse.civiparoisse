@@ -16,7 +16,6 @@ function civiparoisse_civicrm_config(&$config)
     _civiparoisse_civix_civicrm_config($config);
 }
 
-
 /**
  * Implements hook_civicrm_install().
  *
@@ -27,7 +26,6 @@ function civiparoisse_civicrm_install()
     _civiparoisse_civix_civicrm_install();
 }
 
-
 /**
  * Implements hook_civicrm_enable().
  *
@@ -37,9 +35,6 @@ function civiparoisse_civicrm_enable()
 {
     _civiparoisse_civix_civicrm_enable();
 }
-
-
-
 
 /**
  * Implements hook_civicrm_navigationMenu().
@@ -63,7 +58,6 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
     _civiparoisse_civix_navigationMenu($menu);
 
 }
-
 
 function civiparoisse_civicrm_dashboard_defaults($availableDashlets, &$defaultDashlets)
 {

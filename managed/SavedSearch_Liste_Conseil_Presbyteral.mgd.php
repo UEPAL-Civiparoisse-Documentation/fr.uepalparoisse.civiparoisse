@@ -87,6 +87,10 @@ return [
                 'DESC',
               ],
               [
+                'Contact_RelationshipCache_Contact_01.relationship_type_id.label_a_b',
+                'ASC',
+              ],
+              [
                 'display_name',
                 'ASC',
               ],

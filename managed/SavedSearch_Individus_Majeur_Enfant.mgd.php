@@ -155,7 +155,7 @@ return [
                 [
                   'path' => 'civicrm/contact/view/membership?reset=1&force=1&cid=[id]',
                   'icon' => 'fa-external-link',
-                  'text' => "Modifier l'adhésion",
+                  'text' => 'Modifier le statut',
                   'style' => 'default',
                   'condition' => [],
                   'entity' => '',

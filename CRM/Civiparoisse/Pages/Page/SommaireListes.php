@@ -28,16 +28,16 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Liste des Grands Anniversaires
         ],
         'Registre' => [
-          'Civip_Liste_Naissance' => 'fa-child',
-          // Liste des baptêmes
-          // Listes des présentations
-          // Liste des confirmations
-          // Liste des mariages
-          // Liste des décès
+          'Civip_Liste_Naissance' => 'fa-baby',
+          'Civip_Liste_Baptemes' => 'fa-hand-holding-water',
+          'Civip_Liste_Presentations' => 'fa-child',
+          'Civip_Liste_Confirmations' => 'fa-bible',
+          'Civip_Liste_Mariages' => 'fa-ring',
+          'Civip_Liste_Deces' => 'fa-cross',
         ],
         'Elections' => [
-          'Civip_Liste_Electorale' => 'fa-envelope-open',
-          'Civip_Liste_Conseil_Presbyteral' => 'fa-users', 
+          'Civip_Liste_Electorale' => 'fa-person-booth',
+          'Civip_Liste_Conseil_Presbyteral' => 'fa-users',
         ],
       ],
       'Communication' => [
@@ -60,13 +60,13 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
       ],
       'Groupes' => [
         'Participants' => [
-          // Liste participants
-          // Trombinoscope
+          'Civip_Liste_Participants_Groupe' => 'fa-users',
+          // Trombinoscope fa-user-circle-o
           'Civip_Liste_Dates_Anniversaires' => 'fa-birthday-cake',
         ],
         'Parents' => [
           // Liste des parents des participants
-          // Trombinoscope des parents
+          // Trombinoscope des parents fa-user-circle 
         ],
         'Compétences' => [
           // Liste des compétences
@@ -74,6 +74,13 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Compétences chorale
           // Trombinoscope
         ]
+      ],
+      'Evénements' => [
+        'Participants' => [
+          'Civip_Liste_Participants_Evenement' => 'fa-users',
+        ],
+      // Parents
+        // Liste des parents des participants
       ],
       'Gestion' => [
         'Dons' => [
@@ -85,11 +92,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Liste des personnes dans la corbeille
         ],
       ],
-      // Evénements
-      // Participants
-      // Liste des participants à un événement
-      // Parents
-      // Liste des parents des participants
+
     ];
 
     foreach ($arrayListes as $typeGroupe => $arraySousGroupe) {
