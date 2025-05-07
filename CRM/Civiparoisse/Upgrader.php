@@ -286,7 +286,7 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     
         // Remplacement du préfixe Mlle par Mme
         $remplacementMlle = new CRM_Civiparoisse_Parametres_Config0151();
-        $remplacementMlle->$replacePrefixMlle();
+        $remplacementMlle->replacePrefixeMlle();
         // Création de nouvelles lignes dans la liste Religion
         $ajoutReligions = new CRM_Civiparoisse_Parametres_Config0151();
         $ajoutReligions->ajoutReligions0151();
