@@ -189,7 +189,7 @@ return [
             ],
             [
               'type' => 'field',
-              'key' => 'ROUP_CONCAT_Contact_RelationshipCache_Contact_01_etat_civil_verset_mariage',
+              'key' => 'GROUP_CONCAT_Contact_RelationshipCache_Contact_01_etat_civil_verset_mariage',
               'dataType' => 'Text',
               'label' => E::ts('Verset de mariage'),
               'sortable' => true,
