@@ -11,7 +11,7 @@
       parent: '^crmSearchAdminDisplay',
       crmSearchAdmin: '^crmSearchAdmin'
     },
-    templateUrl: '~/searchAdminDisplayPaged/searchAdminDisplayPaged.html',
+    templateUrl: '~/crmSearchAdminDisplayPaged/searchAdminDisplayPaged.html',
     controller: function($scope, searchMeta, formatForSelect2, crmUiHelp) {
       var ts = $scope.ts = CRM.ts('fr.uepalparoisse.civiparoisse'),
         ctrl = this;

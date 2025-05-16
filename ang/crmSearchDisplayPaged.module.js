@@ -2,6 +2,6 @@
   "use strict";
 
   // Declare module
-  angular.module('searchDisplayPaged', CRM.angRequires('searchDisplayPaged'));
+  angular.module('crmSearchDisplayPaged', CRM.angRequires('crmSearchDisplayPaged'));
 
 })(angular, CRM.$, CRM._);

@@ -69,6 +69,7 @@ class CRM_Civiparoisse_Formulaires_Form_ChampsFormulaires
      */
     public static function addAdresse(CRM_Core_Form $form)
     {
+        Civi::resources()->addScriptFile(E::LONG_NAME,'js/hvaddr.js');
         // Adresses
         $form->add(
             'text',

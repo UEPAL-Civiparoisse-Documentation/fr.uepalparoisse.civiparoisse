@@ -14,6 +14,13 @@
 		<div class="content">{$form.household_name.html}</div>
 		<div class="clear"></div>
 	</div>
+<div class="crm-section">
+  <crm-angular-js modules="hvaddrdialog">
+    <div class="addrvirtualcontainer">
+      <button name="show_hvaddr" type="button" hvaddr-dialog-popup="hvaddrdialog">Afficher HVAddr</button>
+    </div>
+  </crm-angular-js>
+</div>
 
 	<div class="crm-section">
 		<div class="label">{$form.street_address.label}</div>

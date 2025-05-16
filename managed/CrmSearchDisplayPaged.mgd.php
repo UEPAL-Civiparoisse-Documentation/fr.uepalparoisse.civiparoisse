@@ -13,7 +13,7 @@ return [
                 'option_group_id.name'=>'search_display_type',
                 'label'=>'Paged',
                 'value'=>'paged',
-                'name'=>'search-display-paged',
+                'name'=>'crm-search-display-paged',
                 'weight'=>10
             ],
             'match'=> [

@@ -1,7 +1,7 @@
 (function (angular, $, _) {
   "use strict";
 
-  angular.module('searchDisplayPaged').component('searchDisplayPaged', {
+  angular.module('crmSearchDisplayPaged').component('crmSearchDisplayPaged', {
     bindings: {
       apiEntity: '@',
       search: '<',
@@ -13,7 +13,7 @@
     require: {
       afFieldset: '?^^afFieldset'
     },
-    templateUrl: '~/searchDisplayPaged/searchDisplayPaged.html',
+    templateUrl: '~/crmSearchDisplayPaged/searchDisplayPaged.html',
     controller: function ($scope, $element, searchDisplayBaseTrait, searchDisplaySortableTrait) {
       var ts = $scope.ts = CRM.ts('fr.uepalparoisse.civiparoisse'),
 

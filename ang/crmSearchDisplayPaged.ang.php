@@ -2,11 +2,11 @@
 // Module for rendering Table Search Displays.
 return [
   'js' => [
-    'ang/searchDisplayPaged.module.js',
-    'ang/searchDisplayPaged/*.js'
+    'ang/crmSearchDisplayPaged.module.js',
+    'ang/crmSearchDisplayPaged/*.js'
   ],
   'partials' => [
-    'ang/searchDisplayPaged',
+    'ang/crmSearchDisplayPaged',
   ],
   'css' => [
     'css/searchDisplayPaged.css',
@@ -15,6 +15,6 @@ return [
   'requires' => ['crmSearchDisplay', 'crmUi', 'crmSearchTasks', 'ui.bootstrap', 'ui.sortable'],
   'bundles' => ['bootstrap3'],
   'exports' => [
-    'search-display-paged' => 'E',
+    'crm-search-display-paged' => 'E',
   ],
 ];
