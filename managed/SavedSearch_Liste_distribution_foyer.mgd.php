@@ -26,13 +26,7 @@ return [
             'sort_name',
           ],
           'orderBy' => [],
-          'where' => [
-            [
-              'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.validation:name',
-              '=',
-              'valid',
-            ],
-          ],
+          'where' => [],
           'groupBy' => [],
           'join' => [
             [
@@ -42,12 +36,7 @@ return [
                 'id',
                 '=',
                 'Contact_Address_contact_id_01.contact_id',
-              ],
-              [
-                'Contact_Address_contact_id_01.is_primary',
-                '=',
-                TRUE,
-              ],
+              ]
             ],
             [
               'Banaddr AS Contact_Address_contact_id_01_Address_Banaddr_addr_id_01',

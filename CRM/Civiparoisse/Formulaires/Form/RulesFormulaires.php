@@ -8,7 +8,7 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 class CRM_Civiparoisse_Formulaires_Form_RulesFormulaires
 {
 
-    public const LATIN_CHAR_REGEX = '/^[\p{Latin}\p{N}\' -]+$/';
+    public const LATIN_CHAR_REGEX = '/^[\p{Latin}\p{N}\' -]+$/u';
 
 // Default constructor pour ne pas permettre une instanciation de la classe depuis l'extérieur
     protected function __construct()
