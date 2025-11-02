@@ -15,6 +15,7 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 function civiparoisse_civicrm_config(&$config)
 {
   _civiparoisse_civix_civicrm_config($config);
+  Civi::dispatcher()->addListener('hook_civicrm_navigationMenu','civiparoisse_relocate_civisolr_menu',-1000);
 }
 
 /**
@@ -56,14 +57,25 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
 
   CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
 
+  _civiparoisse_civix_navigationMenu($menu);
 
-  $civisolrKey = null;
-  $civiparoisseKey = null;
+
+
+}
+
+function civiparoisse_relocate_civisolr_menu(Civi\Core\Event\GenericHookEvent $event)
+{
+
+  $menu=&$event->getHookValues()[0];
+    $civisolrKey = null;
+    $civiparoisseKey = null;
+
   /**
    * Attention : en PHP les tableaux sont passés (sauf exception en utilisant le "&") par copie.
    * Du coup il est plus simple de travailler avec les clefs et le tableau qui a été passé
    * par référence dans cette function
    */
+
   foreach ($menu as $key => $root) {
     if ($root['attributes']['name'] == "uepal_civisolraddr") {
 
@@ -79,8 +91,6 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
     $menu[$civiparoisseKey]['child'][] = $menu[$civisolrKey];
     unset($menu[$civisolrKey]);
   }
-  _civiparoisse_civix_navigationMenu($menu);
-
 
 
 }
