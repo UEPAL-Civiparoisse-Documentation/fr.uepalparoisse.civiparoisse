@@ -7,7 +7,7 @@ return [
     'name' => 'SavedSearch_liste_distribution_foyer',
     'entity' => 'SavedSearch',
     'cleanup' => 'always',
-    'update' => 'always',
+    'update' => 'unmodified',
     'params' => [
       'version' => 4,
       'values' => [
@@ -24,6 +24,8 @@ return [
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.neg_numero_even',
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.rep',
             'sort_name',
+            'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.numero',
+            'Contact_GroupContact_Group_01.title',
           ],
           'orderBy' => [],
           'where' => [],
@@ -36,7 +38,16 @@ return [
                 'id',
                 '=',
                 'Contact_Address_contact_id_01.contact_id',
-              ]
+              ],
+              [
+                'complements_foyer.mode_distribution:name',
+                '=',
+                '"Distribu_"',
+              ],
+              [
+                'complements_foyer.quartier:name',
+                'IS NOT EMPTY',
+              ],
             ],
             [
               'Banaddr AS Contact_Address_contact_id_01_Address_Banaddr_addr_id_01',
@@ -45,6 +56,21 @@ return [
                 'Contact_Address_contact_id_01.id',
                 '=',
                 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.addr_id',
+              ],
+            ],
+            [
+              'Group AS Contact_GroupContact_Group_01',
+              'LEFT',
+              'GroupContact',
+              [
+                'id',
+                '=',
+                'Contact_GroupContact_Group_01.contact_id',
+              ],
+              [
+                'Contact_GroupContact_Group_01.status:name',
+                '=',
+                '"Added"',
               ],
             ],
           ],
@@ -60,7 +86,7 @@ return [
     'name' => 'SavedSearch_liste_distribution_foyer_SearchDisplay_liste_distribution_foyer',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
-    'update' => 'always',
+    'update' => 'unmodified',
     'params' => [
       'version' => 4,
       'values' => [
@@ -104,50 +130,80 @@ return [
               'type' => 'field',
               'key' => 'complements_foyer.quartier:label',
               'dataType' => 'String',
-              'label' => E::ts('Informations supplémentaires: Quartier (distribution, visiteurs, ...)'),
+              'label' => E::ts('Quartier'),
               'sortable' => TRUE,
             ],
             [
               'type' => 'field',
-              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_commune',
-              'dataType' => 'String',
-              'label' => E::ts('Contact Adresses - Adresse Banaddrs: Nom commune'),
-              'sortable' => TRUE,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_voie',
-              'dataType' => 'String',
-              'label' => E::ts('Contact Adresses - Adresse Banaddrs: Nom voie'),
-              'sortable' => TRUE,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.is_even',
+              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.numero',
               'dataType' => 'Integer',
-              'label' => E::ts('Contact Adresses - Adresse Banaddrs: is_even'),
-              'sortable' => TRUE,
-            ],
-            [
-              'type' => 'field',
-              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.neg_numero_even',
-              'dataType' => 'Integer',
-              'label' => E::ts('Contact Adresses - Adresse Banaddrs: neg_numero_even'),
+              'label' => E::ts('Numéro'),
               'sortable' => TRUE,
             ],
             [
               'type' => 'field',
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.rep',
               'dataType' => 'String',
-              'label' => E::ts('Contact Adresses - Adresse Banaddrs: Répéteur'),
+              'label' => E::ts('Suffixe'),
               'sortable' => TRUE,
             ],
             [
               'type' => 'field',
-              'key' => 'sort_name',
+              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_voie',
               'dataType' => 'String',
-              'label' => E::ts('Nom trié'),
+              'label' => E::ts('Rue'),
               'sortable' => TRUE,
+            ],
+            [
+              'type' => 'field',
+              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_commune',
+              'dataType' => 'String',
+              'label' => E::ts('Ville'),
+              'sortable' => TRUE,
+            ],
+            [
+              'links' => [
+                [
+                  'entity' => 'Household',
+                  'action' => 'view',
+                  'join' => '',
+                  'target' => '',
+                  'icon' => 'fa-house-chimney',
+                  'text' => E::ts('[sort_name]'),
+                  'style' => 'default',
+                  'path' => '',
+                  'task' => '',
+                  'conditions' => [],
+                ],
+              ],
+              'type' => 'links',
+              'label' => E::ts('Foyer'),
+            ],
+            [
+              'type' => 'field',
+              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.is_even',
+              'dataType' => 'Integer',
+              'label' => E::ts('Est pair'),
+              'sortable' => TRUE,
+              'cssRules' => [
+                [
+                  'hidden',
+                ],
+              ],
+              'cssClass' => 'hidden',
+            ],
+            [
+              'type' => 'field',
+              'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.neg_numero_even',
+              'dataType' => 'Integer',
+              'label' => E::ts('numéro pair négatif'),
+              'sortable' => TRUE,
+              'cssRules' => [
+                [
+                  'hidden',
+                ],
+              ],
+              'cssClass' => 'hidden',
             ],
           ],
           'actions' => TRUE,
@@ -164,6 +220,3 @@ return [
     ],
   ],
 ];
-
-
-

@@ -53,6 +53,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         //'Groupes'
 
         'Distribution' => [
+          'liste_distribution_foyer' => 'fa-compass',
           'Civip_Liste_Distribution_Quartiers' => 'fa-map-o',
           // Liste de distribution par la Poste
           'Civip_Liste_Quartiers' => 'fa-map-signs',

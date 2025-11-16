@@ -418,7 +418,7 @@ msgstr "Colonnes"
 #: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
 #: ang/searchDisplayPaged/searchDisplayPaged.html
 msgid "MaxSortGroup"
-msgstr "Nombre de critères à utiliser pour le tri"
+msgstr "Nombre de critères pris en compte pour le regroupement des tableaux"
 
 #: ang/searchAdminDisplayPaged/searchAdminDisplayPaged.html
 msgid "Also by"

@@ -50,7 +50,17 @@
             }
           }
           return res;
-        }
+        };
+        ctrl.getIdxColByKey=function (key){
+          var res= null;
+          for(var i=0;i<ctrl.settings.columns.length && res==null ;i++){
+            if(ctrl.settings.columns[i].key==key)
+            {
+              res=i;
+            }
+          }
+          return res;
+        };
         ctrl.isBreakable = function () {
           var res = true;
           for (var i = 0; i < this.sort.length && res && i < this.settings.maxsortgroup; i++) {

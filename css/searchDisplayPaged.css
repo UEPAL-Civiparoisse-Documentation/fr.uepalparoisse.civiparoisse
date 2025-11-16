@@ -3,18 +3,18 @@ div.civiparoisse-paged-result {
   margin-top: 2em;
 }
 table.civiparoisse-paged-table {
-  border: 5px ridge;
-  margin: 5px 0;
+  border: 1px ridge;
+  margin: 1px 0;
 }
 
 table.civiparoisse-paged-table td {
-  border: 2px ridge;
-  padding: 2px 2px !important;
+  border: 1px ridge;
+  padding: 1px 1px !important;
 }
 
 table.civiparoisse-paged-table th {
-  border: 2px ridge;
-  padding: 2px 2px !important;
+  border: 1px ridge;
+  padding: 1px 1px !important;
 }
 
 div.civiparoisse-print-title{

@@ -17,7 +17,7 @@
 <div class="crm-section">
 <crm-angular-js modules="hvaddrdialog">
   <div class="addrvirtualcontainer">
-    <button name="show_hvaddr" type="button" hvaddr-dialog-popup="hvaddrdialog">Assistant</button>
+    <button name="show_hvaddr" type="button" hvaddr-dialog-popup="hvaddrdialog" title="Fenêtre de saisie de l'adresse">Assistant de saisie de l'adresse</button>
   </div>
 </crm-angular-js>
 </div>
