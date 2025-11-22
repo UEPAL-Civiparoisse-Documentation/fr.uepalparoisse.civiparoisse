@@ -7,12 +7,12 @@ return [
     'name' => 'SavedSearch_liste_distribution_foyer',
     'entity' => 'SavedSearch',
     'cleanup' => 'always',
-    'update' => 'unmodified',
+    'update' => 'always',
     'params' => [
       'version' => 4,
       'values' => [
         'name' => 'liste_distribution_foyer',
-        'label' => E::ts('liste distribution foyer'),
+        'label' => E::ts('Liste de distribution par quartier'),
         'api_entity' => 'Household',
         'api_params' => [
           'version' => 4,
@@ -25,6 +25,7 @@ return [
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.rep',
             'sort_name',
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.numero',
+            'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.validation:name',
             'Contact_GroupContact_Group_01.title',
           ],
           'orderBy' => [],
@@ -86,7 +87,7 @@ return [
     'name' => 'SavedSearch_liste_distribution_foyer_SearchDisplay_liste_distribution_foyer',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
-    'update' => 'unmodified',
+    'update' => 'always',
     'params' => [
       'version' => 4,
       'values' => [
@@ -132,6 +133,17 @@ return [
               'dataType' => 'String',
               'label' => E::ts('Quartier'),
               'sortable' => TRUE,
+              'icons' => [
+                [
+                  'icon' => 'fa-triangle-exclamation',
+                  'side' => 'left',
+                  'if' => [
+                    'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.validation:name',
+                    '!=',
+                    'valid',
+                  ],
+                ],
+              ],
             ],
             [
               'type' => 'field',

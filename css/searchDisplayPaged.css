@@ -31,4 +31,9 @@ div.civiparoisse-print-title{
   div.civiparoisse-paged-result:last-of-type{
     page-break-after:always;
   }
+
+  #bootstrap-theme table.civiparoisse-paged-table td a[href]:after {
+   content: "";
+   }
 }
+
