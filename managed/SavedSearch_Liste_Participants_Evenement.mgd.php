@@ -34,6 +34,9 @@ return [
             'Participant_Contact_contact_id_01.address_primary.city',
             'Participant_Contact_contact_id_01.age_years',
             'Participant_Contact_contact_id_01.birth_date',
+            'Participant_Contact_contact_id_01.id',
+            'contact_id',
+            'id',
           ],
           'orderBy' => [],
           'where' => [],
@@ -84,6 +87,7 @@ return [
             'contact.2',
             'contact.3',
             'contact.16',
+            'parentMailing',
           ],
           'limit' => 50,
           'classes' => [

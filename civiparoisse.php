@@ -54,12 +54,10 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
     'url' => 'civicrm/admin/setting/preferences/uepal_parametres'
   ));
 
+    CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
 
-  CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
 
   _civiparoisse_civix_navigationMenu($menu);
-
-
 
 }
 
@@ -149,19 +147,36 @@ function civiparoisse_civicrm_postSave_civicrm_system_log($dao)
   }
 }
 
-function civiparoisse_civicrm_angularModules(&$angularModules)
+
+/**
+ * ajout de tâches classiques
+ * @param string $objectType
+ * @param array $tasks
+ * @return void
+ */
+function civiparoisse_civicrm_searchTasks(string $objectType, array &$tasks)
 {
-  return;
-  $filepath = implode(DIRECTORY_SEPARATOR,
-    [__DIR__,
-      'ang',
-      'searchDisplayPaged',
-      'searchAdminDisplayPaged.component.js']);
-  echo "FILEPATH : " . $filepath . PHP_EOL;
-  if (array_key_exists('crmSearchAdmin', $angularModules)
-    && array_key_exists('js', $angularModules['crmSearchAdmin'])) {
-    $angularModules['crmSearchAdmin']['js'][] = $filepath;
-  } else {
-    throw new Exception('crmSearchAdmin not found');
+  //ajout de l'action d'envoi de mail aux parents
+  if($objectType==='contact'){
+    $tasks[]=[
+      'title' => E::ts('Parents : send mail'),
+      'class' => 'CRM_Civiparoisse_Formulaires_Form_ParentMailingTask'
+    ];
+    $tasks[CRM_Core_Task::LABEL_CONTACTS]=[
+      'title'=>E::ts('Prepare offseted/transposed labels'),
+      'class'=>'CRM_Civiparoisse_Formulaires_Tasks_LabelOffset',
+      'url'=>'civicrm/civiparoisse/contact/task/transpose-offset-label-print',
+      'icon'=>'fa-print'
+    ];
   }
+}
+
+function civiparoisse_civicrm_searchkitTasks(array &$tasks, bool $checkPermissions, ?int $userID)
+{
+  $tasks['Contact']['parentMailing']=[
+    'module' => 'civiparoisseSearchTasks',
+    'title' => E::ts('Parents : send mail'),
+    'icon' => 'fa-paper-plane',
+    'uiDialog' => ['templateUrl' => '~/civiparoisseSearchTasks/civiparoisseSearchTaskParentMailing.html']
+    ];
 }

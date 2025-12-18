@@ -21,9 +21,23 @@ div.civiparoisse-print-title{
   display:none;
 }
 @media print {
+
   nav#civicrm-menu-nav .crm-menubar-toggle-btn {
     display: none;
   }
+
+  ul#civicrm-menu {
+    display: none;
+  }
+
+  #civicrm-footer {
+    display: none
+  }
+
+  #access {
+    display: none
+  }
+
   div.civiparoisse-print-title{
     display: block;
   }

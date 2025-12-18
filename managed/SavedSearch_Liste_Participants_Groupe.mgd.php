@@ -113,6 +113,7 @@ return [
             'contact.2',
             'contact.3',
             'contact.16',
+            'parentMailing',
           ],
           'limit' => 50,
           'classes' => [

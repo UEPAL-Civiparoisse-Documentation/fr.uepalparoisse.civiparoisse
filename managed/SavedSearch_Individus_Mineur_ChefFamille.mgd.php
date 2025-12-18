@@ -180,7 +180,7 @@ return [
                   'target' => 'crm-popup',
                 ],
                 [
-                  'path' => 'civicrm/contact/view/rel?reset=1&cid=[id]',
+                  'path' => 'civicrm/contact/view/rel?action=update&reset=1&id=[Contact_RelationshipCache_Contact_01.relationship_id]&cid=[id]&rtype=a_b',
                   'icon' => 'fa-external-link',
                   'text' => 'Modifier la relation',
                   'style' => 'default',

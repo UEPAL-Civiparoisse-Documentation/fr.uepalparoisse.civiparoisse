@@ -89,7 +89,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Variation
         ],
         'Administration' => [
-          // Liste des personnes ayant accès à CiviParoisse
+          'Civip_Liste_Utilisateurs' => 'fa-users',// Liste des personnes ayant accès à CiviParoisse
           // Liste des personnes dans la corbeille
         ],
       ],

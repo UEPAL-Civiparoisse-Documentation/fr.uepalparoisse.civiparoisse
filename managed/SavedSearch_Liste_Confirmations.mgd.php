@@ -73,6 +73,7 @@ return [
             'contact.2',
             'contact.3',
             'contact.16',
+            'parentMailing',
           ],
           'description' => null,
           'limit' => 50,

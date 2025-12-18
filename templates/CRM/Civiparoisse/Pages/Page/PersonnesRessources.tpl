@@ -13,13 +13,15 @@
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-guebwiller/" target="_blank">Guebwiller</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-niederbronn-les-bains/" target="_blank">Niederbronn les Bains</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-klingenthal-obernai/" target="_blank">Obernai</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-mundolsheim-niederhausbergen/" target="_blank">Mundolsheim</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saverne/" target="_blank">Saverne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-selestat/" target="_blank">Sélestat</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-du-bouclier/" target="_blank">Strasbourg - Le Bouclier</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saint-guillaume/" target="_blank">Strasbourg - Saint Guillaume</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-wasselonne-zehnacker/" target="_blank">Wasselonne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-westhoffen/" target="_blank">Westhoffen</a></p>
     </div>
-    <p><small><i>Liste mise à jour le 31 octobre 2024</i></small><p>
+    <p><small><i>Liste mise à jour le 29 novembre 2025</i></small><p>
 
   <h3>Contacts à l'UEPAL</h3>
     <ul >

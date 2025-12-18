@@ -18,14 +18,17 @@
 </ul>
 </div>
 
+<div style="border-style: solid; padding: 10px; background-color: #f8f3ebff;">
+<h4>{icon icon="fa-lightbulb-o"}{/icon} Formations aux outils CiviParoisse</h4>
+<ul>
+	<li>{icon icon="fa-external-link"}{/icon}<a href={crmURL p='civicrm/aide-formation'} target="_blank">Lien vers la formation</a></li>
+	<li>{icon icon="fa-external-link"}{/icon}<a href="https://uepal-civiparoisse-documentation.github.io/FORMATION/index.html" target="_blank">Lien vers la documentation</a></li>
+</ul>
+</div>
+
 <h4>{icon icon="fa-file-text-o"}{/icon} Présentation du projet</h4>
 <ul>
 	<li>{icon icon="fa-external-link"}{/icon}<a href="https://uepal-civiparoisse-documentation.github.io/PRESENTATION/index.html" target="_blank">Lien vers la documentation</a></li>
-</ul>
-
-<h4>{icon icon="fa-lightbulb-o"}{/icon} Formations aux outils CiviParoisse</h4>
-<ul>
-	<li>{icon icon="fa-external-link"}{/icon}<a href="https://uepal-civiparoisse-documentation.github.io/FORMATION/index.html" target="_blank">Lien vers la documentation</a></li>
 </ul>
 
 <h4>{icon icon="fa-file-text-o"}{/icon} Eléments techniques du projet</h4>

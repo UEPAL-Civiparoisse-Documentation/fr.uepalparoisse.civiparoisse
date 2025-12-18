@@ -23,6 +23,7 @@ return [
         'api_params' => [
           'version' => 4,
           'select' => [
+            'id',
             'result_row_num',
             'sort_name',
             'last_name',

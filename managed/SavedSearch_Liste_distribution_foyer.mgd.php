@@ -10,13 +10,20 @@ return [
     'update' => 'always',
     'params' => [
       'version' => 4,
+      'match' => [
+        'name'
+      ],
       'values' => [
         'name' => 'liste_distribution_foyer',
         'label' => E::ts('Liste de distribution par quartier'),
+        'form_values' => null,
+        'mapping_id' => null,
+        'search_custom_id' => null,
         'api_entity' => 'Household',
         'api_params' => [
           'version' => 4,
           'select' => [
+            'id',
             'complements_foyer.quartier:label',
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_commune',
             'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_voie',
@@ -77,9 +84,8 @@ return [
           ],
           'having' => [],
         ],
-      ],
-      'match' => [
-        'name',
+        'expires_date' => null,
+        'description' => 'Liste de distribution par Quartier',
       ],
     ],
   ],
@@ -96,7 +102,7 @@ return [
         'saved_search_id.name' => 'liste_distribution_foyer',
         'type' => 'paged',
         'settings' => [
-          'description' => NULL,
+          'description' => null,
           'sort' => [
             [
               'complements_foyer.quartier:label',
@@ -123,16 +129,24 @@ return [
               'ASC',
             ],
           ],
+          'actions' => [true],
           'limit' => 500,
-          'pager' => [],
-          'placeholder' => 5,
+          'classes' => [
+            'table',
+            'table-striped',
+            'table-bordered',
+          ],
+          'pager' => [
+            'show_count' => false,
+            'expose_limit' => true,
+          ],
           'columns' => [
             [
               'type' => 'field',
               'key' => 'complements_foyer.quartier:label',
               'dataType' => 'String',
               'label' => E::ts('Quartier'),
-              'sortable' => TRUE,
+              'sortable' => true,
               'icons' => [
                 [
                   'icon' => 'fa-triangle-exclamation',
@@ -150,28 +164,28 @@ return [
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.numero',
               'dataType' => 'Integer',
               'label' => E::ts('Numéro'),
-              'sortable' => TRUE,
+              'sortable' => true,
             ],
             [
               'type' => 'field',
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.rep',
               'dataType' => 'String',
               'label' => E::ts('Suffixe'),
-              'sortable' => TRUE,
+              'sortable' => true,
             ],
             [
               'type' => 'field',
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_voie',
               'dataType' => 'String',
               'label' => E::ts('Rue'),
-              'sortable' => TRUE,
+              'sortable' => true,
             ],
             [
               'type' => 'field',
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.nom_commune',
               'dataType' => 'String',
               'label' => E::ts('Ville'),
-              'sortable' => TRUE,
+              'sortable' => true,
             ],
             [
               'links' => [
@@ -196,7 +210,7 @@ return [
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.is_even',
               'dataType' => 'Integer',
               'label' => E::ts('Est pair'),
-              'sortable' => TRUE,
+              'sortable' => true,
               'cssRules' => [
                 [
                   'hidden',
@@ -209,7 +223,7 @@ return [
               'key' => 'Contact_Address_contact_id_01_Address_Banaddr_addr_id_01.neg_numero_even',
               'dataType' => 'Integer',
               'label' => E::ts('numéro pair négatif'),
-              'sortable' => TRUE,
+              'sortable' => true,
               'cssRules' => [
                 [
                   'hidden',
@@ -218,13 +232,11 @@ return [
               'cssClass' => 'hidden',
             ],
           ],
-          'actions' => TRUE,
-          'classes' => [
-            'table',
-            'table-striped',
-          ],
           'maxsortgroup' => 1,
+          'placeholder' => 5,
+          'headerCount' => false,
         ],
+        'acl_bypass' => false,
       ],
       'match' => [
         'name',

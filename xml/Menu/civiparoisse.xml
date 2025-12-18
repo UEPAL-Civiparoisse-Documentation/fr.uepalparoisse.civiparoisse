@@ -48,22 +48,33 @@
     <title>SommaireCiviparoisse</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
-<item>
+  <item>
     <path>civicrm/modes-emploi</path>
     <page_callback>CRM_Civiparoisse_Pages_Page_ModesEmploi</page_callback>
     <title>ModesEmploiCiviparoisse</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
-<item>
+  <item>
     <path>civicrm/sommaire-parametres</path>
     <page_callback>CRM_Civiparoisse_Pages_Page_SommaireParametres</page_callback>
     <title>SommaireParametres</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
-<item>
+  <item>
     <path>civicrm/personnes-ressources</path>
     <page_callback>CRM_Civiparoisse_Pages_Page_PersonnesRessources</page_callback>
     <title>PersonnesRessources</title>
+    <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+  <path>civicrm/civiparoisse/contact/task/transpose-offset-label-print</path>
+  <page_callback>CRM_Civiparoisse_Formulaires_Tasks_LabelOffset</page_callback>
+  <access_arguments>access CiviCRM</access_arguments>
+  </item>
+  <item>
+    <path>civicrm/aide-formation</path>
+    <page_callback>CRM_Civiparoisse_Pages_Page_AideFormation</page_callback>
+    <title>Formation</title>
     <access_arguments>access CiviCRM</access_arguments>
   </item>
 </menu>
