@@ -20,7 +20,16 @@ table.civiparoisse-paged-table th {
 div.civiparoisse-print-title{
   display:none;
 }
+
+div.display-paged-print-button {
+  text-align: right;
+}
+
 @media print {
+
+  div .display-paged-print-button {
+    display: none;
+  }
 
   nav#civicrm-menu-nav .crm-menubar-toggle-btn {
     display: none;
