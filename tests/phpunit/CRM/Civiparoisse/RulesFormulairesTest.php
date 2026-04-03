@@ -1,5 +1,7 @@
 <?php
 
+use PHPUnit\Framework\Attributes\DataProvider;
+
 /**
  * This is a generic test class for the extension (implemented with PHPUnit).
  */
@@ -39,6 +41,7 @@ return [
 /**
 * @dataProvider validateNomIndividuDataProvider
 */
+#[DataProvider('validateNomIndividuDataProvider')]
 public function testValidateNomIndividu($fields,$trueExpected)
 {
 $computed=CRM_Civiparoisse_Formulaires_Form_RulesFormulaires::validateNomIndividu($fields);
@@ -57,6 +60,7 @@ return [
 /**
 * @dataProvider validateNomOrganizationDataProvider
 */
+#[DataProvider('validateNomOrganizationDataProvider')]
 public function testValidateNomOrganization($fields,$trueExpected)
 {
 $computed=CRM_Civiparoisse_Formulaires_Form_RulesFormulaires::validateNomOrganization($fields);
@@ -74,6 +78,7 @@ return [
 /**
 * @dataProvider validateNomFoyerDataProvider
 */
+#[DataProvider('validateNomFoyerDataProvider')]
 public function testValidateNomFoyer($fields,$trueExpected)
 {
 $computed=CRM_Civiparoisse_Formulaires_Form_RulesFormulaires::validateNomFoyer($fields);
@@ -92,6 +97,7 @@ return [
 /**
 * @dataProvider validateVilleDataProvider
 */
+#[DataProvider('validateVilleDataProvider')]
 public function testValidateVille($fields,$trueExpected)
 {
 $computed=CRM_Civiparoisse_Formulaires_Form_RulesFormulaires::validateVille($fields);
@@ -109,6 +115,7 @@ return [
 /**
 * @dataProvider validateCourrielIndividuDataProvider
 */
+#[DataProvider('validateCourrielIndividuDataProvider')]
 public function testValidateCourrielIndividu($fields,$trueExpected)
 {
 $computed=CRM_Civiparoisse_Formulaires_Form_RulesFormulaires::validateCourrielIndividu($fields);

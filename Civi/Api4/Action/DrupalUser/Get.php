@@ -11,6 +11,7 @@ namespace Civi\Api4\Action\DrupalUser;
 use Civi\Api4\Generic\BasicGetAction;
 use Civi\Api4\Generic\Result;
 use Drupal\user\Entity\User;
+use Drupal\user\Entity\Role;
 use Drupal\user\UserListBuilder;
 
 class Get extends BasicGetAction {
@@ -31,14 +32,24 @@ class Get extends BasicGetAction {
     // Chargement des entités utilisateur.
     $users = User::loadMultiple($uids);
 
-        foreach ($users as $user) {
+    foreach ($users as $user) {
       /** @var \Drupal\user\Entity\User $user */
+      
+      $role_ids = $user->getRoles();
+      $roles = Role::loadMultiple($role_ids);
+
+      $role_labels = [];
+      foreach ($roles as $role) {
+        /** @var \Drupal\user\Entity\Role $role */
+        $role_labels[] = $role->label();
+      }
+
       $results[] = [
         'uid' => $user->id(),
         'user_name' => $user->getAccountName(),
-        'created' => $user->getCreatedTime() ? date('Y-m-d', $user->getCreatedTime()) : null,
+        'created' => $user->getCreatedTime() ? \Drupal::service('date.formatter')->format($user->getCreatedTime(), 'custom', 'Y-m-d') : null,
         'access' => $user->getLastAccessedTime() ? \Drupal::service('date.formatter')->format($user->getLastAccessedTime(), 'custom', 'Y-m-d') : null,
-        'roles' => $user->getRoles(),
+        'roles' => $role_labels,
         'status' => $user->isActive() ? 'Actif' : 'Bloqué',
         'mail' => $user->getEmail(),
       ];

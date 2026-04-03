@@ -121,6 +121,7 @@ return [
                         'table',
                         'table-striped',
                         'table-bordered',
+                        'crm-sticky-header',
                     ],
                     'pager' => false,
                     'columns' => [

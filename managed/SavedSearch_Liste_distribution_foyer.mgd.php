@@ -165,6 +165,7 @@ return [
               'dataType' => 'Integer',
               'label' => E::ts('Numéro'),
               'sortable' => true,
+              'alignment' => 'text-right',
             ],
             [
               'type' => 'field',

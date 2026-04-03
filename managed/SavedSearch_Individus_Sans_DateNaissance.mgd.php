@@ -91,6 +91,7 @@ return [
             'table',
             'table-striped',
             'table-bordered',
+            'crm-sticky-header',
           ],
           'pager' => [
             'show_count' => false,

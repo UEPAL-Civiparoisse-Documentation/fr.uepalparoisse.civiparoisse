@@ -246,10 +246,22 @@
 		<div class="content">{$form.paroisse_confirmation.html}</div>
 		<div class="clear"></div>
 	</div>
-
+	
 	<div class="crm-section">
 		<div class="label">{$form.verset_confirmation.label}</div>
 		<div class="content">{$form.verset_confirmation.html}</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="crm-section">
+		<div class="label">{$form.date_benediction_fin_catechisme.label}</div>
+		<div class="content">{$form.date_benediction_fin_catechisme.html}</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="crm-section">
+		<div class="label">{$form.paroisse_benediction_fin_catechisme.label}</div>
+		<div class="content">{$form.paroisse_benediction_fin_catechisme.html}</div>
 		<div class="clear"></div>
 	</div>
 	

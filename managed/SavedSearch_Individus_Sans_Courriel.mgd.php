@@ -4,25 +4,22 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 
 return [
   [
-    'name' => 'SavedSearch_Civip_Individus_Sans_Genre',
+    'name' => 'SavedSearch_Civip_Individus_sans_Courriel',
     'entity' => 'SavedSearch',
     'cleanup' => 'always',
     'update' => 'always',
     'params' => [
       'version' => 4,
       'values' => [
-        'name' => 'Civip_Individus_Sans_Genre',
-        'label' => 'Individus Sans Genre',
-        'form_values' => null,
-        'mapping_id' => null,
-        'search_custom_id' => null,
+        'name' => 'Civip_Individus_sans_Courriel',
+        'label' => E::ts('Individus sans courriel'),
         'api_entity' => 'Contact',
         'api_params' => [
           'version' => 4,
           'select' => [
             'id',
-            'gender_id:label',
-            'display_name',
+            'sort_name',
+            'Contact_Email_contact_id_01.email',
           ],
           'orderBy' => [],
           'where' => [
@@ -30,9 +27,10 @@ return [
               'contact_type:name',
               '=',
               'Individual',
+              null,
             ],
             [
-              'gender_id:name',
+              'email_primary.email',
               'IS EMPTY',
             ],
             [
@@ -45,13 +43,26 @@ return [
               '=',
               false,
             ],
+            [
+              'do_not_email',
+              '=',
+              false,
+            ],
           ],
           'groupBy' => [],
-          'join' => [],
+          'join' => [
+            [
+              'Email AS Contact_Email_contact_id_01',
+              'EXCLUDE',
+              [
+                'id',
+                '=',
+                'Contact_Email_contact_id_01.contact_id',
+              ],
+            ],
+          ],
           'having' => [],
         ],
-        'expires_date' => null,
-        'description' => 'Recherches des Individus sans Genre',
       ],
       'match' => [
         'name',
@@ -59,19 +70,25 @@ return [
     ],
   ],
   [
-    'name' => 'SavedSearch_Civip_Individus_Sans_Genre_SearchDisplay_Civip_Individus_Sans_Genre_Table',
+    'name' => 'SavedSearch_Civip_Individus_sans_Courriel_SearchDisplay_Civip_Individus_sans_Courriel_Table',
     'entity' => 'SearchDisplay',
     'cleanup' => 'always',
     'update' => 'always',
     'params' => [
       'version' => 4,
       'values' => [
-        'name' => 'Civip_Individus_Sans_Genre_Table',
-        'label' => 'Individus Sans Genre',
-        'saved_search_id.name' => 'Civip_Individus_Sans_Genre',
+        'name' => 'Civip_Individus_sans_Courriel_Table',
+        'label' => E::ts('Individus sans courriel Table'),
+        'saved_search_id.name' => 'Civip_Individus_sans_Courriel',
         'type' => 'table',
         'settings' => [
           'description' => null,
+          'sort' => [
+            [
+              'created_date',
+              'DESC',
+            ],
+          ],
           'actions' => [
             'contact.103',
             'contact.mailing',
@@ -85,7 +102,6 @@ return [
             'table',
             'table-striped',
             'table-bordered',
-            'crm-sticky-header',
           ],
           'pager' => [
             'show_count' => false,
@@ -96,48 +112,53 @@ return [
               'type' => 'field',
               'key' => 'id',
               'dataType' => 'Integer',
-              'label' => 'Id. de contact',
+              'label' => E::ts('Id. de contact'),
               'sortable' => true,
             ],
             [
               'type' => 'field',
-              'key' => 'display_name',
+              'key' => 'sort_name',
               'dataType' => 'String',
-              'label' => 'Nom et prénom',
+              'label' => E::ts('Nom trié'),
               'sortable' => true,
-              'link' => [
-                'path' => '',
-                'entity' => 'Contact',
-                'action' => 'view',
-                'join' => '',
-                'target' => '_blank',
-              ],
-              'title' => 'Voir Contact',
               'icons' => [
                 [
                   'field' => 'contact_type:icon',
                   'side' => 'left',
                 ],
               ],
+              'link' => [
+                'path' => '',
+                'entity' => 'Contact',
+                'action' => 'view',
+                'join' => '',
+                'target' => '',
+                'task' => '',
+              ],
+              'title' => E::ts('Voir Contact'),
             ],
             [
               'type' => 'field',
-              'key' => 'gender_id:label',
-              'dataType' => 'Integer',
-              'label' => 'Genre',
+              'key' => 'Contact_Email_contact_id_01.email',
+              'dataType' => 'String',
+              'label' => E::ts('Contact Courriels: Courriel'),
               'sortable' => true,
               'editable' => true,
               'cssRules' => [
                 [
                   'bg-warning',
+                  'Contact_Email_contact_id_01.email',
+                  '=',
                 ],
               ],
             ],
           ],
           'placeholder' => 5,
-          'headerCount' => true,
+          'actions_display_mode' => 'menu',
+          'editableRow' => [
+            'full' => true,
+          ],
         ],
-        'acl_bypass' => false,
       ],
       'match' => [
         'name',

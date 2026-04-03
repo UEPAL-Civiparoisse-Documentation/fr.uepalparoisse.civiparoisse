@@ -58,11 +58,15 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Liste de distribution par la Poste
           'Civip_Liste_Quartiers' => 'fa-map-signs',
         ],
+        'Entreprises' => [
+          'Civip_Liste_Entreprises' => 'fa-building-o',
+        ],
+
       ],
       'Groupes' => [
         'Participants' => [
           'Civip_Liste_Participants_Groupe' => 'fa-users',
-          // Trombinoscope fa-user-circle-o
+          'Civip_Trombinoscope_Groupes' => 'fa-user-circle-o',
           'Civip_Liste_Dates_Anniversaires' => 'fa-birthday-cake',
         ],
         'Parents' => [
@@ -70,10 +74,11 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
           // Trombinoscope des parents fa-user-circle 
         ],
         'Compétences' => [
+          'Civip_Trombinoscope_Chants' => 'fa-microphone',
+          'Civip_Trombinoscope_Instruments' => 'fa-music',
           // Liste des compétences
           // Compétences musicales
           // Compétences chorale
-          // Trombinoscope
         ]
       ],
       'Evénements' => [

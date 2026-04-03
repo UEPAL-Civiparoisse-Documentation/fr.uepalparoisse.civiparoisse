@@ -15,6 +15,7 @@ class CRM_Civiparoisse_Qualitebase_Page_AmeliorationQualiteParoisse extends CRM_
     $listeAmeliorations = array(
       'Individus' => array(
         'Civip_Individus_sans_Date_de_Naissance',
+        'Civip_Individus_sans_Courriel',
       ),
       'Foyers' => array(
         'Civip_Foyers_sans_Adresses',

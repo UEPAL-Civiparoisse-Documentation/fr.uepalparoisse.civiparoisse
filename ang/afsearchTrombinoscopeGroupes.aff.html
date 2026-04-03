@@ -1,0 +1,12 @@
+<div af-fieldset="" af-title="Choix des critères">
+  <div class="af-markup page-listes">
+    <p>Choisissez un ou des critères, et cliquer sur "Rechercher"</p>
+  </div>
+  <fieldset class="af-container af-layout-inline page-listes">
+    <af-field name="groups" defn="{input_attrs: {multiple: true}, label: 'Groupes'}" />
+    <af-field name="tags" defn="{input_attrs: {multiple: true}, label: 'Tags/Etiquettes'}" />
+  </fieldset>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-grid search-name="Civip_Trombinoscope_Groupes" display-name="Civip_Trombinoscope_Groupes_Grid"></crm-search-display-grid>
+  </div>
+</div>

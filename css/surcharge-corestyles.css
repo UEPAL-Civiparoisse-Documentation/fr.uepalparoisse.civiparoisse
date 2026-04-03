@@ -33,11 +33,6 @@ div.block-page-title-block:last-child {
   height: 1rem;
 }
 
-/* Figer les titres dans les tableaux */
-div.crm-search-display-table table thead tr { 
-  position: sticky !important; top: 42px; 
-}
-
 /*******************************/
 /* Gestion des rapports Afform */
 /*******************************/

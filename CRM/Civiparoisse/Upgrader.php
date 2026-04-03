@@ -59,6 +59,9 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         // installation de l'upgrade_0151
         $this->upgrade_0151();
 
+        // installation de l'upgrade_0153
+
+        $this->upgrade_0153();
 
         /* Commentaires à enlever pour activer la prochaine version
             // installation de l'upgrade_0152
@@ -280,8 +283,6 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         return true;
     }
 
-
-
     public function upgrade_0151() {
     
         // Remplacement du préfixe Mlle par Mme
@@ -294,7 +295,27 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         ->setCheckPermissions(false)
         ->execute();  
     return true;
+  }
 
+
+    public function upgrade_0153() {
+
+        $configReligion = new CRM_Civiparoisse_Parametres_ConfigInfoReligion();
+        $configReligion->ajoutReligions0153();
+        $configReligion->modificationTerminologieReligion0153();
+        $configReligion->ordreAffichageReligions0153();
+        $configReligion->ajoutChampDateFinCatechisme0153();
+        $configReligion->ajoutChampLieuFinCatechisme0153();
+
+        CRM_Civiparoisse_Parametres_MappingImport_MappingConfig0153::run();
+
+
+        \Civi\Api4\System::flush()
+            ->setCheckPermissions(false)
+            ->execute();
+
+
+        return true;
   }
 
  
