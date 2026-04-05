@@ -381,55 +381,6 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuCasuels
     }
 
     /**
-     * Function addDateFinCatechisme, appelée par le Formulaire Individu
-     * Permet de renseigner
-     *  la date de bénédiction de fin de catéchisme
-     *
-     * @param CRM_Core_Form $form
-     * @access public
-     * @return void
-     *
-     */
-    public static function addDateFinCatechisme($form)
-    {
-        $form->add(
-            'datepicker',
-            'date_benediction_fin_catechisme',
-            ts('Date de bénédiction de fin de catéchisme'),
-            array('class' => 'some-css-class'),
-            false,
-            array('time' => false,
-                'date' => 'dd/mm/yy',
-                'yearRange' => self::INDIVIDU_DATE_RANGE)
-        );
-    }
-
-    /**
-     * Function addParoisseFinCatechisme, appelée par le Formulaire Individu
-     * Permet de renseigner
-     *  la paroisse de bénédiction de fin de catéchisme
-     *
-     * @param CRM_Core_Form $form
-     * @access public
-     * @return void
-     *
-     */
-    public static function addParoisseFinCatechisme($form)
-    {
-        $form->addEntityRef(
-            'paroisse_benediction_fin_catechisme',
-            ts('Lieu de bénédiction de fin de catéchisme'),
-            [
-                'entity' => 'OptionValue',
-                'api' => [
-                    'params' => ['option_group_name' => 'liste_paroisses'],
-                ],
-                'select' => ['minimumInputLength' => 0],
-            ]
-        );
-    }
-
-    /**
      * Function addVersetConfirmation, appelée par le Formulaire Individu
      * Permet de renseigner
      *  le verset de confirmation
@@ -916,16 +867,13 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuSpecifiques
             [
                 'entity' => 'OptionValue',
                 'api' => [
-                    'params' => [
-                        'option_group_name' => 'religion',
-                        'options' => ['sort' => 'weight ASC'], // tri par weight
-                        'is_active' => 1, // uniquement les options actives
-                    ],
+                    'params' => ['option_group_name' => 'religion'],
                 ],
                 'select' => ['minimumInputLength' => 0],
             ]
         );
     }
+
 }
 /**
  *

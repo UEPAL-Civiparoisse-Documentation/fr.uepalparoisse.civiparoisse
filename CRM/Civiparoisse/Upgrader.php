@@ -59,9 +59,12 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
         // installation de l'upgrade_0151
         $this->upgrade_0151();
 
-        // installation de l'upgrade_0153
+        //0152 : pas de modif installer
+        //0153 : avorté (pb cv update afform_scanner)
+        
+        // installation de l'upgrade_0154
 
-        $this->upgrade_0153();
+        $this->upgrade_0154();
 
         /* Commentaires à enlever pour activer la prochaine version
             // installation de l'upgrade_0152
@@ -298,21 +301,12 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
   }
 
 
-    public function upgrade_0153() {
+    public function upgrade_0154() {
 
-        $configReligion = new CRM_Civiparoisse_Parametres_ConfigInfoReligion();
-        $configReligion->ajoutReligions0153();
-        $configReligion->modificationTerminologieReligion0153();
-        $configReligion->ordreAffichageReligions0153();
-        $configReligion->ajoutChampDateFinCatechisme0153();
-        $configReligion->ajoutChampLieuFinCatechisme0153();
 
         CRM_Civiparoisse_Parametres_MappingImport_MappingConfig0153::run();
 
 
-        \Civi\Api4\System::flush()
-            ->setCheckPermissions(false)
-            ->execute();
 
 
         return true;
