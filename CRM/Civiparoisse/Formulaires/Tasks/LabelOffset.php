@@ -62,7 +62,7 @@ class CRM_Civiparoisse_Formulaires_Tasks_LabelOffset extends CRM_Contact_Form_Ta
     return $addressReturnProperties;
   }
 
-  public function postProcess()
+  public function postProcess() : void
   {
     $fv = $this->controller->exportValues($this->_name);
     if (!array_key_exists('transpose', $fv) || empty($fv['transpose'])) {
