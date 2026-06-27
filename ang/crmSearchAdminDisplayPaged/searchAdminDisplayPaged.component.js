@@ -54,6 +54,9 @@
           ctrl.display.settings = _.extend({}, _.cloneDeep(CRM.crmSearchAdmin.defaultDisplay.settings), {columns: null, pager: {}});
           ctrl.display.settings.sort = ctrl.parent.getDefaultSort();
         }
+        //force these two settings
+        ctrl.display.settings.limit=0;
+        ctrl.display.settings.pager.expose_limit=false;
         // Displays created prior to 5.43 may not have this property
         ctrl.display.settings.classes = ctrl.display.settings.classes || [];
         // Table can be draggable if the main entity is a SortableEntity.

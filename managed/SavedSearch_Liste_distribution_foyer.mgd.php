@@ -130,7 +130,7 @@ return [
             ],
           ],
           'actions' => [true],
-          'limit' => 500,
+          'limit' => 0,
           'classes' => [
             'table',
             'table-striped',
@@ -138,7 +138,7 @@ return [
           ],
           'pager' => [
             'show_count' => false,
-            'expose_limit' => true,
+            'expose_limit' => false,
           ],
           'columns' => [
             [

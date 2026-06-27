@@ -15,14 +15,17 @@
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-mundolsheim-niederhausbergen/" target="_blank">Mundolsheim</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-niederbronn-les-bains/" target="_blank">Niederbronn les Bains</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-klingenthal-obernai/" target="_blank">Obernai</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-sarreguemines/" target="_blank">Sarreguemines</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saverne/" target="_blank">Saverne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-selestat/" target="_blank">Sélestat</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-du-bouclier/" target="_blank">Strasbourg - Le Bouclier</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saint-guillaume/" target="_blank">Strasbourg - Saint Guillaume</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/soultzerland//" target="_blank"> Communauté protestante du Soultzerland</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-ville-climont-saales/" target="_blank">Villé, Climont, Saâles</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-wasselonne-zehnacker/" target="_blank">Wasselonne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-westhoffen/" target="_blank">Westhoffen</a></p>
     </div>
-    <p><small><i>Liste mise à jour le 22 mars 2026</i></small><p>
+    <p><small><i>Liste mise à jour le 13 juin 2026</i></small><p>
 
   <h3>Contacts à l'UEPAL</h3>
     <ul >

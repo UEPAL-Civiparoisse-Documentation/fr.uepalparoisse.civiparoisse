@@ -70,6 +70,19 @@ class CRM_Civiparoisse_Parametres_ConfigListeParoisses
 
     }
 
+// Fonction de correction du nom des paroisses dans la liste des paroisses, pour corriger les noms des paroisses qui ont été mal orthographiés.
+    public static function correctNomParoisses($ancienNom, $nouveauNom)
+    {
+        \Civi\Api4\OptionValue::update()
+            ->setCheckPermissions(false)
+            ->addValue('label', $nouveauNom)
+            ->addWhere('option_group_id:name', '=', 'liste_paroisses')
+            ->addWhere('label', '=', $ancienNom)
+            ->execute();
+    }
+
+
+
 
 // Liste des paroisses de l'UEPAL. Liste modifiée au 1er décembre 2022.
     public static function listeDesParoisses()

@@ -1,0 +1,10 @@
+<div af-fieldset="" af-title="Choix des crit&egrave;res">
+  <div class="af-container af-layout-inline page-listes" >
+    <af-field name="groups" defn="{input_attrs: {multiple: true}, label: 'Groupes'}" />
+    <af-field name="birth_date" defn="{input_type: 'Select', search_range: true, input_attrs: {}}" />
+    <af-field name="competences.musique_instrument" defn="{input_attrs: {multiple: true}, label: 'Instrument'}" />
+  </div>
+  <div class="af-container" af-title="Liste des r&eacute;sultats">
+    <crm-search-display-table search-name="Civip_Liste_Individus_Avec_Instrument" display-name="Civip_Liste_Individus_Avec_Instrument_Table"></crm-search-display-table>
+  </div>
+</div>

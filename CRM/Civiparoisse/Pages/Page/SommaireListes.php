@@ -14,11 +14,8 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 
 class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
 
-  public function run() {
-    // Example: Set the page-title dynamically; alternatively, declare a static title in xml/Menu/*.xml
+  public function run(){
     CRM_Utils_System::setTitle(E::ts('Listes CiviParoisse'));
-
-    // $arrayListes = Array (Type de Groupe, Type de Sous-Groupe, nom du SearchKit, icône associé au Search Kit)
     $arrayListes = [
       'Paroisse' => [
         'Paroissiens' => [
@@ -71,13 +68,14 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         ],
         'Parents' => [
           // Liste des parents des participants
-          // Trombinoscope des parents fa-user-circle 
+          // Trombinoscope des parents fa-user-circle
         ],
         'Compétences' => [
+          'Civip_Liste_Individus_Avec_Chant' => 'fa-microphone-lines',
           'Civip_Trombinoscope_Chants' => 'fa-microphone',
-          'Civip_Trombinoscope_Instruments' => 'fa-music',
+          'Civip_Liste_Individus_Avec_Instrument' => 'fa-guitar',
+           'Civip_Trombinoscope_Instruments' => 'fa-music',
           // Liste des compétences
-          // Compétences musicales
           // Compétences chorale
         ]
       ],
@@ -85,7 +83,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
         'Participants' => [
           'Civip_Liste_Participants_Evenement' => 'fa-users',
         ],
-      // Parents
+        // Parents
         // Liste des parents des participants
       ],
       'Gestion' => [
@@ -100,47 +98,95 @@ class CRM_Civiparoisse_Pages_Page_SommaireListes extends CRM_Core_Page {
       ],
 
     ];
+    $flattenSavedSearchArray=[];
+    $this->walk_keys($flattenSavedSearchArray,$arrayListes);
+    $flattenSavedSearchNames=array_keys($flattenSavedSearchArray);
+
+    $labelSavedSearches = \Civi\Api4\SavedSearch::get()
+      ->addSelect('label')
+      ->addSelect('name')
+      ->addSelect('id')
+      ->addWhere('name', 'IN', $flattenSavedSearchNames)
+      ->setLimit(0)
+      ->execute()
+      ->getArrayCopy();
+
+    $savedSearchLabels=[];
+    foreach($labelSavedSearches as $labelSavedSearch)
+    {
+      $savedSearchLabels[$labelSavedSearch['name']]=$labelSavedSearch['label'];
+    }
+
+
+
+    // Rajout du lien vers le formulaire, en allant rechercher le nom du Search Display, puis en trouvant le chemin vers le formulaire
+    $nameSearchDisplays = \Civi\Api4\SearchDisplay::get()
+      ->addSelect('name')
+      ->addSelect('saved_search_id')
+      ->addSelect('saved_search_id.name')
+      ->addWhere('saved_search_id.name', 'IN', $flattenSavedSearchNames)
+      ->execute()
+      ->getArrayCopy();
+
+    $fullSearchDisplayNames=array_map(function($displayName){
+      return [$displayName['saved_search_id.name'].".".$displayName['name']];},$nameSearchDisplays);
+
+
+    $lienFormsDisplays = \Civi\Api4\Afform::get()
+      ->addWhere('search_displays', 'IN', $fullSearchDisplayNames)
+      ->addSelect('server_route')
+      ->addSelect('search_displays')
+      ->execute()
+      ->getArrayCopy();
+
+    $flattenFormDisplays=[];
+    foreach($lienFormsDisplays as $lienFormsDisplay)
+    {
+      $components=explode('.',$lienFormsDisplay['search_displays'][0]);
+      $savedSearch=$components[0];
+      $flattenFormDisplays[$savedSearch]=$lienFormsDisplay['server_route'];
+
+    }
+
+    // A ce moment, on a les clefs feuilles qui indexent les structures de données
 
     foreach ($arrayListes as $typeGroupe => $arraySousGroupe) {
 
-      foreach ($arraySousGroupe as $typeSousGroupe  => $listeListe) {
+      foreach ($arraySousGroupe as $typeSousGroupe => $listeListe) {
 
         $resultBoucleListes = [];
 
-        foreach ($listeListe as $nameListe  => $nameIcone) {
-
-          // Rajout de la description du Saved Search, pour l'afficher à l'écran
-          $labelSavedSearch = \Civi\Api4\SavedSearch::get()
-            ->addSelect('label')
-            ->addWhere('name', '=', $nameListe)
-            ->setLimit(0)
-            ->execute()
-            ->first();
-
-          // Rajout du lien vers le formulaire, en allant rechercher le nom du Search Display, puis en trouvant le chemin vers le formulaire
-          $nameSearchDisplays = \Civi\Api4\SearchDisplay::get()
-            ->addSelect('name')
-            ->addWhere('saved_search_id.name', '=', $nameListe)
-            ->execute()
-            ->first();
-
-          $lienFormsDisplay = \Civi\Api4\Afform::get()
-            ->addWhere('search_displays', '=', [$nameListe . "." . $nameSearchDisplays['name']])
-            ->addSelect('server_route')
-            ->execute()
-            ->first();
+        foreach ($listeListe as $nameListe => $nameIcone) {
 
           // $resultBoucleListes = Array (lien vers le document Forms, icone, description du Search Kit)
           // Assignation des valeurs pour l'affichage dans le Smarty
-          $resultBoucleListes[] = [$lienFormsDisplay['server_route'], $nameIcone, $labelSavedSearch['label']];
-        }
 
+
+          $resultBoucleListes[] = [$flattenFormDisplays[$nameListe], $nameIcone, $savedSearchLabels[$nameListe]];
+        }
         $resultListes[$typeGroupe][$typeSousGroupe] = $resultBoucleListes;
       }
     }
-
     $this->assign('ResultsDesListes', $resultListes);
-
     parent::run();
+
   }
+
+  protected function walk_keys(array &$res,$arrayListes)
+  {
+
+    foreach($arrayListes as $key=>$value)
+    {
+     if(is_array($value))
+     {
+       $this->walk_keys($res,$value);
+
+     }
+     else
+     {
+       $res[$key]=$value;
+     }
+    }
+  }
+  
 }

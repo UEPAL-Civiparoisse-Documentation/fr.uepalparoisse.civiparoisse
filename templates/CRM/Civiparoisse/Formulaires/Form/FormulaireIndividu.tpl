@@ -15,13 +15,13 @@
 		<div class="clear"></div>
 	</div>
 	
-	<h3>Statut de l'individu</h3>
+	<h3>Statut</h3>
 	
 	<div class="crm-section">
 		<div class="label">{$form.statutIndividu.label}</div>
 		<div class="content">{$form.statutIndividu.html}</div>
 		<div class="clear"></div>
-		<div class="form-pretexte">Indiquer si l'Individu est un enfant ou un adulte (dans le Foyer).</div>
+		<!-- <div class="form-pretexte">Indiquer si l'Individu est un enfant ou un adulte (dans le Foyer).</div> -->
 	</div>
 		
 	<h3>Pour les enfants uniquement</h3>
@@ -246,10 +246,22 @@
 		<div class="content">{$form.paroisse_confirmation.html}</div>
 		<div class="clear"></div>
 	</div>
-
+	
 	<div class="crm-section">
 		<div class="label">{$form.verset_confirmation.label}</div>
 		<div class="content">{$form.verset_confirmation.html}</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="crm-section">
+		<div class="label">{$form.date_benediction_fin_catechisme.label}</div>
+		<div class="content">{$form.date_benediction_fin_catechisme.html}</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="crm-section">
+		<div class="label">{$form.paroisse_benediction_fin_catechisme.label}</div>
+		<div class="content">{$form.paroisse_benediction_fin_catechisme.html}</div>
 		<div class="clear"></div>
 	</div>
 	

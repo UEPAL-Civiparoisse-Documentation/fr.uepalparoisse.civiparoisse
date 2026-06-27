@@ -1575,19 +1575,31 @@ class CRM_Civiparoisse_Parametres_Config
     public static function computeParametresSettings()
     {
         $religionSetting = self::computeReligionSettingKey();
+        $newsSetting= CRM_Civiparoisse_Dashlets_PageNews::CIVIPAROISSE_NEWS_SETTING;
         return [
             $religionSetting => [
                 'name' => $religionSetting,
                 'type' => 'Boolean',
                 'title' => ts('Activate Contact Religion Information'),
                 'description' => ts('Activate Contact Religion Information'),
-                'quick_form_type' => 'YesNo',
+                'html_type' => 'Radio',
                 'is_domain' => 1,
                 'is_contact' => 0,
                 'default' => '1',
                 'on_change' => ['CRM_Civiparoisse_Parametres_Config::onReligionFieldsetSettingChange'],
                 'settings_pages' => ['uepal_parametres' => ['weight' => 10]]
-            ]
+            ],
+          $newsSetting =>[
+            'name' => $newsSetting,
+            'type' => 'String',
+            'title' => ts('Civiparoisse News'),
+            'description' => ts('Civiparoisse News RSS URL'),
+            'html_type' => 'Text',
+            'is_domain' => 1,
+            'is_contact' => 0,
+            'default' => '*default*',
+            'settings_pages' => ['uepal_parametres' => ['weight' => 10]]
+          ]
         ];
     }
 

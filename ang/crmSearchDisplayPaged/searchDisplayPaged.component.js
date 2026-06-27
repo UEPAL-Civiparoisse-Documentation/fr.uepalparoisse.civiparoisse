@@ -26,6 +26,7 @@
         this.initializeDisplay($scope, $element);
         ctrl.breaks = [];
         ctrl.onPostRun = ctrl.onPostRun || [];
+        ctrl.limit=0;
         ctrl.shouldBreak = function (rowPointer) {
           var res = false;
           if (rowPointer == 0) {

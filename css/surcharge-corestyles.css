@@ -49,3 +49,26 @@ div.af-markup.page-qualite {
 .af-markup.page-qualite li {
   list-style-position: inside;
 }
+
+
+/******************************************/ 
+/* JUIN 2026                              */
+/* RAJOUTS POUR LE PASSAGE A CIVICRM 6.14 */
+/* A enlever après passage à une prochaine version ou à un autre thème */
+/******************************************/
+
+/* Modification de la couleur et du poids du titre H3 dans les dashlets */
+.crm-container .crm-dashlet-header h3 {
+  color: #ffffff !important;
+  font-weight: 700 !important;
+  margin-top: 8px !important;
+}
+
+.crm-container .crm-dashlet-header a {
+  color: #ffffff !important;
+}
+
+/* Modification de l'alignement des choix pour les boutons Radio (par exemple dans le formulaire de création d'une fiche Individu */
+.crm-option-label-pair {
+  display: inline;
+}

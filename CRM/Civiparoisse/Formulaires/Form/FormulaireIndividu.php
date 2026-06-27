@@ -154,6 +154,12 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
         // Verset de confirmation
         FI::addVersetConfirmation($this);
 
+        // Date de fin de catéchisme
+        FI::addDateFinCatechisme($this);
+
+        // Paroisse de fin de catéchisme
+        FI::addParoisseFinCatechisme($this);
+
         // Bouton Envoyer
         $this->addButtons(array(
             array(
@@ -267,6 +273,8 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
             $listCustomFields["date_confirmation"] => $params['date_confirmation'],
             $listCustomFields["paroisse_confirmation"] => $params['paroisse_confirmation'],
             $listCustomFields["verset_confirmation"] => $params['verset_confirmation'],
+            $listCustomFields['date_benediction_fin_catechisme'] => $params['date_benediction_fin_catechisme'],
+            $listCustomFields['paroisse_benediction_fin_catechisme'] => $params['paroisse_benediction_fin_catechisme'],
         );
 
         /* Injection des données dans l'API */
