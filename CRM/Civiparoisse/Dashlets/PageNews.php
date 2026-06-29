@@ -9,8 +9,8 @@ class CRM_Civiparoisse_Dashlets_PageNews extends CRM_Dashlet_Page_Blog
   const DASHBOARD_LABEL = 'Nouvelles de CiviParoisse';
   const DASHBOARD_FULLURL = 'civicrm/civiparoisse-news?reset=1&context=dashletFullscreen';
   const DASHBOARD_PERMISSION = 'access CiviCRM';
-  const DASHBOARD_COLUMN = 1;
-  const DASHBOARD_WEIGHT = 0;
+  const DASHBOARD_COLUMN = 0;
+  const DASHBOARD_WEIGHT = -10;
 
   const CACHE_NAME='default';
 

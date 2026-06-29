@@ -1,4 +1,5 @@
 <?php
+
 trait CRM_Civiparoisse_Dashlets_ConfigTrait
 {
   /**
@@ -130,6 +131,17 @@ trait CRM_Civiparoisse_Dashlets_ConfigTrait
     return $createDashboard;
   }
 
+  protected function forceDashletActivationAndConfig(): void
+  {
+    $dashletID = $this->retrieveDashletId();
+    Civi\Api4\DashboardContact::update(false)
+      ->setValues(['is_active' => 1,
+        'column_no' => $this->retrieveDashletColumn(),
+        'weight' => $this->retrieveDashletWeight()])
+      ->addWhere('dashboard_id', '=', $dashletID)
+      ->execute();
+  }
+
   /**
    * installe le Dashlet comme dashboard et dans les réglages des dashboards des utilisateurs
    * @return void
@@ -138,6 +150,7 @@ trait CRM_Civiparoisse_Dashlets_ConfigTrait
   {
     $this->createOrGetDashboard();
     $this->createIfNotExistsDashboardContacts();
+    $this->forceDashletActivationAndConfig();
   }
 
   /**
@@ -146,15 +159,16 @@ trait CRM_Civiparoisse_Dashlets_ConfigTrait
    */
   public function uninstallDashlet(): void
   {
-    $name=$this->retrieveDashletName();
-    civicrm_api4('Dashboard','delete',[
-      'where' =>[
-        ['name','=',$name]
+    $name = $this->retrieveDashletName();
+    civicrm_api4('Dashboard', 'delete', [
+      'where' => [
+        ['name', '=', $name]
       ],
-      'checkPermissions'=>false
+      'checkPermissions' => false
     ]);
 
   }
+
   /**
    * Fonction qui affiche le Dashlet CiviParoisse dans les Dashboard
    *
@@ -198,12 +212,12 @@ trait CRM_Civiparoisse_Dashlets_ConfigTrait
    * @param int $dashletWeight Position du Dashlet dans la colonne choisie
    * @param int $contactId Id du contact
    */
-  protected function createIfNotExistsDashboardContact(int $dashletID,
+  protected function createIfNotExistsDashboardContact(int    $dashletID,
                                                        string $dashboardName,
-                                                       int $dashletActive,
-                                                       int $dashletColumn,
-                                                       int $dashletWeight,
-                                                       int $contactId): void
+                                                       int    $dashletActive,
+                                                       int    $dashletColumn,
+                                                       int    $dashletWeight,
+                                                       int    $contactId): void
   {
     try {
       civicrm_api3('DashboardContact', 'getsingle', [
