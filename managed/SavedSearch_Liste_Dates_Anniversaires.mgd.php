@@ -37,6 +37,7 @@ return [
             'GROUP_CONCAT(DISTINCT Contact_GroupContact_Group_01.title) AS GROUP_CONCAT_Contact_GroupContact_Group_01_title',
             'MONTH(birth_date) AS MONTH_birth_date',
             'EXTRACT(DAY FROM birth_date) AS EXTRACT_birth_date',
+            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -84,8 +85,8 @@ return [
                 '"Added"',
               ],
               [
-                'Contact_GroupContact_Group_01.is_hidden', 
-                '=', 
+                'Contact_GroupContact_Group_01.is_hidden',
+                '=',
                 FALSE,
               ],
             ],
@@ -142,6 +143,14 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
+            [
+              'type' => 'field',
+              'key' => 'defaulted_bergerie.name',
+              'dataType' => 'String',
+              'label' => E::ts('defaulted_bergerie_name_header'),
+              'sortable' => true,
+              'cssRules' =>[['bergerie']]
+            ],
             [
               'type' => 'field',
               'key' => 'display_name',

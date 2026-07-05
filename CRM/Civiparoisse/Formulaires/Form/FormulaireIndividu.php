@@ -29,6 +29,9 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
         // Lien Paroisse
         FI::addLienParoisse($this);
 
+        // Bergerie
+        FI::addBergerie($this);
+
         // Nom des parents (en cas d'enfants)
         FI::addParents($this);
 
@@ -275,6 +278,7 @@ class CRM_Civiparoisse_Formulaires_Form_FormulaireIndividu extends CRM_Core_Form
             $listCustomFields["verset_confirmation"] => $params['verset_confirmation'],
             $listCustomFields['date_benediction_fin_catechisme'] => $params['date_benediction_fin_catechisme'],
             $listCustomFields['paroisse_benediction_fin_catechisme'] => $params['paroisse_benediction_fin_catechisme'],
+            $listCustomFields["bergerie"] => $params['bergerie']
         );
 
         /* Injection des données dans l'API */

@@ -30,6 +30,8 @@ return [
             'etat_civil.nom_naissance',
             'first_name',
             'birth_date',
+            'defaulted_bergerie',
+            'defaulted_bergerie.name',
             'Contact_Address_contact_id_01.street_address',
             'Contact_Address_contact_id_01.postal_code',
             'Contact_Address_contact_id_01.city',
@@ -169,6 +171,14 @@ return [
               'dataType' => 'Integer',
               'label' => 'Numéro',
               'sortable' => false,
+            ],
+            [
+              'type' => 'field',
+              'key' => 'defaulted_bergerie.name',
+              'dataType' => 'String',
+              'label' => E::ts('defaulted_bergerie_name_header'),
+              'sortable' => true,
+              'cssRules' =>[['bergerie']]
             ],
             [
               'type' => 'field',

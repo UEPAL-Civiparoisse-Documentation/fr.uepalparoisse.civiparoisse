@@ -1,6 +1,6 @@
 <?php
 
-/* TODO 
+/* TODO
 - Trouver les Relations dont le far_contact ID est le contact_id de la paroisse (celui dans Domain)
 */
 
@@ -38,6 +38,7 @@ return [
               'birth_date',
               'Contact_RelationshipCache_Contact_01.is_current',
               'Contact_RelationshipCache_Contact_01.near_contact_id',
+              'defaulted_bergerie.name'
             ],
             'orderBy' => [],
             'where' => [
@@ -116,6 +117,14 @@ return [
               'expose_limit' => true,
             ],
             'columns' => [
+              [
+                'type' => 'field',
+                'key' => 'defaulted_bergerie.name',
+                'dataType' => 'String',
+                'label' => E::ts('defaulted_bergerie_name_header'),
+                'sortable' => true,
+                'cssRules' =>[['bergerie']]
+              ],
               [
                 'type' => 'field',
                 'key' => 'display_name',

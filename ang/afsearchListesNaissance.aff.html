@@ -3,6 +3,7 @@
     <af-field name="birth_date" defn="{input_type: 'Select', search_range: true, input_attrs: {}, afform_default: 'ending.year', label: 'Date de naissance'}" />
     <af-field name="age_years"
       defn="{search_range: true, input_attrs: {placeholder: '\u00c2ge min', placeholder2: '\u00c2ge max'}, label: 'Age (ann\u00e9es)'}" />
+    <af-field class='bergerie' name="defaulted_bergerie" defn="{input_type: 'EntityRef', fk_entity:'Bergerie', input_attrs: {multiple:true}}" />
   </fieldset>
   <div class="af-container" af-title="Liste des r&eacute;sultats">
     <crm-search-display-table search-name="Civip_Liste_Naissance"

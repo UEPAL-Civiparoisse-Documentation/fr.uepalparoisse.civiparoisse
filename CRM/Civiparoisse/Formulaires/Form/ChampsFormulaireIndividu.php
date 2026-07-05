@@ -750,7 +750,26 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuSpecifiques
             true
         );
     }
-    /**
+
+  /**
+   * Function addBergerie
+   * Permet de renseigner la bergerie
+   *
+   *
+   * @param CRM_Core_Form $form
+   * @access public
+   * @return void
+   *
+   */
+  public static function addBergerie($form)
+  {
+    $form->addEntityRef(
+      'bergerie',E::ts('Bergerie'),['entity'=>'Bergerie','select' => ['minimumInputLength' => 0]],false
+    );
+  }
+
+
+  /**
      * Function addMetier, appelée par le Formulaire Individu
      * Permet de renseigner
      *  le métier de l'individu
