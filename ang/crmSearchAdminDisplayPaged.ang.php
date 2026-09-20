@@ -14,7 +14,4 @@ return [
   'basePages' => ['civicrm/admin/search'],
   'requires' => ['crmSearchAdmin','crmSearchDisplay', 'crmUi', 'crmSearchTasks', 'ui.bootstrap', 'ui.sortable'],
   'bundles' => ['bootstrap3'],
-  'exports' => [
-    'crm-search-display-paged' => 'E',
-  ],
 ];

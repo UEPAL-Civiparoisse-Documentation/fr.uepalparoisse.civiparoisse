@@ -13,7 +13,7 @@
     },
     templateUrl: '~/crmSearchAdminDisplayPaged/searchAdminDisplayPaged.html',
     controller: function($scope, searchMeta, formatForSelect2, crmUiHelp) {
-      var ts = $scope.ts = CRM.ts('fr.uepalparoisse.civiparoisse'),
+      const ts = $scope.ts = CRM.ts('fr.uepalparoisse.civiparoisse'),
         ctrl = this;
       $scope.hs = crmUiHelp({file: 'CRM/Search/Help/Display'});
 
@@ -74,7 +74,7 @@
           results: [
             {
               text: ts('Columns'),
-              children: ctrl.crmSearchAdmin.getSelectFields(disabledIf)
+              children: ctrl.crmSearchAdmin.getSelectFields(ctrl.parent.savedSearch,disabledIf)
             }
           ]
         };
