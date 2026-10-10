@@ -1,3 +1,10 @@
 .bergerie {
   display: none !important;
 }
+.customFieldGroup.multiparoisse{
+  display: none !important;
+}
+
+details#multiparoisse{
+ display: none !important;
+}
