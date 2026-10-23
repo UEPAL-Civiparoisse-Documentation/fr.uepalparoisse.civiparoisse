@@ -12,7 +12,7 @@ return [
       'version' => 4,
       'values' => [
         'name' => 'Civip_Individus_sans_Courriel',
-        'label' => E::ts('Individus sans Courriel'),
+        'label' => E::ts('Individus sans courriel'),
         'api_entity' => 'Contact',
         'api_params' => [
           'version' => 4,

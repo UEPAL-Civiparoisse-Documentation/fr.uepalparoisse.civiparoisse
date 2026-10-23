@@ -33,7 +33,6 @@ return [
             'address_primary.country_id:label',
             'phone_primary.phone',
             'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.sort_name ORDER BY Contact_RelationshipCache_Contact_01.sort_name ASC) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_sort_name',
-            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -138,14 +137,6 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
-            [
-              'type' => 'field',
-              'key' => 'defaulted_bergerie_name',
-              'dataType' => 'String',
-              'label' => E::ts('defaulted_bergerie_name_header'),
-              'sortable' => true,
-              'cssRules' =>[['bergerie']]
-            ],
             [
               'type' => 'field',
               'key' => 'sort_name',

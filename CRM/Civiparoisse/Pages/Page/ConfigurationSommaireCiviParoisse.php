@@ -149,79 +149,8 @@ class CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse
                 'permission' => self::ACCESS_CIVICRM,
                 'image' => null,
             ],
-
-
         ];
     }
 
-    public static function subMenuMultiparoisse()
-    {
-      $indexMenu = 1;
-      return [
-        [
-          'label' => E::ts('Gestion des bergeries'),
-          'name' => 'menu-bergeries',
-          'url' => 'civicrm/bergeries',
-          'navID' => $indexMenu++,
-          'active' => 1,
-          'separator' => 1,
-          'icon' => '',
-          'permission' => self::ACCESS_CIVICRM,
-          'image' => null,
-        ],
-        [
-          'label' => E::ts('Affectation aux bergeries'),
-          'name' => 'menu-affectation-bergeries',
-          'url' => 'civicrm/membres-sans-bergerie',
-          'navID' => $indexMenu++,
-          'active' => 1,
-          'separator' => 1,
-          'icon' => '',
-          'permission' => self::ACCESS_CIVICRM,
-          'image' => null,
-        ],
-        [
-          'label' => E::ts('Numérations des membres'),
-          'name' => 'menu-numerations-membres',
-          'url' => 'civicrm/numeration-membres-paroissiaux',
-          'navID' => $indexMenu++,
-          'active' => 1,
-          'separator' => 1,
-          'icon' => '',
-          'permission' => self::ACCESS_CIVICRM,
-          'image' => null,
-        ],
-      ];
-    }
-    /**
-     * Sous menu multiparoisse
-     * @param array $menu
-     */
-  public static function integrateMenuMultiparoisse(&$menu)
-    {
-       $navId=0;
-       foreach($menu['child'] as $subnode)
-       {
-         if($subnode['name']=='menu-civiparoisse')
-         {
-           $navId=(max(array_keys($subnode['child'])))+1;
-         }
-       }
-      $noeudMultiparoisse=[
-        'label' => E::ts('MultiParoisse'),
-        'name' => 'menu-multiparoisse',
-        'navID' =>$navId,
-        'separator' => 1,
-        'active' => 1,
-        'icon' => 'crm-i fa-church',
-        'permission' => self::ACCESS_CIVICRM,
-      ];
-      _civiparoisse_civix_insert_navigation_menu($menu,'menu-civiparoisse',$noeudMultiparoisse);
-
-      $sous_noeuds=self::subMenuMultiparoisse();
-      foreach($sous_noeuds as $sous_noeud){
-        _civiparoisse_civix_insert_navigation_menu($menu,'menu-civiparoisse/menu-multiparoisse',$sous_noeud);
-      }
-    }
 
 }

@@ -36,7 +36,6 @@ return [
             'address_primary.postal_code',
             'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.email_primary.email) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_email_primary_email',
             'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.phone_primary.phone) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_phone_primary_phone',
-            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -136,14 +135,6 @@ return [
           'columns' => [
             [
               'type' => 'field',
-              'key' => 'defaulted_bergerie.name',
-              'dataType' => 'String',
-              'label' => E::ts('defaulted_bergerie_name_header'),
-              'sortable' => true,
-              'cssRules' =>[['bergerie']]
-            ],
-            [
-              'type' => 'field',
               'key' => 'GROUP_CONCAT_Contact_RelationshipCache_Contact_01_near_contact_id_sort_name',
               'dataType' => 'String',
               'label' => E::ts('Noms et prénoms'),
@@ -222,7 +213,7 @@ return [
                 'action' => 'view',
                 'join' => '',
                 'target' => '_blank',
-              ],
+              ],  
             ],
             [
               'type' => 'field',

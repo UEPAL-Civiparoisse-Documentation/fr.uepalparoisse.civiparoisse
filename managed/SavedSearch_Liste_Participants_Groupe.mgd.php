@@ -63,7 +63,7 @@ return [
             ],
             [
               'Contact AS Contact_RelationshipCache_Contact_01',
-              'LEFT',
+              'INNER',
               'RelationshipCache',
               [
                 'id',

@@ -26,7 +26,6 @@ return [
             'informations_religion.paroisse_bapteme:label',
             'informations_religion.verset_bapteme',
             'age_years',
-            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -90,14 +89,6 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
-            [
-              'type' => 'field',
-              'key' => 'defaulted_bergerie.name',
-              'dataType' => 'String',
-              'label' => E::ts('defaulted_bergerie_name_header'),
-              'sortable' => true,
-              'cssRules' =>[['bergerie']]
-            ],
             [
               'type' => 'field',
               'key' => 'sort_name',

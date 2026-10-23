@@ -11,7 +11,6 @@ use CRM_Civiparoisse_ExtensionUtil as E;
  */
 class ContactAnneesVieProvider extends \Civi\Core\Service\AutoService implements Generic\SpecProviderInterface
 {
-  use ComputeAliasTrait;
   public function modifySpec(RequestSpec $spec)
   {
     $anneesVie=new FieldSpec('annees_vie','Contact','Integer');
@@ -30,8 +29,14 @@ class ContactAnneesVieProvider extends \Civi\Core\Service\AutoService implements
   public static function renderAnneesVie(array $field): string
   {
 
+    $alias='';
+    $exploded=explode('.',$field['sql_name'],-1);
+    if(count($exploded)==1)
+    {
+      $alias=$exploded[0];
+      $alias.='.';
+    }
 
-$alias=self::computeAlias($field);
 
     return "IF({$alias}contact_type='Individual' and {$alias}birth_date is not null,
      IF({$alias}is_deceased=0,

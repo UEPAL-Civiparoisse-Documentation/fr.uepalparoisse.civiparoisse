@@ -6,7 +6,6 @@
     <af-field name="groups" defn="{input_attrs: {multiple: true, placeholder: 'Choisir : Conseil Presbytéral'}, label: 'Groupe', afform_default: ['0'] }" />
     <af-field name="Contact_RelationshipCache_Contact_01.far_relation" defn="{input_attrs: {multiple: true}, afform_default: ['est_membre_elu_de', 'est_membre_coopte_de', 'est_pasteur_de', 'est_president_de', 'est_membre_invite_de', 'est_membre_de_droit_de', 'est_diacre_de', 'est_vice_president_de', 'est_tresorier_de', 'est_secretaire_de', 'est_receveur_de']}"  defn="{label: 'Fonctions'}"/>
     <af-field name="Contact_RelationshipCache_Contact_01.near_contact_id.display_name" defn="{input_attrs: {placeholder: '(Opt.) Choisir la paroisse'}, label: 'Paroisse' }" /> 
-    <af-field class='bergerie' name="defaulted_bergerie" defn="{input_type: 'EntityRef', fk_entity:'Bergerie', input_attrs: {multiple:true}}" />
   </fieldset>
   <div class="af-container" af-title="Liste des r&eacute;sultats">
     <crm-search-display-table search-name="Civip_Liste_Conseil_Presbyteral" display-name="Civip_Liste_Conseil_Presbyteral_Table"></crm-search-display-table>

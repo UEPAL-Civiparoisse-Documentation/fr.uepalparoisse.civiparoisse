@@ -14,7 +14,7 @@ class CRM_Civiparoisse_Pages_Page_SommaireCiviparoisse extends CRM_Core_Page
 
         // Sélection des données nécessaires pour la page SommaireCiviParoisse
         foreach ($dataMenuParoisse as $value) {
-            if (($value['name'] <> 'menu-parametres') && ($value['name'] <> 'menu-bergeries')) {
+            if ($value['name'] <> 'menu-parametres') {
                 $menuCiviParoisse[$value['name']] =
                     $this->addMenuCiviParoisse($value['image'], $value['label'], $value['url']);
             }

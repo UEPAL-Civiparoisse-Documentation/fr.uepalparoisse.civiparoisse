@@ -129,11 +129,6 @@
 		<div class="content">{$form.membership.html}</div>
 		<div class="clear"></div>
 	</div>
-  <div class="crm-section bergerie">
-    <div class="label">{$form.bergerie.label}</div>
-    <div class="content">{$form.bergerie.html}</div>
-    <div class="clear"></div>
-  </div>
 
 	
 	<div class="crm-section">
@@ -251,7 +246,7 @@
 		<div class="content">{$form.paroisse_confirmation.html}</div>
 		<div class="clear"></div>
 	</div>
-
+	
 	<div class="crm-section">
 		<div class="label">{$form.verset_confirmation.label}</div>
 		<div class="content">{$form.verset_confirmation.html}</div>
