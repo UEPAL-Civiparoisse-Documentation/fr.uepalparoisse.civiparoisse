@@ -37,7 +37,9 @@ trait CRM_Civiparoisse_Formulaires_Form_ChampsFormulaireIndividuGeneraux
         $form->add(
             'text',
             'last_name',
-            ts('Nom de famille'));
+            ts('Nom de famille'),
+            NULL,
+            true);
     }
 
     /**

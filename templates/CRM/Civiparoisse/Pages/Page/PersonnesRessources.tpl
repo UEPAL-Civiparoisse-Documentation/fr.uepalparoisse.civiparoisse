@@ -8,9 +8,12 @@
     <p>Les utilisateurs au sein des paroisses utilisatrices peuvent vous aider et répondre à vos questions : le partage de compétences entre utilisateurs est une pierre angulaire du projet CiviParoisse. Retrouvez dans la liste ci-dessous les paroisses qui bénéficient de CiviParoisse. N'hésitez pas à décrocher votre téléphone pour les contacter.</p>
     <div class="listeParoissesRessources">
       <p><a href="https://www.uepal.fr/paroisse/benfeld/" target="_blank">Benfeld</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-berstett-olwisheim/" target="_blank">Berstett Olwisheim</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-bischwiller/" target="_blank">Bischwiller</a></p>
       <p><a href="https://www.uepal.fr/paroisse/boofzheim/" target="_blank">Boofzheim</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-brumath-krautwiller/" target="_blank">Brumath</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-guebwiller/" target="_blank">Guebwiller</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-hoerdt-weyersheim/" target="_blank">Hoerdt</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-dittenheim/" target="_blank">Ittenheim</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-mundolsheim-niederhausbergen/" target="_blank">Mundolsheim</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-niederbronn-les-bains/" target="_blank">Niederbronn les Bains</a></p>
@@ -18,6 +21,7 @@
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-sarreguemines/" target="_blank">Sarreguemines</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saverne/" target="_blank">Saverne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-selestat/" target="_blank">Sélestat</a></p>
+      <p><a href="https://www.uepal.fr/paroisse/paroisse-de-koenigshoffen/" target="_blank">Strasbourg - Koenigshoffen</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-du-bouclier/" target="_blank">Strasbourg - Le Bouclier</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-saint-guillaume/" target="_blank">Strasbourg - Saint Guillaume</a></p>
       <p><a href="https://www.uepal.fr/paroisse/soultzerland//" target="_blank"> Communauté protestante du Soultzerland</a></p>
@@ -25,7 +29,7 @@
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-wasselonne-zehnacker/" target="_blank">Wasselonne</a></p>
       <p><a href="https://www.uepal.fr/paroisse/paroisse-de-westhoffen/" target="_blank">Westhoffen</a></p>
     </div>
-    <p><small><i>Liste mise à jour le 13 juin 2026</i></small><p>
+    <p><small><i>Liste mise à jour le 5 septembre 2026</i></small><p>
 
   <h3>Contacts à l'UEPAL</h3>
     <ul >

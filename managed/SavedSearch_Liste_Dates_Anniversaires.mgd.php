@@ -36,9 +36,10 @@ return [
             'Contact_Membership_contact_id_01.membership_type_id:label',
             'GROUP_CONCAT(DISTINCT Contact_GroupContact_Group_01.title) AS GROUP_CONCAT_Contact_GroupContact_Group_01_title',
             'MONTH(birth_date) AS MONTH_birth_date',
-            'DAY(birth_date) AS DAY_birth_date',
-            'defaulted_bergerie.name',
-          ],
+            'DAY(birth_date) AS DAY_birth_date',,
+            'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.sort_name) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_sort_name',
+            'GROUP_CONCAT(DISTINCT Contact_RelationshipCache_Contact_01.phone_primary.phone) AS GROUP_CONCAT_Contact_RelationshipCache_Contact_01_phone_primary_phone',
+         ],
           'orderBy' => [],
           'where' => [
             [
@@ -88,6 +89,21 @@ return [
                 'Contact_GroupContact_Group_01.is_hidden', 
                 '=', 
                 FALSE,
+              ],
+            ],
+                        [
+              'Contact AS Contact_RelationshipCache_Contact_01',
+              'LEFT',
+              'RelationshipCache',
+              [
+                'id',
+                '=',
+                'Contact_RelationshipCache_Contact_01.far_contact_id',
+              ],
+              [
+                'Contact_RelationshipCache_Contact_01.near_relation:name',
+                '=',
+                '"Household Member is"',
               ],
             ],
           ],
@@ -143,14 +159,6 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
-            [
-              'type' => 'field',
-              'key' => 'defaulted_bergerie.name',
-              'dataType' => 'String',
-              'label' => E::ts('defaulted_bergerie_name_header'),
-              'sortable' => true,
-              'cssRules' =>[['bergerie']]
-            ],
             [
               'type' => 'field',
               'key' => 'display_name',
@@ -225,8 +233,14 @@ return [
               'type' => 'field',
               'key' => 'phone_primary.phone',
               'dataType' => 'String',
-              'label' => 'Téléphone',
+              'label' => 'Téléphone portable',
               'sortable' => true,
+            ],
+            [
+              'type' => 'field',
+              'key' => 'GROUP_CONCAT_Contact_RelationshipCache_Contact_01_phone_primary_phone',
+              'label' => 'Téléphone fixe',
+              'sortable' => TRUE,
             ],
             [
               'type' => 'field',
@@ -258,7 +272,9 @@ return [
             ],
           ],
           'placeholder' => 5,
-          'headerCount' => true,
+          'headerCount' => TRUE,
+          'columnMode' => 'custom',
+          'toggleColumns' => TRUE,
         ],
         'acl_bypass' => false,
       ],
