@@ -33,6 +33,7 @@ return [
             'etat_civil.paroisse_enterrement:label',
             'birth_date',
             'annees_vie',
+            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -99,6 +100,14 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
+            [
+              'type' => 'field',
+              'key' => 'defaulted_bergerie.name',
+              'dataType' => 'String',
+              'label' => E::ts('defaulted_bergerie_name_header'),
+              'sortable' => true,
+              'cssRules' =>[['bergerie']]
+            ],
             [
               'type' => 'field',
               'key' => 'sort_name',

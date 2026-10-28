@@ -37,6 +37,8 @@ return [
             'Participant_Contact_contact_id_01.id',
             'contact_id',
             'id',
+            'Participant_Contact_contact_id_01.gender_id:label',
+            'Participant_Contact_contact_id_01_Contact_RelationshipCache_Contact_01.phone_primary.phone',
           ],
           'orderBy' => [],
           'where' => [],
@@ -49,6 +51,21 @@ return [
                 'contact_id',
                 '=',
                 'Participant_Contact_contact_id_01.id',
+              ],
+            ],
+            [
+              'Contact AS Participant_Contact_contact_id_01_Contact_RelationshipCache_Contact_01',
+              'LEFT',
+              'RelationshipCache',
+              [
+                'Participant_Contact_contact_id_01.id',
+                '=',
+                'Participant_Contact_contact_id_01_Contact_RelationshipCache_Contact_01.far_contact_id',
+              ],
+              [
+                'Participant_Contact_contact_id_01_Contact_RelationshipCache_Contact_01.near_relation:name',
+                '=',
+                '"Household Member is"',
               ],
             ],
           ],
@@ -166,6 +183,12 @@ return [
             ],
             [
               'type' => 'field',
+              'key' => 'Participant_Contact_contact_id_01_Contact_RelationshipCache_Contact_01.phone_primary.phone',
+              'label' => E::ts('Téléphone fixe'),
+              'sortable' => TRUE,
+            ],
+            [
+              'type' => 'field',
               'key' => 'Participant_Contact_contact_id_01.address_primary.street_address',
               'dataType' => 'String',
               'label' => E::ts('Adresse'),
@@ -184,6 +207,12 @@ return [
               'dataType' => 'String',
               'label' => E::ts('Ville'),
               'sortable' => true,
+            ],
+                        [
+              'type' => 'field',
+              'key' => 'Participant_Contact_contact_id_01.gender_id:label',
+              'label' => E::ts('Genre'),
+              'sortable' => TRUE,
             ],
             [
               'type' => 'field',
@@ -265,6 +294,8 @@ return [
               'condition' => [],
             ],
           ],
+          'columnMode' => 'custom',
+          'toggleColumns' => TRUE,
         ],
       ],
       'match' => [

@@ -55,20 +55,16 @@ class CRM_Civiparoisse_Upgrader extends CRM_Extension_Upgrader_Base
     // installation de l'upgrade_0151
     $this->upgrade_0151();
 
-    // installation de l'upgrade_0151
-    $this->upgrade_0151();
-
     //0152 : pas de modif installer
     //0153 : avorté (pb cv update afform_scanner)
     $this->upgrade_0154();
     // installation de l'upgrade_0156
     $this->upgrade_0156();
 
-/* Commentaires à enlever pour activer la prochaine version
     // installation de l'upgrade_0157
     $this->upgrade_0157();
 
-Fin ligne à enlever */
+
 
   }
 
@@ -332,7 +328,7 @@ Fin ligne à enlever */
     CRM_Civiparoisse_Parametres_ConfigListeParoisses::correctNomParoisses('Merckwiller', 'Merkwiller-Pechelbronn');
     CRM_Civiparoisse_Parametres_ConfigListeParoisses::correctNomParoisses('Hermeswiller', 'Hermerswiller');
 
-    // Rajout de nouveaux types d'activités dans CiviCRM
+ // Rajout de nouveaux types d'activités dans CiviCRM
     CRM_Civiparoisse_Parametres_ConfigActivites::ajoutTypes('Visite', 'Visite', '<p>Enregistrement des visites (pastorales ou autres)</p>', 'fa-people-arrows');
 
     // Création de nouveaux rôles de participants pour les événements
@@ -344,147 +340,22 @@ Fin ligne à enlever */
         ->execute();
 
     return true;
-  }
+}
 
 
-/* Fonction annexe pour l'upgrade XXXXXXX
-  public function aux_upgrade_0157(){
-  //installation
-
-  }
-Fin ligne à enlever */
-
-/* Commentaires à enlever pour activer la prochaine version
-  public function upgrade_0157() {
-
-  
-
-    \Civi\Api4\System::flush()
-        ->setCheckPermissions(false)
-        ->execute();
-
-    $this->aux_upgrade_0157();
-
-    return true;
-
-  }
-Fin ligne à enlever */
+public function upgrade_0157(){
+      E::schema()->createEntityTable('upgrade/0156/bergerie.entityType.php');
+      $config=new CRM_Civiparoisse_Parametres_Config();
+      $config->checkConfig();
+    \Civi\Api4\Managed::reconcile(false)
+      ->setCheckPermissions(false)
+      ->execute();
+      return true;
+}
 
 
-  /**
-   * Example: Work with entities usually not available during the install step.
-   *
-   * This method can be used for any post-install tasks. For example, if a step
-   * of your installation depends on accessing an entity that is itself
-   * created during the installation (e.g., a setting or a managed entity), do
-   * so here to avoid order of operation problems.
-   */
-  // public function postInstall() {
-  //  $customFieldId = civicrm_api3('CustomField', 'getvalue', array(
-  //    'return' => array("id"),
-  //    'name' => "customFieldCreatedViaManagedHook",
-  //  ));
-  //  civicrm_api3('Setting', 'create', array(
-  //    'myWeirdFieldSetting' => array('id' => $customFieldId, 'weirdness' => 1),
-  //  ));
-  // }
-
-  /**
-   * Example: Run an external SQL script when the module is uninstalled.
-   */
-  // public function uninstall() {
-  //  $this->executeSqlFile('sql/myuninstall.sql');
-  // }
-
-  /**
-   * Example: Run a simple query when a module is enabled.
-   */
-  // public function enable() {
-  //  CRM_Core_DAO::executeQuery('UPDATE foo SET is_active = 1 WHERE bar = "whiz"');
-  // }
-
-  /**
-   * Example: Run a simple query when a module is disabled.
-   */
-  // public function disable() {
-  //   CRM_Core_DAO::executeQuery('UPDATE foo SET is_active = 0 WHERE bar = "whiz"');
-  // }
-
-  /**
-   * Example: Run a couple simple queries.
-   *
-   * @return true on success
-   * @throws Exception
-   */
-  // public function upgrade_4200() {
-  //   $this->ctx->log->info('Applying update 4200');
-  //   CRM_Core_DAO::executeQuery('UPDATE foo SET bar = "whiz"');
-  //   CRM_Core_DAO::executeQuery('DELETE FROM bang WHERE willy = wonka(2)');
-  //   return true;
-  // }
 
 
-  /**
-   * Example: Run an external SQL script.
-   *
-   * @return true on success
-   * @throws Exception
-   */
-  // public function upgrade_4201() {
-  //   $this->ctx->log->info('Applying update 4201');
-  //   // this path is relative to the extension base dir
-  //   $this->executeSqlFile('sql/upgrade_4201.sql');
-  //   return true;
-  // }
 
-
-  /**
-   * Example: Run a slow upgrade process by breaking it up into smaller chunk.
-   *
-   * @return true on success
-   * @throws Exception
-   */
-  // public function upgrade_4202() {
-  //   $this->ctx->log->info('Planning update 4202'); // PEAR Log interface
-
-  //   $this->addTask(E::ts('Process first step'), 'processPart1', $arg1, $arg2);
-  //   $this->addTask(E::ts('Process second step'), 'processPart2', $arg3, $arg4);
-  //   $this->addTask(E::ts('Process second step'), 'processPart3', $arg5);
-  //   return true;
-  // }
-  // public function processPart1($arg1, $arg2) { sleep(10); return true; }
-  // public function processPart2($arg3, $arg4) { sleep(10); return true; }
-  // public function processPart3($arg5) { sleep(10); return true; }
-
-  /**
-   * Example: Run an upgrade with a query that touches many (potentially
-   * millions) of records by breaking it up into smaller chunks.
-   *
-   * @return true on success
-   * @throws Exception
-   */
-  // public function upgrade_4203() {
-  //   $this->ctx->log->info('Planning update 4203'); // PEAR Log interface
-
-  //   $minId = CRM_Core_DAO::singleValueQuery('SELECT coalesce(min(id),0) FROM civicrm_contribution');
-  //   $maxId = CRM_Core_DAO::singleValueQuery('SELECT coalesce(max(id),0) FROM civicrm_contribution');
-  //   for ($startId = $minId; $startId <= $maxId; $startId += self::BATCH_SIZE) {
-  //     $endId = $startId + self::BATCH_SIZE - 1;
-  //     $title = E::ts('Upgrade Batch (%1 => %2)', array(
-  //       1 => $startId,
-  //       2 => $endId,
-  //     ));
-  //     $sql = '
-  //       UPDATE civicrm_contribution SET foobar = whiz(wonky()+wanker)
-  //       WHERE id BETWEEN %1 and %2
-  //     ';
-  //     $params = array(
-  //       1 => array($startId, 'Integer'),
-  //       2 => array($endId, 'Integer'),
-  //     );
-  //     $this->addTask($title, 'executeSql', $sql, $params);
-  //   }
-  //   return true;
-  // }
 
 }

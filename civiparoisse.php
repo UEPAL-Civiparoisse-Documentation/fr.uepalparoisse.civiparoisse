@@ -15,7 +15,7 @@ use CRM_Civiparoisse_ExtensionUtil as E;
 function civiparoisse_civicrm_config(&$config)
 {
   _civiparoisse_civix_civicrm_config($config);
-  Civi::dispatcher()->addListener('hook_civicrm_navigationMenu','civiparoisse_relocate_civisolr_menu',-1000);
+  Civi::dispatcher()->addListener('hook_civicrm_navigationMenu', 'civiparoisse_relocate_civisolr_menu', -1000);
 }
 
 /**
@@ -54,7 +54,8 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
     'url' => 'civicrm/admin/setting/preferences/uepal_parametres'
   ));
 
-    CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
+  CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::buildMenuCiviParoisse($menu);
+  CRM_Civiparoisse_Pages_Page_ConfigurationSommaireCiviParoisse::integrateMenuMultiparoisse($menu);
 
 
   _civiparoisse_civix_navigationMenu($menu);
@@ -64,9 +65,9 @@ function civiparoisse_civicrm_navigationMenu(&$menu)
 function civiparoisse_relocate_civisolr_menu(Civi\Core\Event\GenericHookEvent $event)
 {
 
-  $menu=&$event->getHookValues()[0];
-    $civisolrKey = null;
-    $civiparoisseKey = null;
+  $menu =& $event->getHookValues()[0];
+  $civisolrKey = null;
+  $civiparoisseKey = null;
 
   /**
    * Attention : en PHP les tableaux sont passés (sauf exception en utilisant le "&") par copie.
@@ -119,6 +120,15 @@ function civiparoisse_civicrm_alterBundle(CRM_Core_Resources_Bundle $bundle)
 {
   if ($bundle->name === 'coreStyles') {
     $bundle->addStyleFile(E::LONG_NAME, 'css/surcharge-corestyles.css');
+    /**
+     * @var CRM_Civiparoisse_Multiparoisse $multiparoisseService
+     */
+    $multiparoisseService = Civi::service('multiparoisse');
+    if ($multiparoisseService->isMultiparoisse()) {
+      $bundle->addStyleFile(E::LONG_NAME, 'css/multiparoisse.css');
+    } else {
+      $bundle->addStyleFile(E::LONG_NAME, 'css/monoparoisse.css');
+    }
   }
 }
 
@@ -148,7 +158,6 @@ function civiparoisse_civicrm_postSave_civicrm_system_log($dao)
   }
 }
 
-
 /**
  * ajout de tâches classiques
  * @param string $objectType
@@ -158,26 +167,52 @@ function civiparoisse_civicrm_postSave_civicrm_system_log($dao)
 function civiparoisse_civicrm_searchTasks(string $objectType, array &$tasks)
 {
   //ajout de l'action d'envoi de mail aux parents
-  if($objectType==='contact'){
-    $tasks[]=[
+  if ($objectType === 'contact') {
+    $tasks[] = [
       'title' => E::ts('Parents : send mail'),
       'class' => 'CRM_Civiparoisse_Formulaires_Form_ParentMailingTask'
     ];
-    $tasks[CRM_Core_Task::LABEL_CONTACTS]=[
-      'title'=>E::ts('Prepare offseted/transposed labels'),
-      'class'=>'CRM_Civiparoisse_Formulaires_Tasks_LabelOffset',
-      'url'=>'civicrm/civiparoisse/contact/task/transpose-offset-label-print',
-      'icon'=>'fa-print'
+    $tasks[CRM_Core_Task::LABEL_CONTACTS] = [
+      'title' => E::ts('Prepare offseted/transposed labels'),
+      'class' => 'CRM_Civiparoisse_Formulaires_Tasks_LabelOffset',
+      'url' => 'civicrm/civiparoisse/contact/task/transpose-offset-label-print',
+      'icon' => 'fa-print'
     ];
   }
 }
 
 function civiparoisse_civicrm_searchkitTasks(array &$tasks, bool $checkPermissions, ?int $userID)
 {
-  $tasks['Contact']['parentMailing']=[
+  $tasks['Contact']['parentMailing'] = [
     'module' => 'civiparoisseSearchTasks',
     'title' => E::ts('Parents : send mail'),
     'icon' => 'fa-paper-plane',
     'uiDialog' => ['templateUrl' => '~/civiparoisseSearchTasks/civiparoisseSearchTaskParentMailing.html']
-    ];
+  ];
+
+  $tasks['Contact']['setBergerieFromGeom'] = [
+    'title' => E::ts('Set Bergerie From Geom'),
+    'icon' => 'fa-church',
+    'apiBatch' => [
+      'action' => 'setBergerieFromGeom',
+      'params' => NULL,
+      'confirmMsg' => E::ts('Are you sure you want to set Bergerie From Geom on %1 %2?'),
+      'runMsg' => E::ts('Setting Bergerie From Geom on %1 %2...'),
+      'successMsg' => E::ts('Successfully set Bergerie from geom on %1 %2.'),
+      'errorMsg' => E::ts('An error occurred while attempting to set bergerie from geom on %1 %2.')
+    ]
+  ];
+
+  $tasks['Contact']['setBergerieFromCity'] = [
+    'title' => E::ts('Set Bergerie From City'),
+    'icon' => 'fa-church',
+    'apiBatch' => [
+      'action' => 'setBergerieFromCity',
+      'params' => NULL,
+      'confirmMsg' => E::ts('Are you sure you want to set Bergerie From City on %1 %2?'),
+      'runMsg' => E::ts('Setting Bergerie From City on %1 %2...'),
+      'successMsg' => E::ts('Successfully set bergerie from city on %1 %2.'),
+      'errorMsg' => E::ts('An error occurred while attempting to set bergerie from city on %1 %2.')
+    ]
+  ];
 }

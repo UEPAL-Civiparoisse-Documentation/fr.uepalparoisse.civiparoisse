@@ -37,6 +37,7 @@ return [
             'Contact_Phone_contact_id_01.phone',
             'GROUP_CONCAT(DISTINCT Contact_GroupContact_Group_01.title) AS GROUP_CONCAT_Contact_GroupContact_Group_01_title',
             'Contact_Membership_contact_id_01.membership_type_id:label',
+            'defaulted_bergerie.name',
           ],
           'orderBy' => [],
           'where' => [
@@ -103,8 +104,8 @@ return [
                 '"Added"',
               ],
               [
-                'Contact_GroupContact_Group_01.is_hidden', 
-                '=', 
+                'Contact_GroupContact_Group_01.is_hidden',
+                '=',
                 FALSE,
               ],
             ],
@@ -175,6 +176,14 @@ return [
             'expose_limit' => true,
           ],
           'columns' => [
+            [
+              'type' => 'field',
+              'key' => 'defaulted_bergerie.name',
+              'dataType' => 'String',
+              'label' => E::ts('defaulted_bergerie_name_header'),
+              'sortable' => true,
+              'cssRules' =>[['bergerie']]
+            ],
             [
               'type' => 'field',
               'key' => 'display_name',

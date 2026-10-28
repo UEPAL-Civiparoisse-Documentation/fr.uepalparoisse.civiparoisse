@@ -1,0 +1,14 @@
+{
+    "type": "search",
+    "title": "Num\u00e9rations membres paroissiaux",
+    "placement": [],
+    "placement_filters": [],
+    "icon": "fa-list-alt",
+    "server_route": "civicrm/numeration-membres-paroissiaux",
+    "permission": [
+        "access CiviCRM"
+    ],
+    "permission_operator": "AND",
+    "confirmation_type": "redirect_to_url",
+    "created_id": 2
+}

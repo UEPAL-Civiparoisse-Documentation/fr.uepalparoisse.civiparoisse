@@ -34,6 +34,7 @@ return [
                         'Contact_Address_contact_id_01.city',
                         'Contact_Address_contact_id_01.country_id:label',
                         'Contact_Membership_contact_id_01.membership_type_id:label',
+                        'defaulted_bergerie.name',
                     ],
                     'orderBy' => [],
                     'where' => [
@@ -125,6 +126,14 @@ return [
                     ],
                     'pager' => false,
                     'columns' => [
+                        [
+                            'type' => 'field',
+                            'key' => 'defaulted_bergerie.name',
+                            'dataType' => 'String',
+                            'label' => E::ts('defaulted_bergerie_name_header'),
+                            'sortable' => true,
+                            'cssRules' =>[['bergerie']]
+                        ],
                         [
                             'type' => 'field',
                             'key' => 'display_name',

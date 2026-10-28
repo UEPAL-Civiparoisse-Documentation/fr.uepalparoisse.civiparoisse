@@ -676,6 +676,28 @@ trait Config_Params_CustomGroup
         return $this->createOrGetCustomGroup($params);
     }
 
+    public function getCustomGroupMultiparoisse()
+    {
+      $params = [
+        'name' => 'multiparoisse',
+        'title' => 'Multiparoisse',
+        'extends' => 'Individual',
+        /* ???'extends_entity_column_value' => [
+            'paroisse'
+        ],*/
+        'style' => 'Inline',
+        'collapse_display' => '0',
+        'weight' => '1',
+        'is_active' => '1',
+        'table_name' => 'civicrm_value_multiparoisse',
+        'is_multiple' => '0',
+        'collapse_adv_display' => '0',
+        'is_reserved' => '0',
+        'is_public' => '0'
+      ];
+      return $this->createOrGetCustomGroup($params);
+    }
+
 
     /* FIN DE LA DEFINITION DES GROUPES de CUSTOM FIELD */
 
@@ -1073,6 +1095,35 @@ trait Config_Params_ComplementsFoyer{
     }
 
 }
+
+trait Config_Params_Multiparoisse{
+  /**********************************************************************************/
+  /* DEBUT DE LA DEFINITION DES CHAMPS DU GROUPE INFORMATIONS SUPPLEMENTAIRES FOYER */
+  /**********************************************************************************/
+  /* Quartier (distribution, visiteurs, ...)' */
+  public function getCustomFieldBergerie()
+  {
+    $params = [
+      'custom_group_id' => $this->getCustomGroupMultiparoisse()['id'],
+      'name' => 'bergerie',
+      'label' => 'Bergerie',
+      'data_type' => 'EntityReference',
+      'html_type' => 'Autocomplete-Select',
+      'is_searchable' => '1',
+      'is_search_range' => '0',
+      'weight' => '1',
+      'is_active' => '1',
+      'note_columns' => '60',
+      'note_rows' => '4',
+      'column_name' => 'bergerie',
+      'in_selector' => '0',
+      'fk_entity' => 'Bergerie',
+      'fk_column' => 'id'
+    ];
+    return self::createOrGetCustomField($params);
+  }
+
+}
 class CRM_Civiparoisse_Parametres_Config
 {
     /**
@@ -1100,6 +1151,7 @@ class CRM_Civiparoisse_Parametres_Config
     use Config_Params_Religion;
     use Config_Params_Competences;
     use Config_Params_ComplementsFoyer;
+    use Config_Params_Multiparoisse;
 
     /**********************************************************/
     /* CODE POUR LANCER LA CREATION DES DIFFERENTS PARAMETRES */
@@ -1178,6 +1230,8 @@ class CRM_Civiparoisse_Parametres_Config
         $this->getMembershipTypeInscritEnfant();
         $this->getMembershipTypeAmiParoisse();
         $this->getMembershipTypePasInteresse();
+        //customField Multiparoisse
+        $this->getCustomFieldBergerie();
 
     }
 
