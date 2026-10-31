@@ -1,5 +1,5 @@
 <?php
-
+use CRM_Civiparoisse_ExtensionUtil as E;
 trait Config_Params_Relationship
 {
     /**********************************/
