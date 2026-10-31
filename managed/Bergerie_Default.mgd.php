@@ -12,7 +12,7 @@ return [
       'version' => 4,
       'values' => [
         'name'=> 'DEFAULT',
-        'description'=> 'Bergerie par défaut'
+        'description'=> E::ts('Bergerie par défaut')
       ],
       'match' => [ 'name']
     ]

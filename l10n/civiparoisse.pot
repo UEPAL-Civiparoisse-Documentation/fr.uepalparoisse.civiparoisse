@@ -601,3 +601,56 @@ msgstr ""
 
 msgid "An error occurred while attempting to set bergerie from city on %1 %2."
 msgstr ""
+
+msgid "Bergerie"
+msgstr ""
+
+msgid "Bergeries"
+msgstr ""
+
+msgid "Membres sans bergerie"
+msgstr ""
+
+msgid "Membres_sans_bergerie_table"
+msgstr ""
+
+msgid "geomBergerie_name"
+msgstr ""
+
+msgid "villeBergerie_name"
+msgstr ""
+
+msgid "Bergerie par défaut"
+msgstr ""
+
+msgid "Gestion des bergeries"
+msgstr ""
+
+msgid "Affectation aux bergeries"
+msgstr ""
+
+msgid "cardinal des bergeries"
+msgstr ""
+
+msgid "Unique Bergerie ID"
+msgstr ""
+
+msgid "Name (pseudo primary key)"
+msgstr ""
+
+msgid "Label / Description"
+msgstr ""
+
+msgid "Aide à la décision: villes"
+msgstr ""
+
+msgid "Villes liées à la Bergerie"
+msgstr ""
+
+msgid "Description géographique texte WKT"
+msgstr ""
+
+msgid "Description géographique sous forme Well Known Text"
+msgstr ""
+
+

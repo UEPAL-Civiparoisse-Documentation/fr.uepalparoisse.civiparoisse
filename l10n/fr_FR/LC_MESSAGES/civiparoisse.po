@@ -583,54 +583,105 @@ msgid "Offset is required"
 msgstr "L'indication du décalage est requise"
 
 msgid "defaulted_bergerie_name_header"
-msgstr "Bergerie (pour exploitation)"
+msgstr "Paroisse (pour exploitation)"
 
 msgid "defaulted_bergerie_header"
-msgstr "Bergerie (pour exploitation)"
+msgstr "Paroisse (pour exploitation)"
 
 msgid "DefaultedBergerieLabel"
-msgstr "ID Bergerie (pour exploitation)"
+msgstr "ID Paroisse (pour exploitation)"
 
 msgid "DefaultedBergerieNameLabel"
-msgstr "Nom Bergerie (pour exploitation)"
+msgstr "Nom Paroisse (pour exploitation)"
 
 msgid "villeBergerieLabel"
-msgstr "Aide à la décision pour la bergerie selon la ville"
+msgstr "Aide à la décision pour la paroisse selon la ville"
 
 msgid "geomBergerieLabel"
-msgstr "Aide à la décision pour la bergerie selon la géométrie"
+msgstr "Aide à la décision pour la paroisse selon la géométrie"
 
 msgid "Set Bergerie From Geom"
-msgstr "Définir la bergerie via la géométrie"
+msgstr "Définir la paroisse via la géométrie"
 
 msgid "Are you sure you want to set Bergerie From Geom on %1 %2?"
 msgstr ""
-"Etes vous sûr de vouloir défniir la bergerie via la géométrie pour %1 %2 ?"
+"Etes vous sûr de vouloir défniir la paroisse via la géométrie pour %1 %2 ?"
 
 msgid "Setting Bergerie From Geom on %1 %2..."
 msgstr "Définition de la bergierie via la géométrie pour %1 %2 ..."
 
 msgid "Successfully set Bergerie from geom on %1 %2."
-msgstr "La définition de la bergerie via la géométrie a réussi pour %1 %2."
+msgstr "La définition de la paroisse via la géométrie a réussi pour %1 %2."
 
 msgid "An error occurred while attempting to set bergerie from geom on %1 %2."
 msgstr ""
-"Une erreur est échue lors de la définition de la bergerie via la géométrie "
+"Une erreur est échue lors de la définition de la paroisse via la géométrie "
 "pour %1 %2."
 
 msgid "Set Bergerie From City"
-msgstr "Définir la bergerie via la ville"
+msgstr "Définir la paroisse via la ville"
 
 msgid "Are you sure you want to set Bergerie From City on %1 %2?"
-msgstr "Etes-vous sûr de vouloir déifnir la bergerie via la ville pour %1 %2?"
+msgstr "Etes-vous sûr de vouloir définir la paroisse via la ville pour %1 %2?"
 
 msgid "Setting Bergerie From City on %1 %2..."
-msgstr "Définition de la bergerie via la ville pour %1 %2..."
+msgstr "Définition de la paroisse via la ville pour %1 %2..."
 
 msgid "Successfully set bergerie from city on %1 %2."
-msgstr "La définition de la bergerie depuis la ville a réussi pour %1 %2."
+msgstr "La définition de la paroisse depuis la ville a réussi pour %1 %2."
 
 msgid "An error occurred while attempting to set bergerie from city on %1 %2."
 msgstr ""
-"Une erreur est survenue lors de la définition de la bergerie via la vlle "
+"Une erreur est survenue lors de la définition de la paroisse via la vlle "
 "pour %1 %2."
+
+msgid "Bergerie"
+msgstr "Paroisse"
+
+msgid "Bergeries"
+msgstr "Paroisses"
+
+msgid "Membres sans bergerie"
+msgstr "Membres sans paroisse"
+
+msgid "Membres_sans_bergerie_table"
+msgstr "Table des Membres sans paroisse"
+
+msgid "geomBergerie_name"
+msgstr "Aide à la décision pour la paroisse selon la géométrie"
+
+msgid "villeBergerie_name"
+msgstr "Aide à la décision pour la paroisse selon la ville"
+
+msgid "Bergerie par défaut"
+msgstr "Paroisse par défaut"
+
+msgid "Gestion des bergeries"
+msgstr "Gestion des paroisses"
+
+msgid "Affectation aux bergeries"
+msgstr "Affectation aux paroisses"
+
+msgid "cardinal des bergeries"
+msgstr "cardinal des paroisses"
+
+msgid "Unique Bergerie ID"
+msgstr "Identifiant unique de paroisse"
+
+msgid "Name (pseudo primary key)"
+msgstr "Nom (pseudo clef primaire)"
+
+msgid "Label / Description"
+msgstr "Libellé / Description"
+
+msgid "Aide à la décision: villes"
+msgstr "Aide à la décision: villes"
+
+msgid "Villes liées à la Bergerie"
+msgstr "Villes liées à la Paroisse"
+
+msgid "Description géographique texte WKT"
+msgstr "Description géographique texte WKT"
+
+msgid "Description géographique sous forme Well Known Text"
+msgstr "Description géographqiue sous forme Well Known Text"

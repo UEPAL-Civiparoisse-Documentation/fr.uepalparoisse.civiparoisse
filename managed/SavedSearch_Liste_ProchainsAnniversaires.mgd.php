@@ -28,6 +28,7 @@ return [
                         'display_name',
                         'birth_date',
                         'age_years',
+                        'next_birthday',
                         'email_primary.email',
                         'address_primary',
                         'Contact_Address_contact_id_01.postal_code',
@@ -168,6 +169,7 @@ return [
                             'dataType' => 'Integer',
                             'label' => 'Age (ans)',
                             'sortable' => true,
+                            'rewrite' => '{if "[next_birthday]" > 0}{"[age_years]" + 1}{else}[age_years]{/if}',
                         ],
                     ],
                     'sort' => [

@@ -1106,7 +1106,7 @@ trait Config_Params_Multiparoisse{
     $params = [
       'custom_group_id' => $this->getCustomGroupMultiparoisse()['id'],
       'name' => 'bergerie',
-      'label' => 'Bergerie',
+      'label' => E::ts('Bergerie'),
       'data_type' => 'EntityReference',
       'html_type' => 'Autocomplete-Select',
       'is_searchable' => '1',
